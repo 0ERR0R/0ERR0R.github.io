@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/10/undefined.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Notes-QuickSort</title>
+    <url>/2020/10/12aa90f7.html</url>
+    <content><![CDATA[<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>快排基本思路应该就是二分+递归，从两侧同时（实则先从右往左）往中间找，同时和参变量对比，发现位置颠倒后交换位置，然后通过二分将其一块一块的分割开，直到分割到一个元素位置，即完成了快排。</p>
+<a id="more"></a>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int a[101],n;
+
+void quicksort(int left,int right)
+&#123;
+	int i,j,t,temp;&#x2F;&#x2F;temp存基准数 
+	if(left&gt;right)	return;
+	
+	temp&#x3D;a[left];
+	i&#x3D;left;
+	j&#x3D;right;
+	while(i!&#x3D;j)
+	&#123;
+		while(a[j]&gt;&#x3D;temp &amp;&amp; i&lt;j)	j--;
+		while(a[i]&lt;&#x3D;temp &amp;&amp; i&lt;j)	i++;
+		
+		if(i&lt;j)
+		&#123;
+			t&#x3D;a[i];
+			a[i]&#x3D;a[j];
+			a[j]&#x3D;t;
+		&#125;
+	&#125;
+	
+	a[left]&#x3D;a[i];
+	a[i]&#x3D;temp;
+	
+	quicksort(left, i-1);
+	quicksort(i+1,right);
+	return;
+&#125;
+
+int main()&#123;
+	cin&gt;&gt;n;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		cin&gt;&gt;a[i];
+	quicksort(1,n);
+	
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;
+	&#125;
+	
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快排应该是最常用的模板了，时间复杂度也比较理想</p>
+<p>PS.致敬一波快排的提出者东尼·霍尔(C. A. R. Hoare)</p>
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>buuctf-misc-10/09</title>
+    <url>/2020/10/d61633e9.html</url>
+    <content><![CDATA[<h1 id="1-金三胖"><a href="#1-金三胖" class="headerlink" title="1.金三胖"></a>1.金三胖</h1><p>典型入门题目，将GIF图片导入StegSolve，Analyse-&gt;Frame Browser，逐帧查看，将闪过的几张falg内容拼接起来即可</p>
+<a id="more"></a>
+<h1 id="2-二维码"><a href="#2-二维码" class="headerlink" title="2.二维码"></a>2.二维码</h1><p>到手先扫描，告诉我This is a Secret（？？？），然后下意识跟着上一题的思路想到图层扫描，经过几次仔细查看后我确定这个图片并没有什么隐藏的图层。。。然后想起来用老套路，放入Binwalk结果发现了夹在里面的压缩文件，爆破得到压缩文件密码即得Flag</p>
+<h1 id="3-N种方法解决"><a href="#3-N种方法解决" class="headerlink" title="3.N种方法解决"></a>3.N种方法解决</h1><p>解压看到一个exe，放入winhex发现一个压缩文件，打开是图片，详细信息里面有base64特征的一串，解密后即得flag</p>
+<h1 id="4-大白"><a href="#4-大白" class="headerlink" title="4.大白"></a>4.大白</h1><p>放入winhex发现图片高度被修改过，将高度修改回来即得flag</p>
+<h1 id="5-你竟然赶我走"><a href="#5-你竟然赶我走" class="headerlink" title="5.你竟然赶我走"></a>5.你竟然赶我走</h1><p>winhex打开查看编码，在最后可发现flag的ASCII码</p>
+<h1 id="6-基础破解"><a href="#6-基础破解" class="headerlink" title="6.基础破解"></a>6.基础破解</h1><p>梅开二度，爆破密码，得到base64，解密即为FLAG</p>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Notes-queue队列</title>
+    <url>/2020/10/64d83881.html</url>
+    <content><![CDATA[<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>队列的原理基本与站队一样，队首出，队尾入，变化以后也是大同小异，写起来主要就是注意struct的相关知识，以及伪指针（分别指向队首和队尾+1），队尾序号要+1以防首位变量数字重合造成不必要的麻烦（目前也不是很清楚会遇到什么）</p>
+<a id="more"></a>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
+
+using namespace std;
+
+struct queue
+&#123;
+	int data[100];
+	int head;
+	int tail;
+&#125;;
+
+int main()&#123;
+	struct queue q;
+	int i;
+	q.head&#x3D;1;
+	q.tail&#x3D;1;
+	for(i&#x3D;1; i&lt;&#x3D;9;i++)
+	&#123;
+		cin&gt;&gt;q.data[q.tail];
+		q.tail++;
+	&#125;
+	
+	while(q.head&lt;q.tail)
+	&#123;
+		cout&lt;&lt;q.data[q.head];
+		q.head++;
+		q.data[q.tail]&#x3D;q.data[q.head];
+		q.tail++;
+		q.head++;
+	&#125;
+	return 0;
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写的过程中主要一开始用万能头和STL里面的queue冲突报错了。。（想了好久），其他没什么，队列作为广搜和Bellman-Ford的最短路核心算法还是很有必要理解并记忆的</p>
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
+</search>

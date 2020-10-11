@@ -156,6 +156,7 @@ int main()&#123;
     <url>/2020/10/fa61788.html</url>
     <content><![CDATA[<h1 id="Lets-Warm-Up"><a href="#Lets-Warm-Up" class="headerlink" title="Lets Warm Up"></a>Lets Warm Up</h1><p>If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?</p>
 <p>这应该就是签到题了吧？爱了爱了，十六进制转十进制再打表（突然ACM）转ASCII，得到‘p’，按照格式输入即可</p>
+<a id="more"></a>
 <h1 id="The-Numbers"><a href="#The-Numbers" class="headerlink" title="The Numbers"></a>The Numbers</h1><p>下载图片后得到一串数字，根据格式盲猜开头是picoCTF，然后又是一波打表- -，根据这几个字母和他们的数字就硬解出了这道题，拿到了Flag</p>
 <h1 id="2Warm"><a href="#2Warm" class="headerlink" title="2Warm"></a>2Warm</h1><p>进制转换，啊这，这才是签到题吧- -</p>
 <h1 id="Insp3ct0r"><a href="#Insp3ct0r" class="headerlink" title="Insp3ct0r"></a>Insp3ct0r</h1><p>打开网页源代码，找到1/3的Flag，然后观察代码，发现一个css和一个js，可能答案藏在这里，打开之后分别找到第二第三部分，合并即可</p>

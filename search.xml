@@ -235,4 +235,48 @@ int main()&#123;
         <tag>CTF</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Caser-Pass-Tool1-C++</title>
+    <url>/2020/10/992fe380.html</url>
+    <content><![CDATA[<p>刷pico遇到一个凯撒密码加密题，顺手写了个解密工具，但是暂时没有解决到边界字母的升降档问题</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
+
+using namespace std;
+
+int main()&#123;
+	char s[100];
+	int n,k,s2[100];
+	cin&gt;&gt;n&gt;&gt;k;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;s[i];
+		s2[i]&#x3D;(int)s[i];
+	&#125;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		s2[i]+&#x3D;k;
+		cout&lt;&lt;(char)s2[i];
+	&#125;
+	return 0;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>P.S C++大法好</p>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>notes-ctf-net-pack(WinShark)</title>
+    <url>/2020/10/89cfb270.html</url>
+    <content><![CDATA[<h1 id="题目：shark-on-wire-1"><a href="#题目：shark-on-wire-1" class="headerlink" title="题目：shark on wire 1"></a>题目：shark on wire 1</h1><pre class="line-numbers language-none"><code class="language-none">Description
+We found this packet capture. Recover the flag.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里懂得了winshark的一些基本用法（感谢wbl学长），例如常见的CTF的杂项的流量包分析，主要内容集中在TCP中进行TCP追踪流（stream）进行分析，bing查找之后发现了另一种常见的流量包拦截嗅探后寻找admin账号密码以获得flag的方法主要在<em>post</em>请求中查找未解密内容，也在这里一并记录。</p>
+<p>然而，本题的流分析却在以上二者中都没有找到，回过头来返回udp包中进行追踪，在流中发现了fake flag和flag，本题得以解决</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>之后有必要对TCP/IP协议和UDP，post请求等基本知识熟练掌握，了解加密解密和SSL（学长说的深一层的难度）</p>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
 </search>

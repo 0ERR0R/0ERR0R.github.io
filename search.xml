@@ -521,7 +521,9 @@ using namespace std<span class="token punctuation">;</span>
   <entry>
     <title>CodeForces-Round#684-Div.2</title>
     <url>/2020/11/676fcf4a.html</url>
-    <content><![CDATA[<h1 id="A-Buy-the-String"><a href="#A-Buy-the-String" class="headerlink" title="A. Buy the String"></a>A. Buy the String</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+    <content><![CDATA[<h1 id="A-Buy-the-String"><a href="#A-Buy-the-String" class="headerlink" title="A. Buy the String"></a>A. Buy the String</h1><a id="more"></a>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 
 using namespace std;

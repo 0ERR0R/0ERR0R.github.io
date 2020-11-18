@@ -518,4 +518,109 @@ using namespace std<span class="token punctuation">;</span>
         <tag>ACM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CodeForces-Round#684-Div.2</title>
+    <url>/2020/11/676fcf4a.html</url>
+    <content><![CDATA[<h1 id="A-Buy-the-String"><a href="#A-Buy-the-String" class="headerlink" title="A. Buy the String"></a>A. Buy the String</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+
+using namespace std;
+
+char c[1005];
+
+int main()&#123;
+    int T;
+    int sum_1&#x3D;0,sum_0&#x3D;0,ans;
+    cin&gt;&gt;T;
+    while(T--)
+    &#123;
+        int n,c0,c1,h;
+        cin&gt;&gt;n&gt;&gt;c0&gt;&gt;c1&gt;&gt;h;
+        for(int i&#x3D;0;i&lt;n;i++)
+        &#123;
+            cin&gt;&gt;c[i];
+            if(c[i]&#x3D;&#x3D;&#39;1&#39;)   sum_1++;
+            else    sum_0++;
+        &#125;
+        &#x2F;&#x2F;cout&lt;&lt;sum_0&lt;&lt;endl&lt;&lt;sum_1&lt;&lt;endl;
+        ans&#x3D;c0*sum_0+c1*sum_1;
+        &#x2F;*if(c0&#x3D;&#x3D;c1)
+            ans&#x3D;c0*sum_0+c1*sum_1;
+        if(c0&gt;c1)
+            ans&#x3D;min((c1*(sum_1+sum_0))+sum_0*h, ans);
+        if(c0&lt;c1)
+            ans&#x3D;min(c0*(sum_1+sum_0)+sum_1*h, ans);*&#x2F;
+        for(int i&#x3D;1;i&lt;&#x3D;sum_0;i++)
+        &#123;
+            int now&#x3D;(i*h)+((sum_1+i)*c1)+(sum_0-i)*c0;
+            ans&#x3D;min(ans, now);
+        &#125;
+        for(int i&#x3D;1;i&lt;&#x3D;sum_1;i++)
+        &#123;
+            int now&#x3D;(i*h)+((sum_0+i)*c0)+(sum_1-i)*c1;
+            ans&#x3D;min(ans, now);
+        &#125;
+        cout&lt;&lt;ans&lt;&lt;endl;
+        ans&#x3D;0;  sum_1&#x3D;0;    sum_0&#x3D;0;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="B-Sum-of-Medians"><a href="#B-Sum-of-Medians" class="headerlink" title="B. Sum of Medians"></a>B. Sum of Medians</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+
+using namespace std;
+
+char c[1005];
+
+int main()&#123;
+    int T;
+    int sum_1&#x3D;0,sum_0&#x3D;0,ans;
+    cin&gt;&gt;T;
+    while(T--)
+    &#123;
+        int n,k;
+        cin&gt;&gt;n&gt;&gt;k;
+        int m&#x3D;n*k;
+        vector&lt;int&gt;a(m);
+        for(int i&#x3D;0;i&lt;m;i++)
+        &#123; 
+        	cin&gt;&gt;a[i];
+         &#125;   
+        long long tot&#x3D;0;
+        if(n&#x3D;&#x3D;2)
+        &#123;
+            for(int i&#x3D;0;i&lt;m;i+&#x3D;2)
+                tot+&#x3D;a[i];
+            cout&lt;&lt;tot&lt;&lt;endl;
+            continue;
+        &#125;
+        int inter&#x3D;(n+1)&#x2F;2;
+        int left&#x3D;n-inter;
+        left+&#x3D;1;
+        int x&#x3D;1,in&#x3D;0;
+        for(int i&#x3D;m-1;i&gt;&#x3D;0;i--)
+        &#123;
+            if(x%left&#x3D;&#x3D;0)
+            &#123;
+                tot+&#x3D;a[i];
+                in++;
+            &#125;
+            x+&#x3D;1;
+            if(in&gt;&#x3D;k)   break;
+        &#125;
+        cout&lt;&lt;tot&lt;&lt;endl;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+        <tag>CF</tag>
+      </tags>
+  </entry>
 </search>

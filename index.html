@@ -147,7 +147,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">3</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -157,7 +157,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
   </ul>
@@ -202,14 +202,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -259,6 +259,183 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/676fcf4a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="0ERROR">
+      <meta itemprop="description" content="Algorithm|ACM|CTF">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0ERROR's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/676fcf4a.html" class="post-title-link" itemprop="url">CodeForces-Round#684-Div.2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-18 11:52:18 / 修改时间：11:55:16" itemprop="dateCreated datePublished" datetime="2020-11-18T11:52:18+08:00">2020-11-18</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="A-Buy-the-String"><a href="#A-Buy-the-String" class="headerlink" title="A. Buy the String"></a>A. Buy the String</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+
+using namespace std;
+
+char c[1005];
+
+int main()&#123;
+    int T;
+    int sum_1&#x3D;0,sum_0&#x3D;0,ans;
+    cin&gt;&gt;T;
+    while(T--)
+    &#123;
+        int n,c0,c1,h;
+        cin&gt;&gt;n&gt;&gt;c0&gt;&gt;c1&gt;&gt;h;
+        for(int i&#x3D;0;i&lt;n;i++)
+        &#123;
+            cin&gt;&gt;c[i];
+            if(c[i]&#x3D;&#x3D;&#39;1&#39;)   sum_1++;
+            else    sum_0++;
+        &#125;
+        &#x2F;&#x2F;cout&lt;&lt;sum_0&lt;&lt;endl&lt;&lt;sum_1&lt;&lt;endl;
+        ans&#x3D;c0*sum_0+c1*sum_1;
+        &#x2F;*if(c0&#x3D;&#x3D;c1)
+            ans&#x3D;c0*sum_0+c1*sum_1;
+        if(c0&gt;c1)
+            ans&#x3D;min((c1*(sum_1+sum_0))+sum_0*h, ans);
+        if(c0&lt;c1)
+            ans&#x3D;min(c0*(sum_1+sum_0)+sum_1*h, ans);*&#x2F;
+        for(int i&#x3D;1;i&lt;&#x3D;sum_0;i++)
+        &#123;
+            int now&#x3D;(i*h)+((sum_1+i)*c1)+(sum_0-i)*c0;
+            ans&#x3D;min(ans, now);
+        &#125;
+        for(int i&#x3D;1;i&lt;&#x3D;sum_1;i++)
+        &#123;
+            int now&#x3D;(i*h)+((sum_0+i)*c0)+(sum_1-i)*c1;
+            ans&#x3D;min(ans, now);
+        &#125;
+        cout&lt;&lt;ans&lt;&lt;endl;
+        ans&#x3D;0;  sum_1&#x3D;0;    sum_0&#x3D;0;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="B-Sum-of-Medians"><a href="#B-Sum-of-Medians" class="headerlink" title="B. Sum of Medians"></a>B. Sum of Medians</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+
+using namespace std;
+
+char c[1005];
+
+int main()&#123;
+    int T;
+    int sum_1&#x3D;0,sum_0&#x3D;0,ans;
+    cin&gt;&gt;T;
+    while(T--)
+    &#123;
+        int n,k;
+        cin&gt;&gt;n&gt;&gt;k;
+        int m&#x3D;n*k;
+        vector&lt;int&gt;a(m);
+        for(int i&#x3D;0;i&lt;m;i++)
+        &#123; 
+        	cin&gt;&gt;a[i];
+         &#125;   
+        long long tot&#x3D;0;
+        if(n&#x3D;&#x3D;2)
+        &#123;
+            for(int i&#x3D;0;i&lt;m;i+&#x3D;2)
+                tot+&#x3D;a[i];
+            cout&lt;&lt;tot&lt;&lt;endl;
+            continue;
+        &#125;
+        int inter&#x3D;(n+1)&#x2F;2;
+        int left&#x3D;n-inter;
+        left+&#x3D;1;
+        int x&#x3D;1,in&#x3D;0;
+        for(int i&#x3D;m-1;i&gt;&#x3D;0;i--)
+        &#123;
+            if(x%left&#x3D;&#x3D;0)
+            &#123;
+                tot+&#x3D;a[i];
+                in++;
+            &#125;
+            x+&#x3D;1;
+            if(in&gt;&#x3D;k)   break;
+        &#125;
+        cout&lt;&lt;tot&lt;&lt;endl;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/72bd2125.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -285,7 +462,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-11-17 18:01:26 / 修改时间：18:03:12" itemprop="dateCreated datePublished" datetime="2020-11-17T18:01:26+08:00">2020-11-17</time>
+      <time title="创建时间：2020-11-17 18:01:26 / 修改时间：18:03:35" itemprop="dateCreated datePublished" datetime="2020-11-17T18:01:26+08:00">2020-11-17</time>
     </span>
 
   
@@ -1087,95 +1264,6 @@ We found this packet capture. Recover the flag.<span aria-hidden="true" class="l
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/10/d61633e9.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="0ERROR's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/d61633e9.html" class="post-title-link" itemprop="url">buuctf-misc-10/09</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-10 11:50:22 / 修改时间：12:13:13" itemprop="dateCreated datePublished" datetime="2020-10-10T11:50:22+08:00">2020-10-10</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>386</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-金三胖"><a href="#1-金三胖" class="headerlink" title="1.金三胖"></a>1.金三胖</h1><p>典型入门题目，将GIF图片导入StegSolve，Analyse-&gt;Frame Browser，逐帧查看，将闪过的几张falg内容拼接起来即可</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/d61633e9.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
@@ -1231,13 +1319,13 @@ We found this packet capture. Recover the flag.<span aria-hidden="true" class="l
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">9k</span>
+    <span title="站点总字数">10k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">9 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

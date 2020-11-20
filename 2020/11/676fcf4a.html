@@ -31,7 +31,7 @@
 <meta property="og:description" content="A. Buy the String">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-18T03:52:18.000Z">
-<meta property="article:modified_time" content="2020-11-18T03:58:31.233Z">
+<meta property="article:modified_time" content="2020-11-20T08:00:13.280Z">
 <meta property="article:author" content="0ERROR">
 <meta property="article:tag" content="ACM">
 <meta property="article:tag" content="CF">
@@ -221,7 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Buy-the-String"><span class="nav-number">1.</span> <span class="nav-text">A. Buy the String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Sum-of-Medians"><span class="nav-number">2.</span> <span class="nav-text">B. Sum of Medians</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Buy-the-String"><span class="nav-number">1.</span> <span class="nav-text">A. Buy the String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Sum-of-Medians"><span class="nav-number">2.</span> <span class="nav-text">B. Sum of Medians</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C1-Binary-Table-Easy-Version"><span class="nav-number">3.</span> <span class="nav-text">C1. Binary Table (Easy Version)</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -316,10 +316,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-18 11:52:18 / 修改时间：11:58:31" itemprop="dateCreated datePublished" datetime="2020-11-18T11:52:18+08:00">2020-11-18</time>
+      <time title="创建时间：2020-11-18 11:52:18" itemprop="dateCreated datePublished" datetime="2020-11-18T11:52:18+08:00">2020-11-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-20 16:00:13" itemprop="dateModified" datetime="2020-11-20T16:00:13+08:00">2020-11-20</time>
+      </span>
 
   
     <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -336,14 +342,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>6.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -453,6 +459,232 @@ int main()&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
+
+<h1 id="C1-Binary-Table-Easy-Version"><a href="#C1-Binary-Table-Easy-Version" class="headerlink" title="C1. Binary Table (Easy Version)"></a>C1. Binary Table (Easy Version)</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+ 
+        using namespace std;
+ 
+        void case4(vector&lt;vector&lt;int&gt;&gt;&amp;b , vector&lt;string&gt;&amp; a , int i , int j)&#123;
+            a[i][j]&#x3D;a[i+1][j]&#x3D;a[i][j+1]&#x3D;a[i+1][j+1]&#x3D;&#39;0&#39;;
+            vector&lt;int&gt;c;
+            c.push_back(i);
+            c.push_back(j);
+            c.push_back(i+1);
+            c.push_back(j);
+            c.push_back(i+1);
+            c.push_back(j+1);
+            b.push_back(c);
+            c.clear();
+            c.push_back(i);
+            c.push_back(j+1);
+            c.push_back(i+1);
+            c.push_back(j);
+            c.push_back(i+1);
+            c.push_back(j+1);
+            b.push_back(c);
+            c.clear();
+            c.push_back(i);
+            c.push_back(j);
+            c.push_back(i);
+            c.push_back(j+1);
+            c.push_back(i+1);
+            c.push_back(j);
+            b.push_back(c);
+            c.clear();
+            c.push_back(i);
+            c.push_back(j);
+            c.push_back(i);
+            c.push_back(j+1);
+            c.push_back(i+1);
+            c.push_back(j+1);
+            b.push_back(c);
+        &#125;
+ 
+        void case1(vector&lt;vector&lt;int&gt;&gt;&amp;b , vector&lt;string&gt;&amp; a , int i , int j)&#123;
+            vector&lt;int&gt;c;
+            if(a[i][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                b.push_back(c);
+            &#125;
+            if(a[i][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                b.push_back(c);
+            &#125;
+            if(a[i+1][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                b.push_back(c);
+            &#125;
+            if(a[i+1][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i);
+                c.push_back(j+1);
+                b.push_back(c);
+            &#125;
+        &#125;
+ 
+        void case2(vector&lt;vector&lt;int&gt;&gt;&amp;b , vector&lt;string&gt;&amp; a , int i , int j)&#123;
+            vector&lt;int&gt;c;
+            if(a[i][j]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                b.push_back(c);
+                a[i][j]&#x3D;a[i][j+1]&#x3D;&#39;0&#39;;
+                a[i+1][j+1]&#x3D;&#39;1&#39;;
+            &#125;
+            if(a[i][j]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i+1][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                b.push_back(c);
+                a[i][j]&#x3D;a[i+1][j]&#x3D;&#39;0&#39;;
+                a[i+1][j+1]&#x3D;&#39;1&#39;;
+            &#125;
+            if(a[i][j]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i+1][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j);
+                b.push_back(c);
+                a[i][j]&#x3D;a[i+1][j+1]&#x3D;&#39;0&#39;;
+                a[i+1][j]&#x3D;&#39;1&#39;;
+            &#125;
+            if(a[i][j+1]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i+1][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i);
+                c.push_back(j);
+                b.push_back(c);
+                a[i][j+1]&#x3D;a[i+1][j]&#x3D;&#39;0&#39;;
+                a[i][j]&#x3D;&#39;1&#39;;
+            &#125;
+            if(a[i][j+1]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i+1][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i);
+                c.push_back(j+1);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                c.push_back(i);
+                c.push_back(j);
+                b.push_back(c);
+                a[i][j+1]&#x3D;a[i+1][j+1]&#x3D;&#39;0&#39;;
+                a[i][j]&#x3D;&#39;1&#39;;
+            &#125;
+            if(a[i+1][j]&#x3D;&#x3D;&#39;1&#39; &amp;&amp; a[i+1][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                c.push_back(i+1);
+                c.push_back(j);
+                c.push_back(i+1);
+                c.push_back(j+1);
+                c.push_back(i);
+                c.push_back(j);
+                b.push_back(c);
+                a[i+1][j]&#x3D;a[i+1][j+1]&#x3D;&#39;0&#39;;
+                a[i][j]&#x3D;&#39;1&#39;;
+            &#125;
+        &#125;
+ 
+        void solve()&#123;
+            int n,m;
+            cin&gt;&gt;n&gt;&gt;m;
+            vector&lt;string&gt;a(n);
+            for(int i&#x3D;0;i&lt;n;i++)&#123;
+                cin&gt;&gt;a[i];
+            &#125;
+            vector&lt;vector&lt;int&gt;&gt;b;
+            for(int i&#x3D;0;i&lt;n-1;i++)&#123;
+                for(int j&#x3D;0;j&lt;m-1;j++)&#123;
+                    int total&#x3D;0;
+                    total&#x3D;(a[i][j]-&#39;0&#39;)+(a[i][j+1]-&#39;0&#39;)+(a[i+1][j]-&#39;0&#39;)+(a[i+1][j+1]-&#39;0&#39;);
+                    if(total&#x3D;&#x3D;0)
+                        continue;
+                    else if(total&#x3D;&#x3D;3)&#123;
+                        vector&lt;int&gt;c;
+                        if(a[i][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                            a[i][j]&#x3D;&#39;0&#39;;
+                            c.push_back(i);
+                            c.push_back(j);
+                        &#125;
+                        if(a[i][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                            a[i][j+1]&#x3D;&#39;0&#39;;
+                            c.push_back(i);
+                            c.push_back(j+1);
+                        &#125;
+                        if(a[i+1][j]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                            a[i+1][j]&#x3D;&#39;0&#39;;
+                            c.push_back(i+1);
+                            c.push_back(j);
+                        &#125;
+                        if(a[i+1][j+1]&#x3D;&#x3D;&#39;1&#39;)&#123;
+                            a[i+1][j+1]&#x3D;&#39;0&#39;;
+                            c.push_back(i+1);
+                            c.push_back(j+1);
+                        &#125;
+                        b.push_back(c);
+                    &#125;
+                    else if(total&#x3D;&#x3D;4)&#123;
+                        case4(b,a,i,j);
+                    &#125;
+                    else if(total&#x3D;&#x3D;1)&#123;
+                        case1(b,a,i,j);
+                        case4(b,a,i,j);
+                    &#125;
+                    else&#123;
+                        case2(b,a,i,j);
+                        case1(b,a,i,j);
+                        case4(b,a,i,j);
+                    &#125;
+                &#125;
+            &#125;
+            cout&lt;&lt;(int)b.size()&lt;&lt;&quot;\n&quot;;
+            for(int i&#x3D;0;i&lt;(int)b.size();i++)&#123;
+                for(int j&#x3D;0;j&lt;6;j++)
+                    cout&lt;&lt;b[i][j]+1&lt;&lt;&quot; &quot;;
+                cout&lt;&lt;&quot;\n&quot;;
+            &#125;
+        &#125;
+ 
+        int main()&#123;
+            int T;
+            cin&gt;&gt;T;
+            while(T--)
+            &#123;
+                solve();
+            &#125;
+            return  0;
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>PS.这个模拟把人写傻了</p>
+
     </div>
 
     
@@ -549,13 +781,13 @@ int main()&#123;
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">15k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

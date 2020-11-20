@@ -935,6 +935,7 @@ exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"
     <content><![CDATA[<h1 id="压缩包加密"><a href="#压缩包加密" class="headerlink" title="压缩包加密"></a>压缩包加密</h1><ol>
 <li><p>暴力破解</p>
 <p>eg. RAR Cracker（Windows）</p>
+<a id="more"></a>
 </li>
 <li><p>ZIP伪加密</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>ZIP文件中，文件头和每个文件的核心目录区都有通用标记位。核心目录区的通用标记位距离核心目录区头504B0102的偏移为8字节，其本身占2字节，在低位表示这个文件是否被加密，将其改为0x01后，再次打开会提示输入密码（伪密码），只需将标记复位，即可正常打开。</p>
@@ -956,6 +957,174 @@ exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"
 ]]></content>
       <tags>
         <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯十一届JavaA组-C++解题</title>
+    <url>/2020/11/1162e7f2.html</url>
+    <content><![CDATA[<p>本人随便乱写，目前正确性未知</p>
+<a id="more"></a>
+
+<h1 id="C-本质上升序列"><a href="#C-本质上升序列" class="headerlink" title="C.本质上升序列"></a>C.本质上升序列</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+bool access[4][4];
+
+int dfs(int idx, int x, int y)
+&#123;
+	if(x&lt;0 || y&lt;0 || x&gt;&#x3D;4 || y&gt;&#x3D;4)	return 0;
+	if(access[y][x])	return 0;
+	if(idx&gt;&#x3D;15)	return 1;
+	int count&#x3D;0;
+	access[y][x]&#x3D;true;
+	count+&#x3D;dfs(idx+1, x+1, y);
+	count+&#x3D;dfs(idx+1, x, y+1);
+	count+&#x3D;dfs(idx+1, x-1, y);
+	count+&#x3D;dfs(idx+1, x, y-1);
+	access[y][x]&#x3D;false;
+	return count;
+&#125;
+
+int main()&#123;
+
+	int count &#x3D;0;
+	for(int i&#x3D;0;i&lt;16;i++)
+	&#123;
+		count+&#x3D;dfs(0, i%4, i&#x2F;4);
+	&#125;
+	cout&lt;&lt;count;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="H-奇偶覆盖"><a href="#H-奇偶覆盖" class="headerlink" title="H. 奇偶覆盖"></a>H. 奇偶覆盖</h1><p>线段树初步版本，未完善</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+const int N&#x3D;1e5+5;
+
+struct node
+&#123;
+    int l,r,h;
+    bool operator&lt; (const node&amp; a)const
+    &#123;
+        return h&lt;a.h;
+    &#125;
+&#125;e[N*2];
+
+int a[N*2];
+int sum[N*2*4],flag[N*2*4];
+
+void cal(int l,int r,int root)
+&#123;
+    sum[root]&#x3D;(a[r]-a[l])-sum[root];
+&#125;
+
+void pushup(int root)
+&#123;
+    sum[root]&#x3D;sum[root&lt;&lt;1]+sum[root&lt;&lt;1|1];
+&#125;
+
+void pushdown(int l,int r,int root)
+&#123;
+    if(!flag[root])
+        return ;
+    flag[root&lt;&lt;1]^&#x3D;1;
+    flag[root&lt;&lt;1|1]^&#x3D;1;
+    int mid&#x3D;l+r&gt;&gt;1;
+    cal(l,mid,root&lt;&lt;1);
+    cal(mid,r,root&lt;&lt;1|1);
+    flag[root]&#x3D;0;
+&#125;
+
+void update(int l,int r,int root,int ql,int qr)
+&#123;
+    if(l&gt;&#x3D;ql&amp;&amp;r&lt;&#x3D;qr)
+    &#123;
+        cal(l,r,root);
+        flag[root]^&#x3D;1;
+        return ;
+    &#125;
+    pushdown(l,r,root);
+    int mid&#x3D;l+r&gt;&gt;1;
+    if(mid&gt;ql)
+        update(l,mid,root&lt;&lt;1,ql,qr);
+    if(mid&lt;qr)
+        update(mid,r,root&lt;&lt;1|1,ql,qr);
+    pushup(root);
+&#125;
+
+int main()
+&#123;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    int x1,x2,y1,y2,all&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+    &#123;
+        scanf(&quot;%d%d%d%d&quot;,&amp;x1,&amp;y1,&amp;x2,&amp;y2);
+        e[2*i-1].l&#x3D;min(x1,x2);
+        e[2*i-1].r&#x3D;max(x1,x2);
+        e[2*i-1].h&#x3D;min(y1,y2);
+        e[2*i].l&#x3D;min(x1,x2);
+        e[2*i].r&#x3D;max(x1,x2);
+        e[2*i].h&#x3D;max(y1,y2);
+        a[2*i-1]&#x3D;x1,a[2*i]&#x3D;x2;
+    &#125;
+    sort(a+1,a+1+n*2);
+    all&#x3D;unique(a+1,a+1+n*2)-a-1;
+    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
+        e[i].l&#x3D;lower_bound(a+1,a+1+all,e[i].l)-a,e[i].r&#x3D;lower_bound(a+1,a+1+all,e[i].r)-a;
+    sort(e+1,e+1+2*n);
+    ll ans&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
+    &#123;
+        ans+&#x3D;sum[1]*(e[i].h-e[i-1].h);
+        update(1,all,1,e[i].l,e[i].r);
+    &#125;
+    printf(&quot;%lld\n&quot;,ans);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <tags>
+        <tag>ACM</tag>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ACM-学习记录-素数筛</title>
+    <url>/2020/11/91338f8a.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">   prime[]数组中的素数是递增的,当i能整除prime[j]，那么i*prime[j+1]这个合数肯定被prime[j]乘以某个数筛掉。
+   因为i中含有prime[j],prime[j]比prime[j+1]小，即i&#x3D;k*prime[j]，那么i*prime[j+1]&#x3D;(k*prime[j])*prime
+   [j+1]&#x3D;k’*prime[j]，接下去的素数同理。所以不用筛下去了。因此，在满足i%prime[j]&#x3D;&#x3D;0这个条件之前以及第一次
+   满足改条件时,prime[j]必定是prime[j]*i的最小因子。
+ 
+bool number[maxn+5];
+void isprime()
+&#123;
+    int prime[maxn+5];
+    int i,j,c&#x3D;0;
+    memset(number,true,sizeof(number));
+    for(i&#x3D;2;i&lt;&#x3D;maxn;i++)
+    &#123;
+        if(number[i])
+            prime[c++]&#x3D;i;
+        for(j&#x3D;0;j&lt;c&amp;&amp;prime[j]*i&lt;&#x3D;maxn;j++)
+        &#123;
+            number[prime[j]*i]&#x3D;false;
+            if(i%prime[j]&#x3D;&#x3D;0) &#x2F;&#x2F;保证每个合数只会被它的最小质因数筛去，因此每个数只会被标记一次
+                break;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>数论确实是想杀了我- -</p>
+]]></content>
+      <tags>
+        <tag>ACM</tag>
       </tags>
   </entry>
 </search>

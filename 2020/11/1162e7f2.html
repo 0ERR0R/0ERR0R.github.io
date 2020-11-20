@@ -23,21 +23,22 @@
     var CONFIG = {"hostname":"www.0error.xyz","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":-1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="1.金三胖典型入门题目，将GIF图片导入StegSolve，Analyse-&gt;Frame Browser，逐帧查看，将闪过的几张falg内容拼接起来即可">
+  <meta name="description" content="本人随便乱写，目前正确性未知">
 <meta property="og:type" content="article">
-<meta property="og:title" content="buuctf-misc-10&#x2F;09">
-<meta property="og:url" content="http://www.0error.xyz/2020/10/d61633e9.html">
+<meta property="og:title" content="蓝桥杯十一届JavaA组-C++解题">
+<meta property="og:url" content="http://www.0error.xyz/2020/11/1162e7f2.html">
 <meta property="og:site_name" content="0ERROR&#39;s Blog">
-<meta property="og:description" content="1.金三胖典型入门题目，将GIF图片导入StegSolve，Analyse-&gt;Frame Browser，逐帧查看，将闪过的几张falg内容拼接起来即可">
+<meta property="og:description" content="本人随便乱写，目前正确性未知">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-10T03:50:22.000Z">
-<meta property="article:modified_time" content="2020-10-10T04:13:13.679Z">
+<meta property="article:published_time" content="2020-11-20T12:05:45.000Z">
+<meta property="article:modified_time" content="2020-11-20T12:08:57.384Z">
 <meta property="article:author" content="0ERROR">
-<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="蓝桥杯">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.0error.xyz/2020/10/d61633e9.html">
+<link rel="canonical" href="http://www.0error.xyz/2020/11/1162e7f2.html">
 
 
 <script class="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>buuctf-misc-10/09 | 0ERROR's Blog</title>
+  <title>蓝桥杯十一届JavaA组-C++解题 | 0ERROR's Blog</title>
   
 
 
@@ -220,7 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%87%91%E4%B8%89%E8%83%96"><span class="nav-number">1.</span> <span class="nav-text">1.金三胖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BA%8C%E7%BB%B4%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">2.二维码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3"><span class="nav-number">3.</span> <span class="nav-text">3.N种方法解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%A4%A7%E7%99%BD"><span class="nav-number">4.</span> <span class="nav-text">4.大白</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0"><span class="nav-number">5.</span> <span class="nav-text">5.你竟然赶我走</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3"><span class="nav-number">6.</span> <span class="nav-text">6.基础破解</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E6%9C%AC%E8%B4%A8%E4%B8%8A%E5%8D%87%E5%BA%8F%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">C.本质上升序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#H-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96"><span class="nav-number">2.</span> <span class="nav-text">H. 奇偶覆盖</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -292,7 +293,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/10/d61633e9.html">
+    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/1162e7f2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -305,7 +306,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          buuctf-misc-10/09
+          蓝桥杯十一届JavaA组-C++解题
         </h1>
 
         <div class="post-meta-container">
@@ -317,7 +318,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-10-10 11:50:22 / 修改时间：12:13:13" itemprop="dateCreated datePublished" datetime="2020-10-10T11:50:22+08:00">2020-10-10</time>
+      <time title="创建时间：2020-11-20 20:05:45 / 修改时间：20:08:57" itemprop="dateCreated datePublished" datetime="2020-11-20T20:05:45+08:00">2020-11-20</time>
     </span>
 
   
@@ -335,14 +336,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>386</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -353,14 +354,129 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="1-金三胖"><a href="#1-金三胖" class="headerlink" title="1.金三胖"></a>1.金三胖</h1><p>典型入门题目，将GIF图片导入StegSolve，Analyse-&gt;Frame Browser，逐帧查看，将闪过的几张falg内容拼接起来即可</p>
+        <p>本人随便乱写，目前正确性未知</p>
 <a id="more"></a>
-<h1 id="2-二维码"><a href="#2-二维码" class="headerlink" title="2.二维码"></a>2.二维码</h1><p>到手先扫描，告诉我This is a Secret（？？？），然后下意识跟着上一题的思路想到图层扫描，经过几次仔细查看后我确定这个图片并没有什么隐藏的图层。。。然后想起来用老套路，放入Binwalk结果发现了夹在里面的压缩文件，爆破得到压缩文件密码即得Flag</p>
-<h1 id="3-N种方法解决"><a href="#3-N种方法解决" class="headerlink" title="3.N种方法解决"></a>3.N种方法解决</h1><p>解压看到一个exe，放入winhex发现一个压缩文件，打开是图片，详细信息里面有base64特征的一串，解密后即得flag</p>
-<h1 id="4-大白"><a href="#4-大白" class="headerlink" title="4.大白"></a>4.大白</h1><p>放入winhex发现图片高度被修改过，将高度修改回来即得flag</p>
-<h1 id="5-你竟然赶我走"><a href="#5-你竟然赶我走" class="headerlink" title="5.你竟然赶我走"></a>5.你竟然赶我走</h1><p>winhex打开查看编码，在最后可发现flag的ASCII码</p>
-<h1 id="6-基础破解"><a href="#6-基础破解" class="headerlink" title="6.基础破解"></a>6.基础破解</h1><p>梅开二度，爆破密码，得到base64，解密即为FLAG</p>
 
+<h1 id="C-本质上升序列"><a href="#C-本质上升序列" class="headerlink" title="C.本质上升序列"></a>C.本质上升序列</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+bool access[4][4];
+
+int dfs(int idx, int x, int y)
+&#123;
+	if(x&lt;0 || y&lt;0 || x&gt;&#x3D;4 || y&gt;&#x3D;4)	return 0;
+	if(access[y][x])	return 0;
+	if(idx&gt;&#x3D;15)	return 1;
+	int count&#x3D;0;
+	access[y][x]&#x3D;true;
+	count+&#x3D;dfs(idx+1, x+1, y);
+	count+&#x3D;dfs(idx+1, x, y+1);
+	count+&#x3D;dfs(idx+1, x-1, y);
+	count+&#x3D;dfs(idx+1, x, y-1);
+	access[y][x]&#x3D;false;
+	return count;
+&#125;
+
+int main()&#123;
+
+	int count &#x3D;0;
+	for(int i&#x3D;0;i&lt;16;i++)
+	&#123;
+		count+&#x3D;dfs(0, i%4, i&#x2F;4);
+	&#125;
+	cout&lt;&lt;count;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="H-奇偶覆盖"><a href="#H-奇偶覆盖" class="headerlink" title="H. 奇偶覆盖"></a>H. 奇偶覆盖</h1><p>线段树初步版本，未完善</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+const int N&#x3D;1e5+5;
+
+struct node
+&#123;
+    int l,r,h;
+    bool operator&lt; (const node&amp; a)const
+    &#123;
+        return h&lt;a.h;
+    &#125;
+&#125;e[N*2];
+
+int a[N*2];
+int sum[N*2*4],flag[N*2*4];
+
+void cal(int l,int r,int root)
+&#123;
+    sum[root]&#x3D;(a[r]-a[l])-sum[root];
+&#125;
+
+void pushup(int root)
+&#123;
+    sum[root]&#x3D;sum[root&lt;&lt;1]+sum[root&lt;&lt;1|1];
+&#125;
+
+void pushdown(int l,int r,int root)
+&#123;
+    if(!flag[root])
+        return ;
+    flag[root&lt;&lt;1]^&#x3D;1;
+    flag[root&lt;&lt;1|1]^&#x3D;1;
+    int mid&#x3D;l+r&gt;&gt;1;
+    cal(l,mid,root&lt;&lt;1);
+    cal(mid,r,root&lt;&lt;1|1);
+    flag[root]&#x3D;0;
+&#125;
+
+void update(int l,int r,int root,int ql,int qr)
+&#123;
+    if(l&gt;&#x3D;ql&amp;&amp;r&lt;&#x3D;qr)
+    &#123;
+        cal(l,r,root);
+        flag[root]^&#x3D;1;
+        return ;
+    &#125;
+    pushdown(l,r,root);
+    int mid&#x3D;l+r&gt;&gt;1;
+    if(mid&gt;ql)
+        update(l,mid,root&lt;&lt;1,ql,qr);
+    if(mid&lt;qr)
+        update(mid,r,root&lt;&lt;1|1,ql,qr);
+    pushup(root);
+&#125;
+
+int main()
+&#123;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    int x1,x2,y1,y2,all&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+    &#123;
+        scanf(&quot;%d%d%d%d&quot;,&amp;x1,&amp;y1,&amp;x2,&amp;y2);
+        e[2*i-1].l&#x3D;min(x1,x2);
+        e[2*i-1].r&#x3D;max(x1,x2);
+        e[2*i-1].h&#x3D;min(y1,y2);
+        e[2*i].l&#x3D;min(x1,x2);
+        e[2*i].r&#x3D;max(x1,x2);
+        e[2*i].h&#x3D;max(y1,y2);
+        a[2*i-1]&#x3D;x1,a[2*i]&#x3D;x2;
+    &#125;
+    sort(a+1,a+1+n*2);
+    all&#x3D;unique(a+1,a+1+n*2)-a-1;
+    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
+        e[i].l&#x3D;lower_bound(a+1,a+1+all,e[i].l)-a,e[i].r&#x3D;lower_bound(a+1,a+1+all,e[i].r)-a;
+    sort(e+1,e+1+2*n);
+    ll ans&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
+    &#123;
+        ans+&#x3D;sum[1]*(e[i].h-e[i-1].h);
+        update(1,all,1,e[i].l,e[i].r);
+    &#125;
+    printf(&quot;%lld\n&quot;,ans);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
@@ -377,7 +493,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.0error.xyz/2020/10/d61633e9.html" title="buuctf-misc-10&#x2F;09">http://www.0error.xyz/2020/10/d61633e9.html</a>
+      <a href="http://www.0error.xyz/2020/11/1162e7f2.html" title="蓝桥杯十一届JavaA组-C++解题">http://www.0error.xyz/2020/11/1162e7f2.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -386,20 +502,21 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/CTF/" rel="tag"># CTF</a>
+              <a href="/tags/ACM/" rel="tag"># ACM</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/undefined.html" rel="prev" title="Hello World">
-                  <i class="fa fa-chevron-left"></i> Hello World
+                <a href="/2020/11/d50e0ee8.html" rel="prev" title="CTF学习记录-Misc-压缩包加密&取证技术">
+                  <i class="fa fa-chevron-left"></i> CTF学习记录-Misc-压缩包加密&取证技术
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/12aa90f7.html" rel="next" title="Notes-QuickSort">
-                  Notes-QuickSort <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/91338f8a.html" rel="next" title="ACM-学习记录-素数筛">
+                  ACM-学习记录-素数筛 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

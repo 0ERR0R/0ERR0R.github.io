@@ -1191,6 +1191,15 @@ return  				gcd(b,a%b);
 
 
 
+<h1 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>a%m=b%m，则称a，b mod m同余</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>设a，b为两个整数，且它们的差a-b能被某个自然数m所整除，则就称a就模m来说同余于b，或者说a和b关于模m同余，</p>
+<p>​    记为：a=b （mod m）</p>
+<p>它意味着：a-b=mxk（k为整数）</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p><img src="C:\Users\Chen\AppData\Roaming\Typora\typora-user-images\image-20201121170554070.png" alt="image-20201121170554070"></p>
+<h1 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h1><h2 id="素数的几个定理"><a href="#素数的几个定理" class="headerlink" title="素数的几个定理"></a>素数的几个定理</h2><h3 id="唯一分解定理"><a href="#唯一分解定理" class="headerlink" title="唯一分解定理"></a>唯一分解定理</h3><p>​    若整数a&gt;=2,那么a一定可以表示为若干个素数的乘积（唯一的形式），即a=p1xp2xp3x…ps(其中pj为素数，称为a的素因子，1&lt;=j&lt;=s)</p>
+<p>​    </p>
 ]]></content>
       <tags>
         <tag>ACM</tag>

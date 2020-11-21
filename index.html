@@ -313,7 +313,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-11-21 16:04:28 / 修改时间：16:56:39" itemprop="dateCreated datePublished" datetime="2020-11-21T16:04:28+08:00">2020-11-21</time>
+      <time title="创建时间：2020-11-21 16:04:28 / 修改时间：16:58:02" itemprop="dateCreated datePublished" datetime="2020-11-21T16:04:28+08:00">2020-11-21</time>
     </span>
 
   
@@ -345,63 +345,14 @@
           <h1 id="GCD，LCM"><a href="#GCD，LCM" class="headerlink" title="GCD，LCM"></a>GCD，LCM</h1><h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>a、b两个数的最大公约数乘以它们最小公倍数等于a和b的乘积</p>
 <p><strong><em>axb=GCD(a,b)xLCM(a,b)</em></strong></p>
 <p>据此定理，求3与8的最小公倍数可以为：LCM(3,8)=3x8divGCD(3,8)=24</p>
-<h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>构造关系：GCD(a,b)=GCD(b, a mod b)</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int a,int b) 
-&#123; 
- if(b&#x3D;&#x3D;0)
- 	return a; 
-return  				gcd(b,a%b); 
-&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="二进制最大公约数算法"><a href="#二进制最大公约数算法" class="headerlink" title="二进制最大公约数算法"></a>二进制最大公约数算法</h2><ol>
-<li><p>递归终止条件：GCD(m,m)=m</p>
-</li>
-<li><p>递归关系式：</p>
-<p>m&lt;n时：GCD(m,n)=GCD(n,m)</p>
-<p>m为偶数，n为偶数：Gcd(m,n)=2*Gcd(m/2,n/2)<br>m为偶数，n为奇数：Gcd(m,n)=Gcd(m/2,n)<br>m为奇数，n为偶数：Gcd(m,n)=Gcd(m,n/2)<br>m为奇数，n为奇数：Gcd(m,n)=Gcd(n,m-n)</p>
-</li>
-</ol>
-<h2 id="不定方程的整数解"><a href="#不定方程的整数解" class="headerlink" title="不定方程的整数解"></a>不定方程的整数解</h2><p>方程ax+by=c有整数解的充要条件：gcd(a,b) | c</p>
-<p>设d=gcd(a,b)</p>
-<p>则若我们求得一组(x0,y0)满足ax0+by0=d</p>
-<p>则可以得到原方程的一组解:((x0Xc)/d, (y0xc)/d)</p>
-<h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>已知a,b,求解一组x,y，使他们满足贝祖等式[^ax+by=gcd(a,b)=d](根据数论原理，解一定存在）。常用在求解模线性方程组中，也可以用来求解乘法逆元。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Int exGcd(int a,int b,int&amp; x,int&amp; y)
-&#123;
-	if(b&#x3D;&#x3D;0)
-	&#123;
-		x&#x3D;1;y&#x3D;0;
-		return a;
-	&#125;
-	int r&#x3D;exGcd(b,a%b,x,y);
-	int t&#x3D;x;x&#x3D;y;y&#x3D;t-a&#x2F;b*y;
-	return r;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="勾股数"><a href="#勾股数" class="headerlink" title="勾股数"></a>勾股数</h2><p>勾股数有如下几个性质：</p>
-<ol>
-<li>X,Y,Z一定两两互质</li>
-<li>X,Y一定一奇一偶</li>
-<li>X+Z一定是一个完全平方数</li>
-<li>(Y+Z)/2也是一个完全平方数</li>
-<li>XxYxZ一定能被60整除</li>
-</ol>
-<h2 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h2><p>​    编程求n个（n≤100）正整数Ai（Ai≤30000，1≤i≤n）的最大公约数和最小公倍数。假设解一定在长整数范围内。</p>
-<blockquote>
-<p>先求出两个数的最大公约数（最小公倍数），再和其他数求最大公约数（最小公倍数），只需调用函数n-1次。可以利用欧几里得算法快速实现：gcd(a1,a2,…,an)=gcd(gcd(a1,a2,…,an-1),an)</p>
-</blockquote>
-<p>​    阶乘问题</p>
-<blockquote>
-<p>​    整数n的阶乘n！是从1到n的所有整数的乘积。编程：输入一正整数n（n≤65000），给出n！的值从右至左有多少位连续的零？并输出n！的值从右至左第一个非零位的值。<br>​    例如：n=5，则5！的值等于120，从右至左有1位连续的0；从右至左第一个非零的值为2。你的输出：<br>​    1<br>​    2<br>​    当n=11时，程序应该输出：<br>​    2<br>​    8</p>
-</blockquote>
-<p>​    分析：</p>
-<p>​    N!的值从右至左连续零的个数，实际上等于n！中所包含的5的因子的总数，这是因为：2x5=10.而n！中包含的2的因子的总数显然比5的因子总数大得多。</p>
-<p>​    在去除了所有从右至左连续的零以后，计算n！的最右非零位数值就可以用以下的公式：</p>
-<pre class="line-numbers language-none"><code class="language-none">(axb)%10&#x3D;(a%10)x(b%10)%10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/fb844361.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

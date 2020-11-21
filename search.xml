@@ -1133,6 +1133,8 @@ void isprime()
     <content><![CDATA[<h1 id="GCD，LCM"><a href="#GCD，LCM" class="headerlink" title="GCD，LCM"></a>GCD，LCM</h1><h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>a、b两个数的最大公约数乘以它们最小公倍数等于a和b的乘积</p>
 <p><strong><em>axb=GCD(a,b)xLCM(a,b)</em></strong></p>
 <p>据此定理，求3与8的最小公倍数可以为：LCM(3,8)=3x8divGCD(3,8)=24</p>
+<a id="more"></a>
+
 <h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>构造关系：GCD(a,b)=GCD(b, a mod b)</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int a,int b) 
 &#123; 

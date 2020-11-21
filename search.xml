@@ -1095,29 +1095,31 @@ int main()
     <url>/2020/11/91338f8a.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">   prime[]数组中的素数是递增的,当i能整除prime[j]，那么i*prime[j+1]这个合数肯定被prime[j]乘以某个数筛掉。
-   因为i中含有prime[j],prime[j]比prime[j+1]小，即i&#x3D;k*prime[j]，那么i*prime[j+1]&#x3D;(k*prime[j])*prime
-   [j+1]&#x3D;k’*prime[j]，接下去的素数同理。所以不用筛下去了。因此，在满足i%prime[j]&#x3D;&#x3D;0这个条件之前以及第一次
-   满足改条件时,prime[j]必定是prime[j]*i的最小因子。
- 
-bool number[maxn+5];
-void isprime()
-&#123;
-    int prime[maxn+5];
-    int i,j,c&#x3D;0;
-    memset(number,true,sizeof(number));
-    for(i&#x3D;2;i&lt;&#x3D;maxn;i++)
-    &#123;
-        if(number[i])
-            prime[c++]&#x3D;i;
-        for(j&#x3D;0;j&lt;c&amp;&amp;prime[j]*i&lt;&#x3D;maxn;j++)
-        &#123;
-            number[prime[j]*i]&#x3D;false;
-            if(i%prime[j]&#x3D;&#x3D;0) &#x2F;&#x2F;保证每个合数只会被它的最小质因数筛去，因此每个数只会被标记一次
-                break;
-        &#125;
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;线性筛
+void init() &#123;
+  phi[1] &#x3D; 1;
+  for (int i &#x3D; 2; i &lt; MAXN; ++i) &#123;
+    if (!vis[i]) &#123;
+      phi[i] &#x3D; i - 1;
+      pri[cnt++] &#x3D; i;
     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    for (int j &#x3D; 0; j &lt; cnt; ++j) &#123;
+      if (1ll * i * pri[j] &gt;&#x3D; MAXN) break;
+      vis[i * pri[j]] &#x3D; 1;
+      if (i % pri[j]) &#123;
+        phi[i * pri[j]] &#x3D; phi[i] * (pri[j] - 1);
+      &#125; else &#123;
+        &#x2F;&#x2F; i % pri[j] &#x3D;&#x3D; 0
+        &#x2F;&#x2F; 换言之，i 之前被 pri[j] 筛过了
+        &#x2F;&#x2F; 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
+        &#x2F;&#x2F; pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
+        &#x2F;&#x2F; 掉就好了
+        phi[i * pri[j]] &#x3D; phi[i] * pri[j];
+        break;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1197,7 +1199,25 @@ return  				gcd(b,a%b);
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>设a，b为两个整数，且它们的差a-b能被某个自然数m所整除，则就称a就模m来说同余于b，或者说a和b关于模m同余，</p>
 <p>​    记为：a=b （mod m）</p>
 <p>它意味着：a-b=mxk（k为整数）</p>
-<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>![/images/shulun-1.png)</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>对于整数a,b,c和自然数m,n则对模m同余满足：</p>
+<ol>
+<li><p>自反性：a = a（mod m）</p>
+</li>
+<li><p>对成性：若a=b（mod m），则b = a（mod m）</p>
+</li>
+<li><p>传递性：若a=b（mod m），b=c（mod m），则a=c（mod m）</p>
+</li>
+<li><p>同加性：若a=b（mod m），则a+c=b+c（mod m）</p>
+</li>
+<li><p>同乘性：若a=b（mod m），则aXc=bXc</p>
+<p>​        一般情况，a=b（mod m），c=d（mod m），则：aXc=bXd（mod m）</p>
+</li>
+<li><p>同幂性：若a=b（mod m）则a^n=b^n(mod m)</p>
+</li>
+<li><p>若a mod p=x， a mod q=x，p、q互质，则a mod（pXq）=x</p>
+<p><strong><em>但是同余不满足同除性，即：a/n != b/n(mod m)</em></strong></p>
+</li>
+</ol>
 <h1 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h1><h2 id="素数的几个定理"><a href="#素数的几个定理" class="headerlink" title="素数的几个定理"></a>素数的几个定理</h2><h3 id="唯一分解定理"><a href="#唯一分解定理" class="headerlink" title="唯一分解定理"></a>唯一分解定理</h3><p>​    若整数a&gt;=2,那么a一定可以表示为若干个素数的乘积（唯一的形式），即a=p1xp2xp3x…ps(其中pj为素数，称为a的素因子，1&lt;=j&lt;=s)</p>
 <p>​    </p>
 ]]></content>

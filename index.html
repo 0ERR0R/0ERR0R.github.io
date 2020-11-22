@@ -313,7 +313,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-11-22 10:46:08 / 修改时间：10:53:01" itemprop="dateCreated datePublished" datetime="2020-11-22T10:46:08+08:00">2020-11-22</time>
+      <time title="创建时间：2020-11-22 10:46:08 / 修改时间：11:02:22" itemprop="dateCreated datePublished" datetime="2020-11-22T10:46:08+08:00">2020-11-22</time>
     </span>
 
   
@@ -343,124 +343,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>好久没见过CF有这么水的contest了，蒟蒻赶紧<del>找找自信</del></p>
-<h1 id="A-Subtract-or-Divide"><a href="#A-Subtract-or-Divide" class="headerlink" title="A. Subtract or Divide"></a>A. Subtract or Divide</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
- 
-using namespace std;
- 
-int main()&#123;
-	int T,n;
-	cin&gt;&gt;T;
-	while(T--)
-	&#123;
-		cin&gt;&gt;n;
-		if(n&lt;&#x3D;3)	n--;
-		else	n&#x3D;2+(n&amp;1);
-		cout&lt;&lt;n&lt;&lt;endl;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="B-Non-Substring-Subsequence"><a href="#B-Non-Substring-Subsequence" class="headerlink" title="B. Non-Substring Subsequence"></a>B. Non-Substring Subsequence</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
- 
-using namespace std;
- 
-int main()&#123;
-	int T;
-	cin&gt;&gt;T;
-	while(T--)
-	&#123;
-		int n,q;
-		string s;
-		cin&gt;&gt;n&gt;&gt;q&gt;&gt;s;
-		while(q--)
-		&#123;
-			int l,r;
-			bool good&#x3D;false;
-			cin&gt;&gt;l&gt;&gt;r;
-			l--;
-			r--;
-			for(int i&#x3D;0;i&lt;l &amp;&amp; good&#x3D;&#x3D;false; i++)
-				if(s[i]&#x3D;&#x3D;s[l])	good&#x3D;true;
-			for(int i&#x3D;r+1;i&lt;n &amp;&amp; good&#x3D;&#x3D;false;i++)
-				if(s[i]&#x3D;&#x3D;s[r])	good&#x3D;true;
-			if(good&#x3D;&#x3D;true)	cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
-			else	cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
-		&#125;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="C-String-Equality"><a href="#C-String-Equality" class="headerlink" title="C. String Equality"></a>C. String Equality</h1><p>这里有必要记录两个很有意思的小知识点，都是C11标准里面新增的，array数组和auto类型变量，auto类型可以根据你赋值的数据自动分配数据类型，用起来十分方便</p>
-<blockquote>
-<p>array&lt;T,N&gt; 模板定义了一种相当于标准数组的容器类型。它是一个有 N 个 T 类型元素的固定序列。除了需要指定元素的类型和个数之外，它和常规数组没有太大的差别。显然，不能增加或删除元素。</p>
-<p>模板实例的元素被内部存储在标准数组中。和标准数组相比，array 容器的额外幵销很小，但提供了两个优点：如果使用 at()，当用一个非法的索引访问数组元素时，能够被检测到，因为容器知道它有多少个元素，这也就意味着数组容器可以作为参数传给函数，而不再需要单独去指定数组元素的个数。</p>
-<p>使用 array 容器类型时，需要在源文件中包含头文件 array。</p>
-</blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;algorithm&gt;
-#include&lt;array&gt;
- 
-using namespace std;
- 
-int main()&#123;
-	int T;
-	cin&gt;&gt;T;
-	while(T--)
-	&#123;
-		int n,k;
-		string s1,s2;
-		array&lt;int, 27&gt; have&#123;&#125;, need&#123;&#125;;
-		cin&gt;&gt;n&gt;&gt;k&gt;&gt;s1&gt;&gt;s2;
-		for(auto&amp; c: s1)
-			have[c-&#39;a&#39;]++;
-		for(auto&amp; c: s2)
-			need[c-&#39;a&#39;]++;
-		bool good &#x3D; true;
-		for(int i&#x3D;0;i&lt;26;i++)
-		&#123;
-			if(have[i]&lt;need[i] || (have[i] -&#x3D; need[i]) % k)
-				good&#x3D;false;
-			have[i+1]+&#x3D;have[i];
-		&#125;
-		if(good)	cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;
-		else	cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="D-Circle-Game"><a href="#D-Circle-Game" class="headerlink" title="D.Circle Game"></a>D.Circle Game</h1><p>逻辑题</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
- 
-int main() 
-&#123;
-    int T;
-    cin &gt;&gt; T;
-    while(T--) &#123;
-        int n, k;
-        cin &gt;&gt; n &gt;&gt; k;
-        int x &#x3D; 0, y &#x3D; 0;
-        for(;;) 
-		&#123;
-            if(x &lt;&#x3D; y &amp;&amp; pow(x+k, 2) + pow(y, 2) &lt;&#x3D; pow(n, 2))
-                x +&#x3D; k;
-            else if(x &gt; y &amp;&amp; pow(y+k, 2) + pow(x, 2) &lt;&#x3D; pow(n,2))
-                y +&#x3D; k;
-            else	break;
-        &#125;
-        if(x &#x3D;&#x3D; y)
-            cout &lt;&lt; &quot;Utkarsh&quot; &lt;&lt; endl;
-        else
-            cout &lt;&lt; &quot;Ashish&quot; &lt;&lt; endl;
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/e1e96252.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

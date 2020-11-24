@@ -1355,4 +1355,378 @@ int main()
         <tag>CF</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ACM-学习记录-数据结构-1</title>
+    <url>/2020/11/ec23b92c.html</url>
+    <content><![CDATA[<h1 id="AOJ-ALDS1-1-D-Maximum-Profit"><a href="#AOJ-ALDS1-1-D-Maximum-Profit" class="headerlink" title="AOJ-ALDS1_1_D Maximum Profit"></a>AOJ-ALDS1_1_D Maximum Profit</h1><p>本题主要考虑要将复杂度降到O(n)，否则过不了最后五组数据</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	int n,maxv&#x3D;-1e10;
+	int stock[200000 + 5];
+	cin&gt;&gt;n;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;stock[i];
+	&#125;
+	int minv&#x3D;stock[0];
+	for(int j&#x3D;1;j&lt;n;j++)
+	&#123;
+		maxv&#x3D;max(maxv, stock[j]-minv);
+		minv&#x3D;min(minv, stock[j]);
+	&#125;
+	cout&lt;&lt;maxv&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<a id="more"></a>
+
+<h1 id="STL标准库记录"><a href="#STL标准库记录" class="headerlink" title="STL标准库记录"></a>STL标准库记录</h1><h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size()</td>
+<td>返回栈的元素数</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>top()</td>
+<td>返回栈顶元素</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>pop()</td>
+<td>从栈中取出并删除元素</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>push()</td>
+<td>添加元素x</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>在栈为空时返回true</td>
+<td>O(1)</td>
+</tr>
+</tbody></table>
+<h3 id="ALDS1-3-A-Stack"><a href="#ALDS1-3-A-Stack" class="headerlink" title="ALDS1_3_A Stack"></a>ALDS1_3_A Stack</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdlib&gt;
+#include&lt;stack&gt;
+
+using namespace std;
+
+int main()
+&#123;
+	stack&lt;int&gt; s;
+	int a,b,x;
+	string str;
+	while(cin&gt;&gt;str)
+	&#123;
+		if(str[0]&#x3D;&#x3D;&#39;+&#39;)
+		&#123;
+			a&#x3D;s.top(); s.pop();
+			b&#x3D;s.top();	s.pop();
+			s.push(a+b);
+		&#125;
+		else if(str[0]&#x3D;&#x3D;&#39;-&#39;)
+		&#123;
+			b&#x3D;s.top();	s.pop();
+			a&#x3D;s.top();	s.pop();
+			s.push(a-b);
+		&#125;
+		else if(str[0]&#x3D;&#x3D;&#39;*&#39;)
+		&#123;
+			a&#x3D;s.top();	s.pop();
+			b&#x3D;s.top();	s.pop();
+			s.push(a*b);
+		&#125;
+		else
+		&#123;
+			s.push(atoi(str.c_str()));
+		&#125;
+	&#125;
+	cout&lt;&lt;s.top()&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="队列queue"><a href="#队列queue" class="headerlink" title="队列queue"></a>队列queue</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size()</td>
+<td>返回队列元素数</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>front()</td>
+<td>返回队头元素</td>
+<td></td>
+</tr>
+<tr>
+<td>pop()</td>
+<td>从队列中取出并删除元素</td>
+<td></td>
+</tr>
+<tr>
+<td>push()</td>
+<td>向队列中添加元素</td>
+<td></td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>在队列为空时返回true</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;queue&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+int main()
+&#123;
+	int n,q,t;
+	string name;
+	queue&lt;pair&lt;string, int&gt; &gt; Q;
+	cin&gt;&gt;n&gt;&gt;q;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;name&gt;&gt;t;
+		Q.push(make_pair(name, t));
+	&#125;
+	
+	pair&lt;string ,int&gt; u;
+	int elap&#x3D;0,a;
+	
+	while(!Q.empty())
+	&#123;
+		u&#x3D;Q.front();	Q.pop();
+		a&#x3D;min(u.second, q);
+		u.second-&#x3D;a;
+		elap+&#x3D;a;
+		if(u.second&gt;0)
+		&#123;
+			Q.push(u);
+		&#125;
+		else
+		&#123;
+			cout&lt;&lt;u.first&lt;&lt;&quot; &quot;&lt;&lt;elap&lt;&lt;endl;
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size()</td>
+<td>返回向量的元素数</td>
+</tr>
+<tr>
+<td>push_back()</td>
+<td>在向量末尾添加元素x</td>
+</tr>
+<tr>
+<td>pop_back()</td>
+<td>删除向量的最后一个元素</td>
+</tr>
+<tr>
+<td>begin()</td>
+<td>返回指向向量开头的迭代器</td>
+</tr>
+<tr>
+<td>end()</td>
+<td>返回指向向量末尾的迭代器</td>
+</tr>
+<tr>
+<td>insert(p,x)</td>
+<td>在向量的位置p处插入元素x</td>
+</tr>
+<tr>
+<td>erase(p)</td>
+<td>删除向量中位置p的元素</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>删除向量中的所有元素</td>
+</tr>
+</tbody></table>
+<h2 id="双向链表List"><a href="#双向链表List" class="headerlink" title="双向链表List"></a>双向链表List</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size()</td>
+<td>返回表的元素数</td>
+</tr>
+<tr>
+<td>begin()</td>
+<td>返回指向表开头的迭代器</td>
+</tr>
+<tr>
+<td>end()</td>
+<td>返回指向表末尾的迭代器</td>
+</tr>
+<tr>
+<td>push_front(x)</td>
+<td>在表开头添加元素x</td>
+</tr>
+<tr>
+<td>push_back(x)</td>
+<td>在表末尾添加元素x</td>
+</tr>
+<tr>
+<td>pop_front()</td>
+<td>删除位于表开头的元素</td>
+</tr>
+<tr>
+<td>pop_back()</td>
+<td>删除位于表末尾的元素</td>
+</tr>
+<tr>
+<td>insert(p, x)</td>
+<td>在表的位置p处插入元素x</td>
+</tr>
+<tr>
+<td>erase(p)</td>
+<td>删除表中位置p的元素</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>删除表中所有元素</td>
+</tr>
+</tbody></table>
+<h3 id="ALDS1-3-C-Doubly-Linked-List"><a href="#ALDS1-3-C-Doubly-Linked-List" class="headerlink" title="ALDS1_3_C: Doubly Linked List"></a>ALDS1_3_C: Doubly Linked List</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdlib&gt;
+#include&lt;list&gt;
+#include&lt;algorithm&gt;
+#include&lt;string&gt;
+
+using namespace std;
+
+int main()
+&#123;
+	int q,x;
+	string command;
+	list&lt;int&gt; v;
+	cin&gt;&gt;q;
+	for(int i&#x3D;0;i&lt;q;i++)
+	&#123;
+		cin&gt;&gt;command;
+		if(command[0]&#x3D;&#x3D;&#39;i&#39;)
+		&#123;
+			cin&gt;&gt;x;
+			v.push_front(x);
+		&#125;
+		else if(command[6]&#x3D;&#x3D;&#39;L&#39;)
+		&#123;
+			v.pop_back();
+		&#125;
+		else if(command[6]&#x3D;&#x3D;&#39;F&#39;)
+		&#123;
+			v.pop_front();
+		&#125;
+		else if(command[0]&#x3D;&#x3D;&#39;d&#39;)
+		&#123;
+			cin&gt;&gt;x;
+			for(list&lt;int&gt;::iterator it&#x3D;v.begin();it!&#x3D;v.end();it++)
+			&#123;
+				if(*it &#x3D;&#x3D; x)
+				&#123;
+					v.erase(it);
+					break;
+				&#125;
+			&#125;
+		&#125;
+	&#125;
+	int i&#x3D;0;
+	for(list&lt;int&gt;::iterator it&#x3D;v.begin(); it!&#x3D;v.end();it++)
+	&#123;
+		if(i++)	cout&lt;&lt;&quot; &quot;;
+		cout&lt;&lt;*it;
+	&#125;
+	cout&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="ALDS1-3-D-Areas-on-the-Cross-Section-Diagram"><a href="#ALDS1-3-D-Areas-on-the-Cross-Section-Diagram" class="headerlink" title="ALDS1_3_D: Areas on the Cross-Section Diagram"></a>ALDS1_3_D: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_3_D">Areas on the Cross-Section Diagram</a></h2><ul>
+<li>如果是“\”，则将表示该字符位置的整数i压入栈S1</li>
+<li>如果是“/”，则送S1顶部取出与之对应的”&quot;的位置i，算出二者的距离并累加到总面积内</li>
+<li>“_”的作用只是将一对/距离增加1，然而在代码中已经通过数学方法计算了，因此可以忽略掉”__”符号</li>
+<li>新形成的面积=当前S2中的两个面积之和+新形成的i-j部分的面积，从S1中取出被引用的多个面积，再将新算出的面积压入S2。</li>
+</ul>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
+#include&lt;cstdlib&gt;
+#include&lt;stack&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+
+using namespace std;
+
+int main()
+&#123;
+	stack&lt;int&gt; S1;
+	stack&lt;pair&lt;int ,int&gt; &gt; S2;
+	char c;
+	int sum&#x3D;0;
+	for(int i&#x3D;0;cin&gt;&gt;c;i++)
+	&#123;
+		if(c&#x3D;&#x3D;&#39;\\&#39;)	S1.push(i);
+		else if(c&#x3D;&#x3D;&#39;&#x2F;&#39; &amp;&amp; S1.size()&gt;0)
+		&#123;
+			int j&#x3D;S1.top(); S1.pop();
+			sum+&#x3D;i-j;
+			int a&#x3D;i-j;
+			while(S2.size()&gt;0 &amp;&amp; S2.top().first&gt;j)
+			&#123;
+				a+&#x3D;S2.top().second;	S2.pop();
+			&#125;
+			S2.push(make_pair(j, a));
+		&#125;
+	&#125;
+	vector&lt;int&gt; ans;
+	while(S2.size()&gt;0)
+	&#123;
+		ans.push_back(S2.top().second);
+		S2.pop();
+	&#125;
+	reverse(ans.begin(),ans.end());
+	cout&lt;&lt;sum&lt;&lt;endl;
+	cout&lt;&lt;ans.size();
+	for(int i&#x3D;0;i&lt;ans.size();i++)
+	&#123;
+		cout&lt;&lt;&quot; &quot;&lt;&lt;ans[i];
+	&#125;
+	cout&lt;&lt;endl;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
 </search>

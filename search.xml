@@ -1384,7 +1384,7 @@ int main()&#123;
 
 <a id="more"></a>
 
-<h1 id="STL标准库记录"><a href="#STL标准库记录" class="headerlink" title="STL标准库记录"></a>STL标准库记录</h1><h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><table>
+<h1 id="STL标准库"><a href="#STL标准库" class="headerlink" title="STL标准库"></a>STL标准库</h1><h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><table>
 <thead>
 <tr>
 <th>函数名</th>
@@ -1723,6 +1723,154 @@ int main()
 	&#125;
 	cout&lt;&lt;endl;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><h3 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>++</td>
+<td>让迭代器指向至下一元素</td>
+</tr>
+<tr>
+<td>==，!=</td>
+<td>判断两个迭代器是否指向同一位置并返回结果</td>
+</tr>
+<tr>
+<td>=</td>
+<td>将右侧的值代入左侧迭代器所引用的元素的位置</td>
+</tr>
+<tr>
+<td>*</td>
+<td>返回该位置的元素</td>
+</tr>
+</tbody></table>
+<h2 id="lower-bound"><a href="#lower-bound" class="headerlink" title="lower_bound"></a>lower_bound</h2><p>返回一个指向第一个不小于指定值value的元素</p>
+<h2 id="排序sort"><a href="#排序sort" class="headerlink" title="排序sort"></a>排序sort</h2><p>stable_sort较稳定</p>
+<blockquote>
+<p><strong><em>\</em>sort的应用**</strong>；</p>
+<p>1、可以传入两个参数；</p>
+<p>   sort(a,a+N) ,其中a是数组，a+N表示对a[0]至a[N-1]的N个数进行排序(默认从小到大排序)；</p>
+<p>2、传入三个参数；</p>
+<p>   sort(a,a+N,cmp),第三个参数是一个函数 ；</p>
+<p>   如果让函数从大到小排序，可以用如下算法实现；</p>
+<p>   bool cmp(int a,int b){return a&gt;b};</p>
+<p>   sort(A,A+N,cmp);</p>
+<p>而*<strong>*stable_sort的用法**</strong>与sort一致，<strong>区别是stable_sort函数遇到两个数相等时，不对其交换顺序</strong>；这个应用在数组里面不受影响，当函数参数传入的是结构体时，会发现两者之间的明显区别；</p>
+</blockquote>
+<h2 id="ALDS1-6-D-Minimum-Cost-Sort"><a href="#ALDS1-6-D-Minimum-Cost-Sort" class="headerlink" title="ALDS1_6_D: Minimum Cost Sort"></a>ALDS1_6_D: Minimum Cost Sort</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdlib&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+const int maxn&#x3D;1000;
+const int vmax&#x3D;10000;
+
+int n,a[maxn],s;
+int b[maxn],t[vmax+1];
+
+int solve()
+&#123;
+	int ans&#x3D;0;
+	bool v[maxn];
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		b[i]&#x3D;a[i];
+		v[i]&#x3D;false;
+	&#125;
+	sort(b,b+n);
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		t[b[i]] &#x3D; i;
+	&#125;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		if(v[i])	continue;
+		int cur&#x3D;i,m&#x3D;vmax,an&#x3D;0,S&#x3D;0;
+		while(1)
+		&#123;
+			v[cur]&#x3D;true;
+			an++;
+			int V&#x3D;a[cur];
+			m&#x3D;min(m,V);
+			S+&#x3D;V;
+			cur&#x3D;t[V];
+			if(v[cur])	break;
+		&#125;
+		ans+&#x3D;min(S+(an - 2) *m, m+S+(an+1)*s);&#x2F;&#x2F;2SOLUTIONS
+	&#125;
+	return ans;
+&#125;
+
+int main()
+&#123;
+	cin&gt;&gt;n;
+	s&#x3D;vmax;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;a[i];
+		s&#x3D;min(s,a[i]);
+	&#125;
+	int ans&#x3D;solve();
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="动态规划DP"><a href="#动态规划DP" class="headerlink" title="动态规划DP"></a>动态规划DP</h1><h2 id="LCS"><a href="#LCS" class="headerlink" title="LCS"></a>LCS</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+
+const int N&#x3D;1000;
+int c[N+5][N+5];
+
+using namespace std;
+
+int lcs(string X, string Y)
+&#123;
+	int m&#x3D;X.length();
+	int n&#x3D;Y.length();&#x2F;&#x2F;也可.size()
+	int maxl&#x3D;0;
+	X&#x3D;&#39; &#39;+X;
+	Y&#x3D;&#39; &#39;+Y;
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)	c[i][0]&#x3D;0;
+	for(int j&#x3D;1;j&lt;&#x3D;n;j++)	c[0][j]&#x3D;0;
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+	&#123;
+		for(int j&#x3D;1;j&lt;&#x3D;n;j++)
+		&#123;
+			if(X[i]&#x3D;&#x3D;Y[j])
+			&#123;
+				c[i][j]&#x3D;c[i-1][j-1]+1;
+			&#125;
+			else
+			&#123;
+				c[i][j]&#x3D;max(c[i-1][j], c[i][j-1]);
+			&#125;
+			maxl&#x3D;max(maxl, c[i][j]);
+		&#125;
+	&#125;
+	return maxl;
+&#125;
+
+int main()
+&#123;
+	string s1,s2;
+	int n;
+	cin&gt;&gt;n;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;s1&gt;&gt;s2;
+		cout&lt;&lt;lcs(s1,s2)&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 ]]></content>
       <tags>

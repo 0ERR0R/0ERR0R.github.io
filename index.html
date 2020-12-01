@@ -313,7 +313,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-12-01 16:16:20 / 修改时间：16:32:22" itemprop="dateCreated datePublished" datetime="2020-12-01T16:16:20+08:00">2020-12-01</time>
+      <time title="创建时间：2020-12-01 16:16:20 / 修改时间：16:33:28" itemprop="dateCreated datePublished" datetime="2020-12-01T16:16:20+08:00">2020-12-01</time>
     </span>
 
   
@@ -342,66 +342,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="DPL-3-A-Largest-Square"><a href="#DPL-3-A-Largest-Square" class="headerlink" title="DPL_3_A: Largest Square"></a>DPL_3_A: Largest Square</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstdio&gt;
-
-using namespace std;
-
-#define MAX 1400
-
-int dp[MAX][MAX], G[MAX][MAX];
-
-int getS(int H,int W)
-&#123;
-    int maxWidth &#x3D; 0;
-    for(int i&#x3D;0;i&lt;H;i++)
-    &#123;
-        for(int j&#x3D;0;j&lt;W;j++)
-        &#123;
-            dp[i][j]&#x3D;(G[i][j]+1)%2;
-            maxWidth |&#x3D; dp[i][j];
-        &#125;
-    &#125;
-    for(int i&#x3D;1;i&lt;H;i++)
-    &#123;
-        for(int j&#x3D;1;j&lt;W;j++)
-        &#123;
-            if(G[i][j])
-            &#123;
-                dp[i][j]&#x3D;0;
-            &#125;
-            else
-            &#123;
-                dp[i][j]&#x3D;min(dp[i-1][j-1], min(dp[i-1][j], dp[i][j-1])) + 1;
-                maxWidth&#x3D;max(maxWidth, dp[i][j]);
-            &#125;
-        &#125;
-    &#125;
-    return maxWidth * maxWidth;
-&#125;
-
-int main()
-&#123;
-    int H,W;
-    cin&gt;&gt;H&gt;&gt;W;
-    for(int i&#x3D;0;i&lt;H;i++)
-        for(int j&#x3D;0;j&lt;W;j++)
-            cin&gt;&gt;G[i][j];
-        cout&lt;&lt;getS(H,W)&lt;&lt;endl;
-        return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h1><p>关于%=与|=运算的介绍</p>
-<blockquote>
-<p>a &amp;= b,就是将a与b做按位“与”运算，结果赋值给a,也就相当于a = a &amp; b;<br>a |= b就是将a,b 做按位”或“运算，结果给a,相当于a = a | b;</p>
-<p>（&amp;与运算只有1&amp;1才等于1，其余1&amp;0、0&amp;1、0&amp;0都为0；|或运算只有0&amp;0才等于0，其余1&amp;0、0&amp;1、1&amp;1都为1）</p>
-<p>在嵌入式开发中，经常会操作寄存器，对寄存器进行配置。<br>&amp;= 一般用在复位，即清零，将=号后面0的位清零，1的位保持不变。|= 一般用在置位，即置1，1的位置1，0的位保持不变。<br>两者结合一起用，先复位，后置位。</p>
-<p>例如：（若看不懂请将16进制转为2进制再运算）<br>GPIOA-&gt;CRL &amp;= 0X000FFFFF; 清掉这 3 个位原来的设置，同时也不影响其他位的设置<br>GPIOA-&gt;CRL |= 0XBBB00000;将这 3 个位设置为想要的值，同时也不影响其他位的设置</p>
-<p>总结：&amp;=看0的位；|=看1的位。</p>
-</blockquote>
-<p>题中19行在对dp数组记录进行逆变换后，对maxWidth变量进行了|=操作，目的是为了获取当前最大的Width，此处maxWidth变量非0即1，成1后便不再还原</p>
-
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="DPL-3-A-Largest-Square"><a href="#DPL-3-A-Largest-Square" class="headerlink" title="DPL_3_A: Largest Square"></a>DPL_3_A: Largest Square</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/35ff10df.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

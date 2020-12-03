@@ -2242,4 +2242,164 @@ int main()
         <tag>web</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ACM-刷题记录-14届NEFU校赛</title>
+    <url>/2020/12/77f448c2.html</url>
+    <content><![CDATA[<h1 id="P2031凯撒密码"><a href="#P2031凯撒密码" class="headerlink" title="P2031凯撒密码"></a>P2031凯撒密码</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	string s;
+	int d;
+	while(cin&gt;&gt;s)
+	&#123;
+		cin&gt;&gt;d;
+		int len&#x3D;s.length();
+		for(int i&#x3D;0;i&lt;len;i++)
+		&#123;
+			s[i]&#x3D;s[i]-&#39;a&#39;-d;
+			if(s[i]&lt;0)	s[i]&#x3D;26+s[i];
+			s[i]&#x3D;s[i]%26+&#39;a&#39;;
+			printf(&quot;%c&quot;, s[i]);
+		&#125;
+		cout&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="P2033神秘数字"><a href="#P2033神秘数字" class="headerlink" title="P2033神秘数字"></a>P2033神秘数字</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	long long n,m,ans&#x3D;0;
+	cin&gt;&gt;n&gt;&gt;m;
+	&#x2F;&#x2F;cout&lt;&lt;pow(10,n)&lt;&lt;endl&lt;&lt;pow(10,n+1)&lt;&lt;endl;
+	for(int i&#x3D;pow(10,n-1);i&lt;pow(10,n);i++)
+	&#123;
+		int num&#x3D;i,sum&#x3D;0;
+		while(num)
+		&#123;
+			sum+&#x3D;num%10;
+			num&#x2F;&#x3D;10;
+		&#125;
+		if(sum&#x3D;&#x3D;m)
+		&#123;
+			&#x2F;&#x2F;cout&lt;&lt;i&lt;&lt;endl;
+			ans+&#x3D;i;
+		&#125;
+	&#125;
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="P100-快来找一找"><a href="#P100-快来找一找" class="headerlink" title="P100 快来找一找"></a>P100 快来找一找</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+
+using namespace std;
+
+int main()&#123;
+	int m,maxnum&#x3D;0;
+	while(cin&gt;&gt;m)
+	&#123;
+		int tmp;
+		for(int i&#x3D;0;i&lt;m;i++)
+		&#123;
+			cin&gt;&gt;tmp;
+			maxnum&#x3D;max(maxnum,tmp);
+		&#125;
+		cout&lt;&lt;maxnum&lt;&lt;endl;
+		maxnum&#x3D;0;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="P2034-第几个质数"><a href="#P2034-第几个质数" class="headerlink" title="P2034 第几个质数"></a>P2034 第几个质数</h1><p>老夫还是不用筛</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int prime[1000+5];
+
+int isprime(int x)
+&#123;
+	if(prime[x]!&#x3D;-1)	return prime[x];
+	for(int i&#x3D;2;i&lt;&#x3D;sqrt(x);i++)
+	&#123;
+		if(x%i&#x3D;&#x3D;0)	return prime[x]&#x3D;0;
+	&#125;
+	return prime[x]&#x3D;1;
+&#125;
+
+int main()&#123;
+	int n,number&#x3D;1;
+	memset(prime, -1, sizeof(prime));
+	prime[1]&#x3D;0;	prime[2]&#x3D;1;
+	while(cin&gt;&gt;n)
+	&#123;
+		if(!isprime(n))
+		&#123;
+			cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
+			continue;
+		&#125;
+		for(int i&#x3D;1;i&lt;n;i++)
+		&#123;
+			if(isprime(i))
+			&#123;
+				number++;
+			&#125;
+		&#125;
+		cout&lt;&lt;number&lt;&lt;endl;
+		number&#x3D;1;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="P2039-why的概率论"><a href="#P2039-why的概率论" class="headerlink" title="P2039 why的概率论"></a>P2039 why的概率论</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	int t,x,y;
+	cin&gt;&gt;t;
+	while(t--)
+	&#123;
+		cin&gt;&gt;x&gt;&gt;y;
+		if(!x)	cout&lt;&lt;&quot;0 &#x2F; 1&quot;&lt;&lt;endl;
+		else
+		&#123;
+			y+&#x3D;x;
+			x*&#x3D;4;
+			cout&lt;&lt;x&#x2F;__gcd(x,y)&lt;&lt;&quot; &#x2F; &quot;&lt;&lt;y&#x2F;__gcd(x,y)&lt;&lt;endl;
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="P2065-小x爱料理"><a href="#P2065-小x爱料理" class="headerlink" title="P2065 小x爱料理"></a>P2065 小x爱料理</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	int t;
+	cin&gt;&gt;t;
+	while(t--)
+	&#123;
+		int u,v,w,a,b,c;
+		int n1,n2,n3,ans;
+		cin&gt;&gt;u&gt;&gt;v&gt;&gt;w&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+		n1&#x3D;u&#x2F;a;
+		n2&#x3D;v&#x2F;b;
+		n3&#x3D;w&#x2F;c;
+		ans&#x3D;min(n1, min(n2, n3));
+		cout&lt;&lt;ans&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
 </search>

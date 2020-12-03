@@ -158,7 +158,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">23</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,7 +230,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -279,6 +279,156 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/9ab7588f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="0ERROR">
+      <meta itemprop="description" content="Algorithm|ACM|CTF">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0ERROR's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/9ab7588f.html" class="post-title-link" itemprop="url">CTF学习记录-Misc-图片隐写</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-20 16:14:05 / 修改时间：16:36:33" itemprop="dateCreated datePublished" datetime="2020-11-20T16:14:05+08:00">2020-11-20</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>674</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="直接附加"><a href="#直接附加" class="headerlink" title="直接附加"></a>直接附加</h1><h2 id="常用文件头-文件尾"><a href="#常用文件头-文件尾" class="headerlink" title="常用文件头/文件尾"></a>常用文件头/文件尾</h2><table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>文件头</th>
+<th>文件尾</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JPEG(jpg)</td>
+<td>FF D8 FF</td>
+<td>FF D9</td>
+</tr>
+<tr>
+<td>PNG(png)</td>
+<td>89 50 4E 47</td>
+<td>AE 42 60 82</td>
+</tr>
+<tr>
+<td>GIF(gif)</td>
+<td>47 49 46 38</td>
+<td>00 3B</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>50 4B 03 04</td>
+<td>50 4B</td>
+</tr>
+<tr>
+<td>RAR</td>
+<td>52 61 72 21</td>
+<td></td>
+</tr>
+<tr>
+<td>WAV</td>
+<td>57 41 56 45</td>
+<td></td>
+</tr>
+<tr>
+<td>avi</td>
+<td>41 56 49 20</td>
+<td></td>
+</tr>
+<tr>
+<td>MPEG(mpg)</td>
+<td>00 00 01 BA/B3</td>
+<td></td>
+</tr>
+<tr>
+<td>mov</td>
+<td>6D 6F 6F 76</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;对于图片Lighthouse.jpg
+&#x2F;&#x2F;为图片添加一个comment标签，内容为ExifModifyTesting
+exiftool -comment&#x3D;ExifModifyTesting .&#x2F;Lighthouse.jpg
+&#x2F;&#x2F;查看EXIF信息
+exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h1><p>LSB全称least significant bit，最低有效位</p>
+<p>PNG文件中的图像像数一般是由RGB三原色（红绿蓝）组成，每一种颜色占用8位，取值范围为0x00~0xFF，即有256种颜色，一共包含了256的3次方的颜色，即16777216 种颜色</p>
+<p>人类的眼睛可以区分约1000万种不同的颜色</p>
+<p>这意味着人类的眼睛无法区分余下的颜色大约有6777216种</p>
+<p>LSB隐写就是修改RGB颜色分量的最低二进制位（LSB），而人类的眼睛不会注意到这前后的变化</p>
+<p>每个像数可以携带3比特的信息</p>
+<h2 id="检测隐写常用工具-stegsolve-zsteg"><a href="#检测隐写常用工具-stegsolve-zsteg" class="headerlink" title="检测隐写常用工具 - stegsolve - zsteg"></a>检测隐写常用工具 - stegsolve - zsteg</h2><h1 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h1><h2 id="添加与提取"><a href="#添加与提取" class="headerlink" title="添加与提取"></a>添加与提取</h2><p><a target="_blank" rel="noopener" href="https://github.com/chishaxie/BlindWaterMark">BlindWaterMark</a> 频谱隐写可直接使用Adobe Audition</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -1127,95 +1277,6 @@ We found this packet capture. Recover the flag.<span aria-hidden="true" class="l
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/10/12aa90f7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="0ERROR's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/12aa90f7.html" class="post-title-link" itemprop="url">Notes-QuickSort</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-10 12:03:02 / 修改时间：12:13:15" itemprop="dateCreated datePublished" datetime="2020-10-10T12:03:02+08:00">2020-10-10</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>808</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>快排基本思路应该就是二分+递归，从两侧同时（实则先从右往左）往中间找，同时和参变量对比，发现位置颠倒后交换位置，然后通过二分将其一块一块的分割开，直到分割到一个元素位置，即完成了快排。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/12aa90f7.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
@@ -1271,13 +1332,13 @@ We found this packet capture. Recover the flag.<span aria-hidden="true" class="l
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">35 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

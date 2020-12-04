@@ -2403,4 +2403,37 @@ int main()&#123;
         <tag>ACM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ACM-位运算符-判断奇偶</title>
+    <url>/2020/12/30561a0d.html</url>
+    <content><![CDATA[<p>同样一个问题，位运算可以提高程序的运行效率。</p>
+<p>下面讲一下关于奇偶性的判断。</p>
+<p>常规方法</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+
+​    return i % 2 !&#x3D; 0;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>位运算方法</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+
+​    return (i &amp; 1) !&#x3D; 0;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>说明：</p>
+<p>我们知道计算机中的数字通常用二进制补码表示。</p>
+<p>如果为正数，补码与原码相同，直接看最后一位（因为数字1的前面N位均为0，跟它做与运算，前面肯定为0），奇数为1，偶数为0，与1相与，结果不变。</p>
+<p>如果为负数，补码转原码：保持符号位不动，其它各位取反+1，即为负数的绝对值原码全部取反+1。还是看最后1位，先取反，再+1，结果还是和原来相同。进行与运算时还是原来的末位，所以用跟1做与运算还是保持原来的结果。</p>
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
 </search>

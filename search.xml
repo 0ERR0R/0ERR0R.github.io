@@ -2904,6 +2904,7 @@ using namespace std<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<a id="more"></a>
 
 <h1 id="B-xx的树"><a href="#B-xx的树" class="headerlink" title="B.xx的树"></a>B.xx的树</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 

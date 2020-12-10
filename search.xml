@@ -3324,8 +3324,7 @@ ll d1<span class="token punctuation">[</span>MAXN<span class="token punctuation"
 </li>
 <li><p>判断是否有进位</p>
 <p>0000 0001 &amp; 0000 1000 = 0000 0000</p>
-<pre><code> # 4-5=?的运算过程</code></pre>
-</li>
+<h1 id="4-5-的运算过程-1"><a href="#4-5-的运算过程-1" class="headerlink" title="4-5=?的运算过程"></a>4-5=?的运算过程</h1></li>
 </ol>
 <p>4-5=4+(-5)</p>
 <ol>

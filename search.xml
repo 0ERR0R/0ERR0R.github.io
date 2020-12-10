@@ -3355,33 +3355,59 @@ ll d1<span class="token punctuation">[</span>MAXN<span class="token punctuation"
 <h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><h3 id="32位寄存器"><a href="#32位寄存器" class="headerlink" title="32位寄存器"></a>32位寄存器</h3><table>
 <thead>
 <tr>
-<th>EAX</th>
-<th>ESP</th>
+<th>32位</th>
+<th>16位</th>
+<th>8位</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>WAX</td>
+<td>AX</td>
+<td>AL（低8位）</td>
+</tr>
+<tr>
 <td>ECX</td>
-<td>EBP</td>
+<td>CX</td>
+<td>CL</td>
 </tr>
 <tr>
 <td>EDX</td>
-<td>ESI</td>
+<td>DX</td>
+<td>DL</td>
 </tr>
 <tr>
 <td>EBX</td>
+<td>BX</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>ESP</td>
+<td>SP</td>
+<td>AH（高8位）</td>
+</tr>
+<tr>
+<td>EBP</td>
+<td>BP</td>
+<td>CH</td>
+</tr>
+<tr>
+<td>ESI</td>
+<td>SI</td>
+<td>DH</td>
+</tr>
+<tr>
 <td>EDI</td>
+<td>DI</td>
+<td>BH</td>
 </tr>
 </tbody></table>
+<p>8位，16位寄存器同时存在于32位之中，8位指令改32位中的1位，16位改4位</p>
 <h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><ol>
 <li><p>立即数到寄存器</p>
 </li>
 <li><p>寄存器到寄存器</p>
 <pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
 MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-
 
 
 

@@ -23,20 +23,22 @@
     var CONFIG = {"hostname":"www.0error.xyz","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":-1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Algorithm|ACM|CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://www.0error.xyz/tags/index.html">
+  <meta name="description" content="汇编工具DTDebug下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示） 寄存器存储数据： CPU&gt;内存&gt;硬盘 32位CPU: 8 16 32 64位CPU: 8 16 32 64 EIP:存储CPU下一次执行的指令集，不能作他用 通用寄存器32位寄存器   EAX ESP    ECX EBP   EDX ESI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF-RE-学习记录-汇编-2">
+<meta property="og:url" content="http://www.0error.xyz/2020/12/134388c0.html">
 <meta property="og:site_name" content="0ERROR&#39;s Blog">
-<meta property="og:description" content="Algorithm|ACM|CTF">
+<meta property="og:description" content="汇编工具DTDebug下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示） 寄存器存储数据： CPU&gt;内存&gt;硬盘 32位CPU: 8 16 32 64位CPU: 8 16 32 64 EIP:存储CPU下一次执行的指令集，不能作他用 通用寄存器32位寄存器   EAX ESP    ECX EBP   EDX ESI">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
-<meta property="article:modified_time" content="2020-10-10T02:31:36.180Z">
+<meta property="article:published_time" content="2020-12-10T11:24:17.000Z">
+<meta property="article:modified_time" content="2020-12-10T11:50:28.589Z">
 <meta property="article:author" content="0ERROR">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="RE">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.0error.xyz/tags/">
+<link rel="canonical" href="http://www.0error.xyz/2020/12/134388c0.html">
 
 
 <script class="page-configurations">
@@ -44,13 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>tags | 0ERROR's Blog
-</title>
+  <title>CTF-RE-学习记录-汇编-2 | 0ERROR's Blog</title>
   
 
 
@@ -208,7 +209,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -220,6 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7DTDebug"><span class="nav-number">1.</span> <span class="nav-text">汇编工具DTDebug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">通用寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#32%E4%BD%8D%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">2.1.1.</span> <span class="nav-text">32位寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOV%E6%8C%87%E4%BB%A4"><span class="nav-number">2.2.</span> <span class="nav-text">MOV指令</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -278,53 +280,169 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
       
-  
-  
 
       
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/134388c0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="0ERROR">
+      <meta itemprop="description" content="Algorithm|ACM|CTF">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0ERROR's Blog">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CTF-RE-学习记录-汇编-2
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-<div class="post-meta-container">
+      <time title="创建时间：2020-12-10 19:24:17 / 修改时间：19:50:28" itemprop="dateCreated datePublished" datetime="2020-12-10T19:24:17+08:00">2020-12-10</time>
+    </span>
+
   
-
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>263</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-  <div class="tag-cloud-title">
-    目前共计 12 个标签
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/ACM/" style="font-size: 30px;" class="tag-cloud-10">ACM</a> <a href="/tags/C/" style="font-size: 12px;" class="tag-cloud-0">C</a> <a href="/tags/CF/" style="font-size: 18px;" class="tag-cloud-3">CF</a> <a href="/tags/CTF/" style="font-size: 24px;" class="tag-cloud-7">CTF</a> <a href="/tags/DFS/" style="font-size: 12px;" class="tag-cloud-0">DFS</a> <a href="/tags/DP/" style="font-size: 12px;" class="tag-cloud-0">DP</a> <a href="/tags/NEFU/" style="font-size: 12px;" class="tag-cloud-0">NEFU</a> <a href="/tags/RE/" style="font-size: 18px;" class="tag-cloud-3">RE</a> <a href="/tags/web/" style="font-size: 12px;" class="tag-cloud-0">web</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 12px;" class="tag-cloud-0">位运算</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 12px;" class="tag-cloud-0">数论</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 12px;" class="tag-cloud-0">蓝桥杯</a>
-  </div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="汇编工具DTDebug"><a href="#汇编工具DTDebug" class="headerlink" title="汇编工具DTDebug"></a>汇编工具DTDebug</h1><p>下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示）</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>存储数据：</p>
+<p>CPU&gt;内存&gt;硬盘</p>
+<p>32位CPU: 8 16 32</p>
+<p>64位CPU: 8 16 32 64</p>
+<p>EIP:存储CPU下一次执行的指令集，不能作他用</p>
+<h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><h3 id="32位寄存器"><a href="#32位寄存器" class="headerlink" title="32位寄存器"></a>32位寄存器</h3><table>
+<thead>
+<tr>
+<th>EAX</th>
+<th>ESP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ECX</td>
+<td>EBP</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>ESI</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>EDI</td>
+</tr>
+</tbody></table>
+<h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><ol>
+<li><p>立即数到寄存器</p>
+</li>
+<li><p>寄存器到寄存器</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
+MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>0ERROR
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.0error.xyz/2020/12/134388c0.html" title="CTF-RE-学习记录-汇编-2">http://www.0error.xyz/2020/12/134388c0.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
+
+          <div class="post-tags">
+              <a href="/tags/CTF/" rel="tag"># CTF</a>
+              <a href="/tags/RE/" rel="tag"># RE</a>
+          </div>
 
         
-      </div>
-      
-      
-      
-    </div>
-    
 
-    
-    
-    
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/1a09cf7e.html" rel="prev" title="CTF-RE-学习记录-汇编">
+                  <i class="fa fa-chevron-left"></i> CTF-RE-学习记录-汇编
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
       

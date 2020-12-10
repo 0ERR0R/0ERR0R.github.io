@@ -3343,4 +3343,54 @@ ll d1<span class="token punctuation">[</span>MAXN<span class="token punctuation"
         <tag>RE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CTF-RE-学习记录-汇编-2</title>
+    <url>/2020/12/134388c0.html</url>
+    <content><![CDATA[<h1 id="汇编工具DTDebug"><a href="#汇编工具DTDebug" class="headerlink" title="汇编工具DTDebug"></a>汇编工具DTDebug</h1><p>下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示）</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>存储数据：</p>
+<p>CPU&gt;内存&gt;硬盘</p>
+<p>32位CPU: 8 16 32</p>
+<p>64位CPU: 8 16 32 64</p>
+<p>EIP:存储CPU下一次执行的指令集，不能作他用</p>
+<h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><h3 id="32位寄存器"><a href="#32位寄存器" class="headerlink" title="32位寄存器"></a>32位寄存器</h3><table>
+<thead>
+<tr>
+<th>EAX</th>
+<th>ESP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ECX</td>
+<td>EBP</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>ESI</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>EDI</td>
+</tr>
+</tbody></table>
+<h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><ol>
+<li><p>立即数到寄存器</p>
+</li>
+<li><p>寄存器到寄存器</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
+MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+        <tag>RE</tag>
+      </tags>
+  </entry>
 </search>

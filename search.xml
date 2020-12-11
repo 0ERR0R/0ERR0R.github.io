@@ -3425,6 +3425,63 @@ MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[],EAX&#x2F;&#x2F;前提需要保证宽度相同<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h2 id="内存地址的5种形式"><a href="#内存地址的5种形式" class="headerlink" title="内存地址的5种形式"></a>内存地址的5种形式</h2><ol>
+<li><p>[立即数]</p>
+<p>读取内存的值:</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,DWORD PTR DS:[0x13FFC4]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>向内存写入数据</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[0x13FFC4],EAX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>[reg]  <strong><em>reg代表寄存器 可以是8个通用寄存器中的一个</em></strong></p>
+<p>读取内存的值：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
+MOV EAX,DWORD PTR DS:[ECX]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>向内存中写入数据：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
+MOV DWORD PTR DS:[EDX],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>[reg+立即数]</p>
+<p>读取内存的值：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
+MOV EAX,DWORD PTR DS:[ECX+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>向内存中写入数据：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
+MOV DWORD PTR DS:[EDX+0xC],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>[reg+reg*{1,2,4,8}] (数组的汇编形式)</p>
+<p>代表八个32位的寄存器加上八个32位寄存器乘以1，2，4，8</p>
+<p>读取内存的值：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV EDX,DWORD PTR DS:[EAX+ECX*4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>向内存中写入数据:</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV DWORD PTR DS:[EAX+EAX*4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>[reg+reg*{1,2,4,8}+立即数]</p>
+<p>读取内存的值:</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+
+MOV ECX,2
+
+MOV EDX,DWORD PTR DS:[EAX+ECX*4+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>向内存中写入数据：</p>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV DWORD PTR DS:[EAX+ECX*4+4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+</li>
+</ol>
+<h1 id="数据的存储模式"><a href="#数据的存储模式" class="headerlink" title="数据的存储模式"></a>数据的存储模式</h1><p>大端模式：数据高位在低位，数据低位在高位</p>
+<p>小端模式：数据低位在低位，数据高位在高位</p>
 ]]></content>
       <tags>
         <tag>CTF</tag>

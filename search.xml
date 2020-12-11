@@ -3406,13 +3406,25 @@ ll d1<span class="token punctuation">[</span>MAXN<span class="token punctuation"
 <li><p>立即数到寄存器</p>
 </li>
 <li><p>寄存器到寄存器</p>
+</li>
+<li><p>寄存器到内存</p>
+</li>
+<li><p>内存到寄存器</p>
 <pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
 MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-
-
 </li>
 </ol>
+<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><pre class="line-numbers language-none"><code class="language-none">mov byte ptr ds[存储地址]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>已经申请过的地址，在堆栈窗口内找，可以直接使用</p>
+<blockquote>
+<p>一个字节-Byte</p>
+<p>两个字节-WORD</p>
+<p>四个字节-DWORD</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[],EAX&#x2F;&#x2F;前提需要保证宽度相同<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 ]]></content>
       <tags>
         <tag>CTF</tag>

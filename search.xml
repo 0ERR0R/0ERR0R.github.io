@@ -3488,4 +3488,85 @@ MOV DWORD PTR DS:[EAX+ECX*4+4],87654321<span aria-hidden="true" class="line-numb
         <tag>RE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>汇编-学习笔记</title>
+    <url>/2020/12/dfbbeb49.html</url>
+    <content><![CDATA[<h1 id="常用汇编指令"><a href="#常用汇编指令" class="headerlink" title="常用汇编指令"></a>常用汇编指令</h1><h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><table>
+<thead>
+<tr>
+<th>指令格式</th>
+<th>指令解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOV r/m8,r8</td>
+<td>r通用寄存器</td>
+</tr>
+<tr>
+<td>MOV r/m16,r16</td>
+<td>m代表内存</td>
+</tr>
+<tr>
+<td>MOV r/m32,r32</td>
+<td>imm代表立即数</td>
+</tr>
+<tr>
+<td>MOV r8,r/m8</td>
+<td>r8代表8位通用寄存器</td>
+</tr>
+<tr>
+<td>MOV r16,r/m16</td>
+<td>m8代表8位内存</td>
+</tr>
+<tr>
+<td>MOV r32,r/m32</td>
+<td>imm8代表8位立即数</td>
+</tr>
+<tr>
+<td>MOV r8, imm8</td>
+<td></td>
+</tr>
+<tr>
+<td>MOV r16, imm16</td>
+<td></td>
+</tr>
+<tr>
+<td>MOV r32, imm32</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="ADD指令"><a href="#ADD指令" class="headerlink" title="ADD指令"></a>ADD指令</h2><p>指令格式</p>
+<pre class="line-numbers language-none"><code class="language-none">ADD r&#x2F;m8, imm8
+ADD r&#x2F;m16,imm16
+ADD r&#x2F;m32,imm32
+ADD r&#x2F;m16,imm8
+ADD r&#x2F;m32,imm8
+ADD r&#x2F;m8,r8
+ADD r&#x2F;m16,r16
+ADD r&#x2F;m32,r32
+ADD r8,r&#x2F;m8
+ADD r16,r&#x2F;m16
+ADD r32,r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="SUB指令-减法"><a href="#SUB指令-减法" class="headerlink" title="SUB指令(减法)"></a>SUB指令(减法)</h2><p>指令格式:</p>
+<pre class="line-numbers language-none"><code class="language-none">SUB r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><pre class="line-numbers language-none"><code class="language-none">AND r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="OR指令"><a href="#OR指令" class="headerlink" title="OR指令"></a>OR指令</h2><p>逻辑或运算，对两个值进行或运算</p>
+<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><pre class="line-numbers language-none"><code class="language-none">NOT r&#x2F;m8
+NOT r&#x2F;m16
+NOT r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS WORD PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS DWORD PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+        <tag>RE</tag>
+        <tag>逆向</tag>
+      </tags>
+  </entry>
 </search>

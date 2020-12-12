@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -158,7 +158,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">29</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">30</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,14 +230,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,6 +279,158 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/dfbbeb49.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="0ERROR">
+      <meta itemprop="description" content="Algorithm|ACM|CTF">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SmallDolphin">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/dfbbeb49.html" class="post-title-link" itemprop="url">汇编-学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-12 19:55:16 / 修改时间：21:29:56" itemprop="dateCreated datePublished" datetime="2020-12-12T19:55:16+08:00">2020-12-12</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>620</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="常用汇编指令"><a href="#常用汇编指令" class="headerlink" title="常用汇编指令"></a>常用汇编指令</h1><h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><table>
+<thead>
+<tr>
+<th>指令格式</th>
+<th>指令解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOV r/m8,r8</td>
+<td>r通用寄存器</td>
+</tr>
+<tr>
+<td>MOV r/m16,r16</td>
+<td>m代表内存</td>
+</tr>
+<tr>
+<td>MOV r/m32,r32</td>
+<td>imm代表立即数</td>
+</tr>
+<tr>
+<td>MOV r8,r/m8</td>
+<td>r8代表8位通用寄存器</td>
+</tr>
+<tr>
+<td>MOV r16,r/m16</td>
+<td>m8代表8位内存</td>
+</tr>
+<tr>
+<td>MOV r32,r/m32</td>
+<td>imm8代表8位立即数</td>
+</tr>
+<tr>
+<td>MOV r8, imm8</td>
+<td></td>
+</tr>
+<tr>
+<td>MOV r16, imm16</td>
+<td></td>
+</tr>
+<tr>
+<td>MOV r32, imm32</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="ADD指令"><a href="#ADD指令" class="headerlink" title="ADD指令"></a>ADD指令</h2><p>指令格式</p>
+<pre class="line-numbers language-none"><code class="language-none">ADD r&#x2F;m8, imm8
+ADD r&#x2F;m16,imm16
+ADD r&#x2F;m32,imm32
+ADD r&#x2F;m16,imm8
+ADD r&#x2F;m32,imm8
+ADD r&#x2F;m8,r8
+ADD r&#x2F;m16,r16
+ADD r&#x2F;m32,r32
+ADD r8,r&#x2F;m8
+ADD r16,r&#x2F;m16
+ADD r32,r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="SUB指令-减法"><a href="#SUB指令-减法" class="headerlink" title="SUB指令(减法)"></a>SUB指令(减法)</h2><p>指令格式:</p>
+<pre class="line-numbers language-none"><code class="language-none">SUB r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><pre class="line-numbers language-none"><code class="language-none">AND r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="OR指令"><a href="#OR指令" class="headerlink" title="OR指令"></a>OR指令</h2><p>逻辑或运算，对两个值进行或运算</p>
+<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><pre class="line-numbers language-none"><code class="language-none">NOT r&#x2F;m8
+NOT r&#x2F;m16
+NOT r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS WORD PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS DWORD PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -1366,95 +1518,6 @@ int main()&#123;
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/2470a0b3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/2470a0b3.html" class="post-title-link" itemprop="url">ACM-学习记录-DP-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-26 19:43:43 / 修改时间：21:20:40" itemprop="dateCreated datePublished" datetime="2020-11-26T19:43:43+08:00">2020-11-26</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="DPL-1-A-Coin-Changing-Problem"><a href="#DPL-1-A-Coin-Changing-Problem" class="headerlink" title="DPL_1_A: Coin Changing Problem"></a>DPL_1_A: Coin Changing Problem</h1><p>每次均有两种选择，即选择当前的，即为在当前状态+1，否则维持原来的T[j+d[i]]</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/2470a0b3.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
@@ -1516,7 +1579,7 @@ int main()&#123;
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">44 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

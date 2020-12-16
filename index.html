@@ -1,1329 +1,651 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="baidu-site-verification" content="code-o8HbrGAIkR">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":-1,"unescape":false,"preload":false}};
-  </script>
-
-  <meta name="description" content="Algorithm|ACM|CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SmallDolphin">
-<meta property="og:url" content="http://www.0error.xyz/index.html">
-<meta property="og:site_name" content="SmallDolphin">
-<meta property="og:description" content="Algorithm|ACM|CTF">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="0ERROR">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="http://www.0error.xyz/">
-
-
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>SmallDolphin</title>
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Algorithm|ACM|CTF">
+  <meta name="author" content="0ERROR">
+  <meta name="keywords" content="">
+  <title>SmallDolphin</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?6041fc31e5b32b6a38d8632cf984c276";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SmallDolphin</strong>&nbsp;</a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">SmallDolphin</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">TOREAD THE WORLD</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">0</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">30</span></a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
 </nav>
 
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="公诚勇毅，实干兴邦">
+              
+            </span>
 
+            
+          </div>
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
     </div>
-  </div>
+  </header>
 
-</div>
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
+        <a href="/2020/12/dfbbeb49.html">汇编-学习笔记</a>
+      </h1>
 
-  <aside class="sidebar">
+      <p class="index-excerpt">
+        <a href="/2020/12/dfbbeb49.html">
+          
+          
+            
+          
+          常用汇编指令MOV指令
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
+指令格式
+指令解释
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">0ERROR</p>
-  <div class="site-description" itemprop="description">Algorithm|ACM|CTF</div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">30</span>
-          <span class="site-state-item-name">日志</span>
+
+
+MOV r/m8,r8
+r通用寄存器
+
+
+MOV r/m16,r16
+m代表内存
+
+
+MOV r/m32,r32
+imm代表立即数
+
+
+MOV r8,r/m8
+r8代表8位通用寄存器
+
+
+MOV r16,r/m16
+m8代表8位内存
+
+
+MOV r32,r/m32
+imm8代表8位立即数
+
+
+MOV r8, imm8
+
+
+
+MOV r16, i
         </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-12 19:55" pubdate>
+              2020-12-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+              <a href="/tags/RE/">RE</a>
+            
+              <a href="/tags/%E9%80%86%E5%90%91/">逆向</a>
+            
+          </div>
+        
       </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/0ERR0R" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;0ERR0R" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:n0error@qq.com" title="E-Mail → mailto:n0error@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
+    </article>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/134388c0.html">CTF-RE-学习记录-汇编-2</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/134388c0.html">
+          
+          
+            
+          
+          汇编工具DTDebug下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示）
+寄存器存储数据：
+CPU&gt;内存&gt;硬盘
+32位CPU: 8 16 32
+64位CPU: 8 16 32 64
+EIP:存储CPU下一次执行的指令集，不能作他用
+通用寄存器32位寄存器
+
+
+32位
+16位
+8位
+
+
+
+WAX
+AX
+AL（低8位）
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-10 19:24" pubdate>
+              2020-12-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+              <a href="/tags/RE/">RE</a>
+            
+          </div>
+        
+      </div>
+    </article>
   </div>
 
-
-
-      </section>
-        <div class="back-to-top animated">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-      
-
-      
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/dfbbeb49.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/dfbbeb49.html" class="post-title-link" itemprop="url">汇编-学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 19:55:16 / 修改时间：21:30:02" itemprop="dateCreated datePublished" datetime="2020-12-12T19:55:16+08:00">2020-12-12</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>620</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
+  <div class="row mx-auto index-card">
     
     
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="常用汇编指令"><a href="#常用汇编指令" class="headerlink" title="常用汇编指令"></a>常用汇编指令</h1><h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><table>
-<thead>
-<tr>
-<th>指令格式</th>
-<th>指令解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>MOV r/m8,r8</td>
-<td>r通用寄存器</td>
-</tr>
-<tr>
-<td>MOV r/m16,r16</td>
-<td>m代表内存</td>
-</tr>
-<tr>
-<td>MOV r/m32,r32</td>
-<td>imm代表立即数</td>
-</tr>
-<tr>
-<td>MOV r8,r/m8</td>
-<td>r8代表8位通用寄存器</td>
-</tr>
-<tr>
-<td>MOV r16,r/m16</td>
-<td>m8代表8位内存</td>
-</tr>
-<tr>
-<td>MOV r32,r/m32</td>
-<td>imm8代表8位立即数</td>
-</tr>
-<tr>
-<td>MOV r8, imm8</td>
-<td></td>
-</tr>
-<tr>
-<td>MOV r16, imm16</td>
-<td></td>
-</tr>
-<tr>
-<td>MOV r32, imm32</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="ADD指令"><a href="#ADD指令" class="headerlink" title="ADD指令"></a>ADD指令</h2><p>指令格式</p>
-<pre class="line-numbers language-none"><code class="language-none">ADD r&#x2F;m8, imm8
-ADD r&#x2F;m16,imm16
-ADD r&#x2F;m32,imm32
-ADD r&#x2F;m16,imm8
-ADD r&#x2F;m32,imm8
-ADD r&#x2F;m8,r8
-ADD r&#x2F;m16,r16
-ADD r&#x2F;m32,r32
-ADD r8,r&#x2F;m8
-ADD r16,r&#x2F;m16
-ADD r32,r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="SUB指令-减法"><a href="#SUB指令-减法" class="headerlink" title="SUB指令(减法)"></a>SUB指令(减法)</h2><p>指令格式:</p>
-<pre class="line-numbers language-none"><code class="language-none">SUB r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><pre class="line-numbers language-none"><code class="language-none">AND r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="OR指令"><a href="#OR指令" class="headerlink" title="OR指令"></a>OR指令</h2><p>逻辑或运算，对两个值进行或运算</p>
-<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><pre class="line-numbers language-none"><code class="language-none">NOT r&#x2F;m8
-NOT r&#x2F;m16
-NOT r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]
-MOVS WORD PTR ES:[EDI],BYTE PTR DS:[ESI]
-MOVS DWORD PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/134388c0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/134388c0.html" class="post-title-link" itemprop="url">CTF-RE-学习记录-汇编-2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-10 19:24:17" itemprop="dateCreated datePublished" datetime="2020-12-10T19:24:17+08:00">2020-12-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-15 14:59:10" itemprop="dateModified" datetime="2020-12-15T14:59:10+08:00">2020-12-15</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="汇编工具DTDebug"><a href="#汇编工具DTDebug" class="headerlink" title="汇编工具DTDebug"></a>汇编工具DTDebug</h1><p>下载后设置好odd与插件路径，同时在属性中设置为管理员身份运行（无Administrator权限进入的时候一直在提示）</p>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>存储数据：</p>
-<p>CPU&gt;内存&gt;硬盘</p>
-<p>32位CPU: 8 16 32</p>
-<p>64位CPU: 8 16 32 64</p>
-<p>EIP:存储CPU下一次执行的指令集，不能作他用</p>
-<h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><h3 id="32位寄存器"><a href="#32位寄存器" class="headerlink" title="32位寄存器"></a>32位寄存器</h3><table>
-<thead>
-<tr>
-<th>32位</th>
-<th>16位</th>
-<th>8位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>WAX</td>
-<td>AX</td>
-<td>AL（低8位）</td>
-</tr>
-<tr>
-<td>ECX</td>
-<td>CX</td>
-<td>CL</td>
-</tr>
-<tr>
-<td>EDX</td>
-<td>DX</td>
-<td>DL</td>
-</tr>
-<tr>
-<td>EBX</td>
-<td>BX</td>
-<td>BL</td>
-</tr>
-<tr>
-<td>ESP</td>
-<td>SP</td>
-<td>AH（高8位）</td>
-</tr>
-<tr>
-<td>EBP</td>
-<td>BP</td>
-<td>CH</td>
-</tr>
-<tr>
-<td>ESI</td>
-<td>SI</td>
-<td>DH</td>
-</tr>
-<tr>
-<td>EDI</td>
-<td>DI</td>
-<td>BH</td>
-</tr>
-</tbody></table>
-<p>8位，16位寄存器同时存在于32位之中，8位指令改32位中的1位，16位改4位</p>
-<h2 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h2><ol>
-<li><p>立即数到寄存器</p>
-</li>
-<li><p>寄存器到寄存器</p>
-</li>
-<li><p>寄存器到内存</p>
-</li>
-<li><p>内存到寄存器</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
-MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-</li>
-</ol>
-<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><pre class="line-numbers language-none"><code class="language-none">mov byte ptr ds[存储地址]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>已经申请过的地址，在堆栈窗口内找，可以直接使用</p>
-<blockquote>
-<p>一个字节-Byte</p>
-<p>两个字节-WORD</p>
-<p>四个字节-DWORD</p>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[],EAX&#x2F;&#x2F;前提需要保证宽度相同<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="内存地址的5种形式"><a href="#内存地址的5种形式" class="headerlink" title="内存地址的5种形式"></a>内存地址的5种形式</h2><ol>
-<li><p>[立即数]</p>
-<p>读取内存的值:</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,DWORD PTR DS:[0x13FFC4]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>向内存写入数据</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[0x13FFC4],EAX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>[reg]  <strong><em>reg代表寄存器 可以是8个通用寄存器中的一个</em></strong></p>
-<p>读取内存的值：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
-MOV EAX,DWORD PTR DS:[ECX]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>向内存中写入数据：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
-MOV DWORD PTR DS:[EDX],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>[reg+立即数]</p>
-<p>读取内存的值：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
-MOV EAX,DWORD PTR DS:[ECX+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>向内存中写入数据：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
-MOV DWORD PTR DS:[EDX+0xC],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>[reg+reg*{1,2,4,8}] (数组的汇编形式)</p>
-<p>代表八个32位的寄存器加上八个32位寄存器乘以1，2，4，8</p>
-<p>读取内存的值：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
-MOV ECX,2
-MOV EDX,DWORD PTR DS:[EAX+ECX*4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>向内存中写入数据:</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
-MOV ECX,2
-MOV DWORD PTR DS:[EAX+EAX*4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>[reg+reg*{1,2,4,8}+立即数]</p>
-<p>读取内存的值:</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
-
-MOV ECX,2
-
-MOV EDX,DWORD PTR DS:[EAX+ECX*4+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>向内存中写入数据：</p>
-<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
-MOV ECX,2
-MOV DWORD PTR DS:[EAX+ECX*4+4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-</li>
-</ol>
-<h1 id="数据的存储模式"><a href="#数据的存储模式" class="headerlink" title="数据的存储模式"></a>数据的存储模式</h1><p>大端模式：数据高位在低位，数据低位在高位</p>
-<p>小端模式：数据低位在低位，数据高位在高位</p>
-<h1 id="MOVS指令"><a href="#MOVS指令" class="headerlink" title="MOVS指令"></a>MOVS指令</h1><p>BYTE/WORD/DWORD分别简写为MOVSB MOVSW MOVSD</p>
-<pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>DF位置：每次MOVS指令之后地址减少相应变更（加减具体看DF的值）字节的地址</p>
-<p>DF的值表示方向位：0为+，1为-</p>
-<h1 id="STOS指令：将AL-AX-EAX的值存储到-EDI-的指定存储单元"><a href="#STOS指令：将AL-AX-EAX的值存储到-EDI-的指定存储单元" class="headerlink" title="STOS指令：将AL/AX/EAX的值存储到[EDI]的指定存储单元"></a>STOS指令：将AL/AX/EAX的值存储到[EDI]的指定存储单元</h1><p>STOS BYTE PTR ES:[EDI]</p>
-<h1 id="REP指令"><a href="#REP指令" class="headerlink" title="REP指令"></a>REP指令</h1><p>MAV ECX,10</p>
-<p>REP MOVESD//ECX作为REP指令的计数器</p>
-<p>EAX通常用作返回值</p>
-<p>ESP,EBP通常用作堆栈</p>
-<p>ESI,EDI通常用作串复制的首地址和目标地址</p>
-<h1 id="堆栈相关指令"><a href="#堆栈相关指令" class="headerlink" title="堆栈相关指令"></a>堆栈相关指令</h1><p>堆栈的使用是从大地址向小地址使用</p>
-<p>ESP 栈指针寄存器</p>
-<h2 id="堆栈的使用"><a href="#堆栈的使用" class="headerlink" title="堆栈的使用"></a>堆栈的使用</h2><p>堆栈使用之后要改变ESP指向的位置，防止被覆盖</p>
-<p>例如：</p>
-<pre class="line-numbers language-none"><code class="language-none">SUB ESP,8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用之后取消：</p>
-<pre class="line-numbers language-none"><code class="language-none">ADD ESP,8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>C语言当中局部变量为何赋初始值的原因也就昭然若揭了，因为在内存中ESP寄存器只是指向了未被使用的堆栈，堆栈里面的内容会被覆盖，但是不会被清空，因此创建变量以后他的初始值是未知的，因此创建局部变量需要赋初值</p>
-<h2 id="PUSH-amp-POP指令"><a href="#PUSH-amp-POP指令" class="headerlink" title="PUSH&amp;POP指令"></a>PUSH&amp;POP指令</h2><p>功能：</p>
-<ol>
-<li>将数压入栈顶</li>
-<li>栈顶指针+1</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">PUSH DWORD PTR DS:[18FFA4]
-POP EAX
-POP ECX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="修改EIP的指令"><a href="#修改EIP的指令" class="headerlink" title="修改EIP的指令"></a>修改EIP的指令</h1><h2 id="KMP指令"><a href="#KMP指令" class="headerlink" title="KMP指令"></a>KMP指令</h2><p>MOV EIP简写为JMP</p>
-<h2 id="CALL指令"><a href="#CALL指令" class="headerlink" title="CALL指令"></a>CALL指令</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/1a09cf7e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/1a09cf7e.html" class="post-title-link" itemprop="url">CTF-RE-学习记录-汇编</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-10 15:23:41 / 修改时间：19:23:13" itemprop="dateCreated datePublished" datetime="2020-12-10T15:23:41+08:00">2020-12-10</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="八进制运算"><a href="#八进制运算" class="headerlink" title="八进制运算"></a>八进制运算</h1><h2 id="加法表"><a href="#加法表" class="headerlink" title="加法表"></a>加法表</h2><table>
-<thead>
-<tr>
-<th>1+1=2</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1+2=3</td>
-<td>2+2=4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1+3=4</td>
-<td>2+3=5</td>
-<td>3+3=6</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1+4=5</td>
-<td>2+4=6</td>
-<td>3+4=7</td>
-<td>4+4=10</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1+5=6</td>
-<td>2+5=7</td>
-<td>3+5=8</td>
-<td>4+5=11</td>
-<td>5+5=12</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1+6=7</td>
-<td>2+6=10</td>
-<td>3+6=11</td>
-<td>4+6=12</td>
-<td>5+6=13</td>
-<td>6+6=14</td>
-<td></td>
-</tr>
-<tr>
-<td>1+7=10</td>
-<td>2+7=11</td>
-<td>3+7=12</td>
-<td>4+7=13</td>
-<td>5+7=14</td>
-<td>6+7=15</td>
-<td>7+7=16</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/1a09cf7e.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         
-      
-    </div>
+        <a href="/2020/12/1a09cf7e.html">CTF-RE-学习记录-汇编</a>
+      </h1>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/8a3e9951.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+      <p class="index-excerpt">
+        <a href="/2020/12/1a09cf7e.html">
           
-            <a href="/2020/12/8a3e9951.html" class="post-title-link" itemprop="url">ACM-NEFU15届校赛-大二组</a>
-        </h2>
+          
+            
+          
+          八进制运算加法表
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-12-09 17:46:31 / 修改时间：20:04:46" itemprop="dateCreated datePublished" datetime="2020-12-09T17:46:31+08:00">2020-12-09</time>
-    </span>
+1+1=2
 
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
 
-        </div>
-      </header>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="A-小林找工作"><a href="#A-小林找工作" class="headerlink" title="A.小林找工作"></a>A.小林找工作</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 
-using namespace std<span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN<span class="token operator">=</span><span class="token number">1e5</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> p<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
-	cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
-	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token function">sort</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
-		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> pos<span class="token operator">=</span><span class="token function">lower_bound</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token operator">-</span>p<span class="token punctuation">;</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token operator">></span>n<span class="token punctuation">)</span>	pos<span class="token operator">=</span>n<span class="token punctuation">;</span>
-		<span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token function">abs</span><span class="token punctuation">(</span>temp<span class="token operator">-</span>p<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span>	ans<span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> <span class="token function">abs</span><span class="token punctuation">(</span>temp<span class="token operator">-</span>p<span class="token punctuation">[</span>pos<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/8a3e9951.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+
+
+
+1+2=3
+2+2=4
+
+
+
+
+
+
+
+1+3=4
+2+3=5
+3+3=6
+
+
+
+
+
+
+1+4=5
+2+4=6
+3+4=7
+4+4=10
+
+
+
+
+
+1+5=6
+2+5=7
+3+5=8
+4+5=11
+5+5=12
+
+
+
+
+1+6=7
+2+6=10
+3+6=11
+4+6=12
+5+6=13
+6+6=14
+
+
+
+1+7=10
+2+7=11
+3+7=12
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/ba287589.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/ba287589.html" class="post-title-link" itemprop="url">ACM-NEFU15届校赛-大一组</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-09 17:30:22 / 修改时间：17:42:29" itemprop="dateCreated datePublished" datetime="2020-12-09T17:30:22+08:00">2020-12-09</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="A-三角形面积"><a href="#A-三角形面积" class="headerlink" title="A. 三角形面积"></a>A. 三角形面积</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
-
-using namespace std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">double</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> ans<span class="token punctuation">,</span>p<span class="token punctuation">,</span>tmp<span class="token punctuation">;</span>
-    cin<span class="token operator">>></span>a<span class="token operator">>></span>b<span class="token operator">>></span>c<span class="token punctuation">;</span>
-    p<span class="token operator">=</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token operator">+</span>c<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.5</span><span class="token punctuation">;</span>
-    tmp<span class="token operator">=</span>p<span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    ans<span class="token operator">=</span><span class="token function">sqrt</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.1lf"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/ba287589.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-10 15:23" pubdate>
+              2020-12-10
+            </time>
+          </div>
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/e3871ff6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/e3871ff6.html" class="post-title-link" itemprop="url">ACM-学习记录-尺取法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-04 17:42:00 / 修改时间：17:46:21" itemprop="dateCreated datePublished" datetime="2020-12-04T17:42:00+08:00">2020-12-04</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><strong>给定一个数组和一个数s，在这个数组中找一个区间，使得这个区间之和等于s。</strong></p>
-<p><strong>例如：给定的数组int x[14] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};和一个s = 15。那么，可以找到的区间就应该有0到4， 3到5， 6到7.（注意这里的下标从0开始）</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/e3871ff6.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/30561a0d.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/30561a0d.html" class="post-title-link" itemprop="url">ACM-位运算符-判断奇偶</a>
-        </h2>
-
-        <div class="post-meta-container">
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-04 17:35:30 / 修改时间：17:38:51" itemprop="dateCreated datePublished" datetime="2020-12-04T17:35:30+08:00">2020-12-04</time>
-    </span>
-
-  
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+              <a href="/tags/RE/">RE</a>
+            
+          </div>
+        
       </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>374</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
+    </article>
+  </div>
 
-        </div>
-      </header>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/8a3e9951.html">ACM-NEFU15届校赛-大二组</a>
+      </h1>
 
+      <p class="index-excerpt">
+        <a href="/2020/12/8a3e9951.html">
+          
+          
+            
+          
+          A.小林找工作#include&lt;bits/stdc++.h>
+
+using namespace std;
+
+const int MAXN=1e5+10;
+int p[MAXN];
+
+int main()
+&#123;
+	int n,m;
+	cin>>n>>m;
+	for(int i=1;i&lt;=n;i++)
+	&#123;
+		scanf("%d", &amp;p[i]);
+	&#125
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-09 17:46" pubdate>
+              2020-12-09
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/ba287589.html">ACM-NEFU15届校赛-大一组</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/ba287589.html">
+          
+          
+            
+          
+          A. 三角形面积#include &lt;bits/stdc++.h>
+
+using namespace std;
+
+int main()
+&#123;
+    double a,b,c;
+    double ans,p,tmp;
+    cin>>a>>b>>c;
+    p=(a+b+c)*0.5;
+    tmp=p*(p-a)*(p-b)*(p-c);
+    ans=sqrt(tmp)
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-09 17:30" pubdate>
+              2020-12-09
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/NEFU/">NEFU</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
     
-    <div class="post-body" itemprop="articleBody">
-          <p>同样一个问题，位运算可以提高程序的运行效率。</p>
-<p>下面讲一下关于奇偶性的判断。</p>
-<p>常规方法</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/e3871ff6.html">ACM-学习记录-尺取法</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/e3871ff6.html">
+          
+          
+            
+          
+          题目给定一个数组和一个数s，在这个数组中找一个区间，使得这个区间之和等于s。
+例如：给定的数组int x[14] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};和一个s = 15。那么，可以找到的区间就应该有0到4， 3到5， 6到7.（注意这里的下标从0开始）
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-04 17:42" pubdate>
+              2020-12-04
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/30561a0d.html">ACM-位运算符-判断奇偶</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/30561a0d.html">
+          
+          
+            
+          
+          同样一个问题，位运算可以提高程序的运行效率。
+下面讲一下关于奇偶性的判断。
+常规方法
+public static boolean isOdd(int i)&#123;
 
 ​    return i % 2 !&#x3D; 0;
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;
 
 
 
-<p>位运算方法</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+位运算方法
+public static boolean isOdd(int i)&#123;
 
-​    return (i &amp; 1) !&#x3D; 0;
+​    return (i &amp; 1) !&#
+        </a>
+      </p>
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>说明：</p>
-<p>我们知道计算机中的数字通常用二进制补码表示。</p>
-<p>如果为正数，补码与原码相同，直接看最后一位（因为数字1的前面N位均为0，跟它做与运算，前面肯定为0），奇数为1，偶数为0，与1相与，结果不变。</p>
-<p>如果为负数，补码转原码：保持符号位不动，其它各位取反+1，即为负数的绝对值原码全部取反+1。还是看最后1位，先取反，再+1，结果还是和原来相同。进行与运算时还是原来的末位，所以用跟1做与运算还是保持原来的结果。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/77f448c2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/77f448c2.html" class="post-title-link" itemprop="url">ACM-刷题记录-14届NEFU校赛</a>
-        </h2>
-
-        <div class="post-meta-container">
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-04 17:35" pubdate>
+              2020-12-04
+            </time>
+          </div>
+        
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-03 16:34:50" itemprop="dateCreated datePublished" datetime="2020-12-03T16:34:50+08:00">2020-12-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-04 22:24:40" itemprop="dateModified" datetime="2020-12-04T22:24:40+08:00">2020-12-04</time>
-      </span>
-
-  
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+          </div>
+        
       </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
+    </article>
+  </div>
 
-        </div>
-      </header>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/77f448c2.html">ACM-刷题记录-14届NEFU校赛</a>
+      </h1>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="P2031凯撒密码"><a href="#P2031凯撒密码" class="headerlink" title="P2031凯撒密码"></a>P2031凯撒密码</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+      <p class="index-excerpt">
+        <a href="/2020/12/77f448c2.html">
+          
+          
+            
+          
+          P2031凯撒密码#include&lt;bits&#x2F;stdc++.h&gt;
 
 using namespace std;
 
@@ -1334,328 +656,263 @@ int main()&#123;
 	&#123;
 		cin&gt;&gt;d;
 		int len&#x3D;s.length();
-		for(int i&#x3D;0;i&lt;len;i++)
-		&#123;
-			s[i]&#x3D;s[i]-&#39;a&#39;-d;
-			if(s[i]&lt;0)	s[i]&#x3D;26+s[i];
-			s[i]&#x3D;s[i]%26+&#39;a&#39;;
-			printf(&quot;%c&quot;, s[i]);
-		&#125;
-		cout&lt;&lt;endl;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/77f448c2.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+		for(int i&#x3D;0;i&lt;l
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/631a292b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/631a292b.html" class="post-title-link" itemprop="url">CTF-Web-PHP反序列化</a>
-        </h2>
-
-        <div class="post-meta-container">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-03 16:34" pubdate>
+              2020-12-03
+            </time>
+          </div>
+        
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-01 23:08:59 / 修改时间：23:22:53" itemprop="dateCreated datePublished" datetime="2020-12-01T23:08:59+08:00">2020-12-01</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h1><p>PHP 反序列化漏洞又叫做 PHP 对象注入漏洞，我觉得这个表达很不直白，也不能说明根本的问题，不如我们叫他 PHP 对象的属性篡改漏洞好了(别说这是我说的~~)</p>
-<p>反序列化漏洞的成因在于代码中的 unserialize() 接收的参数可控，从上面的例子看，这个函数的参数是一个序列化的对象，而序列化的对象只含有对象的属性，那我们就要利用对对象属性的篡改实现最终的攻击。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/631a292b.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/12/35ff10df.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/35ff10df.html" class="post-title-link" itemprop="url">位运算-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-01 16:16:20 / 修改时间：16:33:28" itemprop="dateCreated datePublished" datetime="2020-12-01T16:16:20+08:00">2020-12-01</time>
-    </span>
-
-  
       </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="DPL-3-A-Largest-Square"><a href="#DPL-3-A-Largest-Square" class="headerlink" title="DPL_3_A: Largest Square"></a>DPL_3_A: Largest Square</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/35ff10df.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">0ERROR</span>
-</div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">50k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">45 分钟</span>
-  </span>
-</div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+    </article>
   </div>
 
-    </div>
-  </footer>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/631a292b.html">CTF-Web-PHP反序列化</a>
+      </h1>
 
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+      <p class="index-excerpt">
+        <a href="/2020/12/631a292b.html">
+          
+          
+            
+          
+          概念解释PHP 反序列化漏洞又叫做 PHP 对象注入漏洞，我觉得这个表达很不直白，也不能说明根本的问题，不如我们叫他 PHP 对象的属性篡改漏洞好了(别说这是我说的~~)
+反序列化漏洞的成因在于代码中的 unserialize() 接收的参数可控，从上面的例子看，这个函数的参数是一个序列化的对象，而序列化的对象只含有对象的属性，那我们就要利用对对象属性的篡改实现最终的攻击。
+        </a>
+      </p>
 
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-01 23:08" pubdate>
+              2020-12-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+              <a href="/tags/web/">web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/35ff10df.html">位运算-1</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/35ff10df.html">
+          
+          
+            
+          
+          问题DPL_3_A: Largest Square
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-01 16:16" pubdate>
+              2020-12-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/C/">C</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
   
   <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://www.0error.xyz" target="_blank" rel="nofollow noopener"><span>0ERROR&SmallDolphin</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
   </script>
 
 
 
 
-  <script src="/js/local-search.js"></script>
 
 
 
@@ -1667,27 +924,10 @@ int main()&#123;
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 
-
-  
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

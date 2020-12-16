@@ -1,1403 +1,802 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="baidu-site-verification" content="code-o8HbrGAIkR">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":-1,"unescape":false,"preload":false}};
-  </script>
-
-  <meta name="description" content="Algorithm|ACM|CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SmallDolphin">
-<meta property="og:url" content="http://www.0error.xyz/page/2/index.html">
-<meta property="og:site_name" content="SmallDolphin">
-<meta property="og:description" content="Algorithm|ACM|CTF">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="0ERROR">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="http://www.0error.xyz/page/2/">
-
-
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>SmallDolphin</title>
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Algorithm|ACM|CTF">
+  <meta name="author" content="0ERROR">
+  <meta name="keywords" content="">
+  <title>SmallDolphin</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?6041fc31e5b32b6a38d8632cf984c276";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SmallDolphin</strong>&nbsp;</a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">SmallDolphin</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">TOREAD THE WORLD</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">0</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">30</span></a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
 </nav>
 
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="公诚勇毅，实干兴邦">
+              
+            </span>
 
+            
+          </div>
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-        
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">0ERROR</p>
-  <div class="site-description" itemprop="description">Algorithm|ACM|CTF</div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">30</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/0ERR0R" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;0ERR0R" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:n0error@qq.com" title="E-Mail → mailto:n0error@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-
-      </section>
-        <div class="back-to-top animated">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-      
-
-      
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/2470a0b3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/2470a0b3.html" class="post-title-link" itemprop="url">ACM-学习记录-DP-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-26 19:43:43 / 修改时间：21:20:40" itemprop="dateCreated datePublished" datetime="2020-11-26T19:43:43+08:00">2020-11-26</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="DPL-1-A-Coin-Changing-Problem"><a href="#DPL-1-A-Coin-Changing-Problem" class="headerlink" title="DPL_1_A: Coin Changing Problem"></a>DPL_1_A: Coin Changing Problem</h1><p>每次均有两种选择，即选择当前的，即为在当前状态+1，否则维持原来的T[j+d[i]]</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/2470a0b3.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/ec23b92c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/ec23b92c.html" class="post-title-link" itemprop="url">ACM-学习记录-数据结构-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-24 14:39:32 / 修改时间：21:25:53" itemprop="dateCreated datePublished" datetime="2020-11-24T14:39:32+08:00">2020-11-24</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>6.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
-</div>
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/2470a0b3.html">ACM-学习记录-DP-1</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/2470a0b3.html">
+          
+          
+            
+          
+          DPL_1_A: Coin Changing Problem每次均有两种选择，即选择当前的，即为在当前状态+1，否则维持原来的T[j+d[i]]
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-26 19:43" pubdate>
+              2020-11-26
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/DP/">DP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
     
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="AOJ-ALDS1-1-D-Maximum-Profit"><a href="#AOJ-ALDS1-1-D-Maximum-Profit" class="headerlink" title="AOJ-ALDS1_1_D Maximum Profit"></a>AOJ-ALDS1_1_D Maximum Profit</h1><p>本题主要考虑要将复杂度降到O(n)，否则过不了最后五组数据</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/ec23b92c.html">ACM-学习记录-数据结构-1</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/ec23b92c.html">
+          
+          
+            
+          
+          AOJ-ALDS1_1_D Maximum Profit本题主要考虑要将复杂度降到O(n)，否则过不了最后五组数据
+#include&lt;iostream&gt;
 #include&lt;bits&#x2F;stdc++.h&gt;
 
 using namespace std;
 
 int main()&#123;
 	int n,maxv&#x3D;-1e10;
-	int stock[200000 + 5];
-	cin&gt;&gt;n;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		cin&gt;&gt;stock[i];
-	&#125;
-	int minv&#x3D;stock[0];
-	for(int j&#x3D;1;j&lt;n;j++)
-	&#123;
-		maxv&#x3D;max(maxv, stock[j]-minv);
-		minv&#x3D;min(minv, stock[j]);
-	&#125;
-	cout&lt;&lt;maxv&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/ec23b92c.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+	int stock[200000 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/e1e96252.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/e1e96252.html" class="post-title-link" itemprop="url">ACM-CodeForces-#685(Div.2)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-22 10:46:08 / 修改时间：11:02:22" itemprop="dateCreated datePublished" datetime="2020-11-22T10:46:08+08:00">2020-11-22</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>好久没见过CF有这么水的contest了，蒟蒻赶紧<del>找找自信</del></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/e1e96252.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-24 14:39" pubdate>
+              2020-11-24
+            </time>
+          </div>
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/fb844361.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/fb844361.html" class="post-title-link" itemprop="url">ACM-学习记录-数论</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-21 16:04:28 / 修改时间：21:28:29" itemprop="dateCreated datePublished" datetime="2020-11-21T16:04:28+08:00">2020-11-21</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="GCD，LCM"><a href="#GCD，LCM" class="headerlink" title="GCD，LCM"></a>GCD，LCM</h1><h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>a、b两个数的最大公约数乘以它们最小公倍数等于a和b的乘积</p>
-<p><strong><em>axb=GCD(a,b)xLCM(a,b)</em></strong></p>
-<p>据此定理，求3与8的最小公倍数可以为：LCM(3,8)=3x8divGCD(3,8)=24</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/fb844361.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/91338f8a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/91338f8a.html" class="post-title-link" itemprop="url">ACM-学习记录-素数筛</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-20 20:09:57" itemprop="dateCreated datePublished" datetime="2020-11-20T20:09:57+08:00">2020-11-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-21 21:09:02" itemprop="dateModified" datetime="2020-11-21T21:09:02+08:00">2020-11-21</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>659</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;线性筛
-void init() &#123;
-  phi[1] &#x3D; 1;
-  for (int i &#x3D; 2; i &lt; MAXN; ++i) &#123;
-    if (!vis[i]) &#123;
-      phi[i] &#x3D; i - 1;
-      pri[cnt++] &#x3D; i;
-    &#125;
-    for (int j &#x3D; 0; j &lt; cnt; ++j) &#123;
-      if (1ll * i * pri[j] &gt;&#x3D; MAXN) break;
-      vis[i * pri[j]] &#x3D; 1;
-      if (i % pri[j]) &#123;
-        phi[i * pri[j]] &#x3D; phi[i] * (pri[j] - 1);
-      &#125; else &#123;
-        &#x2F;&#x2F; i % pri[j] &#x3D;&#x3D; 0
-        &#x2F;&#x2F; 换言之，i 之前被 pri[j] 筛过了
-        &#x2F;&#x2F; 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
-        &#x2F;&#x2F; pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
-        &#x2F;&#x2F; 掉就好了
-        phi[i * pri[j]] &#x3D; phi[i] * pri[j];
-        break;
-      &#125;
-    &#125;
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>数论确实是想杀了我- -</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/1162e7f2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/1162e7f2.html" class="post-title-link" itemprop="url">蓝桥杯十一届JavaA组-C++解题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-20 20:05:45 / 修改时间：20:08:57" itemprop="dateCreated datePublished" datetime="2020-11-20T20:05:45+08:00">2020-11-20</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本人随便乱写，目前正确性未知</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/1162e7f2.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/d50e0ee8.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/d50e0ee8.html" class="post-title-link" itemprop="url">CTF学习记录-Misc-压缩包加密&取证技术</a>
-        </h2>
-
-        <div class="post-meta-container">
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-20 16:38:02 / 修改时间：20:06:39" itemprop="dateCreated datePublished" datetime="2020-11-20T16:38:02+08:00">2020-11-20</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>595</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="压缩包加密"><a href="#压缩包加密" class="headerlink" title="压缩包加密"></a>压缩包加密</h1><ol>
-<li><p>暴力破解</p>
-<p>eg. RAR Cracker（Windows）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/d50e0ee8.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/9ab7588f.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/9ab7588f.html" class="post-title-link" itemprop="url">CTF学习记录-Misc-图片隐写</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-20 16:14:05 / 修改时间：16:36:33" itemprop="dateCreated datePublished" datetime="2020-11-20T16:14:05+08:00">2020-11-20</time>
-    </span>
-
-  
       </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>674</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="直接附加"><a href="#直接附加" class="headerlink" title="直接附加"></a>直接附加</h1><h2 id="常用文件头-文件尾"><a href="#常用文件头-文件尾" class="headerlink" title="常用文件头/文件尾"></a>常用文件头/文件尾</h2><table>
-<thead>
-<tr>
-<th>文件名</th>
-<th>文件头</th>
-<th>文件尾</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>JPEG(jpg)</td>
-<td>FF D8 FF</td>
-<td>FF D9</td>
-</tr>
-<tr>
-<td>PNG(png)</td>
-<td>89 50 4E 47</td>
-<td>AE 42 60 82</td>
-</tr>
-<tr>
-<td>GIF(gif)</td>
-<td>47 49 46 38</td>
-<td>00 3B</td>
-</tr>
-<tr>
-<td>zip</td>
-<td>50 4B 03 04</td>
-<td>50 4B</td>
-</tr>
-<tr>
-<td>RAR</td>
-<td>52 61 72 21</td>
-<td></td>
-</tr>
-<tr>
-<td>WAV</td>
-<td>57 41 56 45</td>
-<td></td>
-</tr>
-<tr>
-<td>avi</td>
-<td>41 56 49 20</td>
-<td></td>
-</tr>
-<tr>
-<td>MPEG(mpg)</td>
-<td>00 00 01 BA/B3</td>
-<td></td>
-</tr>
-<tr>
-<td>mov</td>
-<td>6D 6F 6F 76</td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;对于图片Lighthouse.jpg
-&#x2F;&#x2F;为图片添加一个comment标签，内容为ExifModifyTesting
-exiftool -comment&#x3D;ExifModifyTesting .&#x2F;Lighthouse.jpg
-&#x2F;&#x2F;查看EXIF信息
-exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h1 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h1><p>LSB全称least significant bit，最低有效位</p>
-<p>PNG文件中的图像像数一般是由RGB三原色（红绿蓝）组成，每一种颜色占用8位，取值范围为0x00~0xFF，即有256种颜色，一共包含了256的3次方的颜色，即16777216 种颜色</p>
-<p>人类的眼睛可以区分约1000万种不同的颜色</p>
-<p>这意味着人类的眼睛无法区分余下的颜色大约有6777216种</p>
-<p>LSB隐写就是修改RGB颜色分量的最低二进制位（LSB），而人类的眼睛不会注意到这前后的变化</p>
-<p>每个像数可以携带3比特的信息</p>
-<h2 id="检测隐写常用工具-stegsolve-zsteg"><a href="#检测隐写常用工具-stegsolve-zsteg" class="headerlink" title="检测隐写常用工具 - stegsolve - zsteg"></a>检测隐写常用工具 - stegsolve - zsteg</h2><h1 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h1><h2 id="添加与提取"><a href="#添加与提取" class="headerlink" title="添加与提取"></a>添加与提取</h2><p><a target="_blank" rel="noopener" href="https://github.com/chishaxie/BlindWaterMark">BlindWaterMark</a> 频谱隐写可直接使用Adobe Audition</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/676fcf4a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/676fcf4a.html" class="post-title-link" itemprop="url">CodeForces-Round#684-Div.2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-18 11:52:18" itemprop="dateCreated datePublished" datetime="2020-11-18T11:52:18+08:00">2020-11-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-20 16:00:13" itemprop="dateModified" datetime="2020-11-20T16:00:13+08:00">2020-11-20</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>6.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="A-Buy-the-String"><a href="#A-Buy-the-String" class="headerlink" title="A. Buy the String"></a>A. Buy the String</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/676fcf4a.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.0error.xyz/2020/11/72bd2125.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="0ERROR">
-      <meta itemprop="description" content="Algorithm|ACM|CTF">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SmallDolphin">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/72bd2125.html" class="post-title-link" itemprop="url">十六届蓝桥杯-JavaA组T.H奇偶覆盖</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-17 18:01:26 / 修改时间：18:03:35" itemprop="dateCreated datePublished" datetime="2020-11-17T18:01:26+08:00">2020-11-17</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>线段树初步版本，未完善</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/72bd2125.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">0ERROR</span>
-</div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">50k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">45 分钟</span>
-  </span>
-</div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+    </article>
   </div>
 
-    </div>
-  </footer>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/e1e96252.html">ACM-CodeForces-#685(Div.2)</a>
+      </h1>
 
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+      <p class="index-excerpt">
+        <a href="/2020/11/e1e96252.html">
+          
+          
+            
+          
+          好久没见过CF有这么水的contest了，蒟蒻赶紧找找自信
+        </a>
+      </p>
 
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-22 10:46" pubdate>
+              2020-11-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/CF/">CF</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/fb844361.html">ACM-学习记录-数论</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/fb844361.html">
+          
+          
+            
+          
+          GCD，LCM定理a、b两个数的最大公约数乘以它们最小公倍数等于a和b的乘积
+axb=GCD(a,b)xLCM(a,b)
+据此定理，求3与8的最小公倍数可以为：LCM(3,8)=3x8divGCD(3,8)=24
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-21 16:04" pubdate>
+              2020-11-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/91338f8a.html">ACM-学习记录-素数筛</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/91338f8a.html">
+          
+          
+            
+          
+          前言近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候一道题都做不出来菜到巨佬们。
+代码查找2-N的所有素数，如下
+&#x2F;&#x2F;线性筛
+void init() &#123;
+  phi[1] &#x3D; 1;
+  for (int i &#x3D; 2; i &lt; M
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-20 20:09" pubdate>
+              2020-11-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/1162e7f2.html">蓝桥杯十一届JavaA组-C++解题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/1162e7f2.html">
+          
+          
+            
+          
+          本人随便乱写，目前正确性未知
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-20 20:05" pubdate>
+              2020-11-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">蓝桥杯</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/d50e0ee8.html">CTF学习记录-Misc-压缩包加密&amp;取证技术</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/d50e0ee8.html">
+          
+          
+            
+          
+          压缩包加密
+暴力破解
+eg. RAR Cracker（Windows）
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-20 16:38" pubdate>
+              2020-11-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/9ab7588f.html">CTF学习记录-Misc-图片隐写</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/9ab7588f.html">
+          
+          
+            
+          
+          直接附加常用文件头/文件尾
+
+
+文件名
+文件头
+文件尾
+
+
+
+JPEG(jpg)
+FF D8 FF
+FF D9
+
+
+PNG(png)
+89 50 4E 47
+AE 42 60 82
+
+
+GIF(gif)
+47 49 46 38
+00 3B
+
+
+zip
+50 4B 03 04
+50 4B
+
+
+RAR
+52 61 72 21
+
+
+
+WAV
+57 41 56 45
+
+
+
+avi
+41 56 49 20
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-20 16:14" pubdate>
+              2020-11-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CTF/">CTF</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/676fcf4a.html">CodeForces-Round#684-Div.2</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/676fcf4a.html">
+          
+          
+            
+          
+          A. Buy the String
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-18 11:52" pubdate>
+              2020-11-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+              <a href="/tags/CF/">CF</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/72bd2125.html">十六届蓝桥杯-JavaA组T.H奇偶覆盖</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/72bd2125.html">
+          
+          
+            
+          
+          线段树初步版本，未完善
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-17 18:01" pubdate>
+              2020-11-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ACM/">ACM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
   
   <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://www.0error.xyz" target="_blank" rel="nofollow noopener"><span>0ERROR&SmallDolphin</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
   </script>
 
 
 
 
-  <script src="/js/local-search.js"></script>
 
 
 
@@ -1409,27 +808,10 @@ exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 
-
-  
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

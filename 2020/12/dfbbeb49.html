@@ -337,7 +337,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>561</span>
+      <span>620</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -400,17 +400,31 @@
 </tr>
 </tbody></table>
 <h2 id="ADD指令"><a href="#ADD指令" class="headerlink" title="ADD指令"></a>ADD指令</h2><p>指令格式</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">8</span>, imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,imm<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,imm<span class="hljs-number">32</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">8</span>,r<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,r<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,r<span class="hljs-number">32</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">8</span>,r/m<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">16</span>,r/m<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">32</span>,r/m<span class="hljs-number">32</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ADD r&#x2F;m8, imm8
+ADD r&#x2F;m16,imm16
+ADD r&#x2F;m32,imm32
+ADD r&#x2F;m16,imm8
+ADD r&#x2F;m32,imm8
+ADD r&#x2F;m8,r8
+ADD r&#x2F;m16,r16
+ADD r&#x2F;m32,r32
+ADD r8,r&#x2F;m8
+ADD r16,r&#x2F;m16
+ADD r32,r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="SUB指令-减法"><a href="#SUB指令-减法" class="headerlink" title="SUB指令(减法)"></a>SUB指令(减法)</h2><p>指令格式:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-keyword">SUB</span> r/<span class="hljs-name">m8</span>, im<span class="hljs-name">m8</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">SUB r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">AND</span> r/m<span class="hljs-number">8</span>, imm<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><pre class="line-numbers language-none"><code class="language-none">AND r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="OR指令"><a href="#OR指令" class="headerlink" title="OR指令"></a>OR指令</h2><p>逻辑或运算，对两个值进行或运算</p>
-<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">8</span><br><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">16</span><br><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">32</span><br></code></pre></td></tr></table></figure>
+<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><pre class="line-numbers language-none"><code class="language-none">NOT r&#x2F;m8
+NOT r&#x2F;m16
+NOT r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">MOVS <span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br>MOVS <span class="hljs-built_in">WORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br>MOVS <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br></code></pre></td></tr></table></figure>
+<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS WORD PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS DWORD PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
     </div>
@@ -510,13 +524,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

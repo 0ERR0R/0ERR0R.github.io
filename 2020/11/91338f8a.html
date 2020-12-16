@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"www.0error.xyz","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":-1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="前言近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候一道题都做不出来菜到巨佬们。 代码查找2-N的所有素数，如下 12345678910111213141516171819202122232425&#x2F;&#x2F;线性筛void init() &amp;#123;  phi[1] &#x3D; 1;  for (i">
+  <meta name="description" content="前言近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候一道题都做不出来菜到巨佬们。 代码查找2-N的所有素数，如下 &#x2F;&#x2F;线性筛 void init() &amp;#123;   phi[1] &#x3D; 1;   for (int i &#x3D; 2; i &lt; M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ACM-学习记录-素数筛">
 <meta property="og:url" content="http://www.0error.xyz/2020/11/91338f8a.html">
 <meta property="og:site_name" content="SmallDolphin">
-<meta property="og:description" content="前言近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候一道题都做不出来菜到巨佬们。 代码查找2-N的所有素数，如下 12345678910111213141516171819202122232425&#x2F;&#x2F;线性筛void init() &amp;#123;  phi[1] &#x3D; 1;  for (i">
+<meta property="og:description" content="前言近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候一道题都做不出来菜到巨佬们。 代码查找2-N的所有素数，如下 &#x2F;&#x2F;线性筛 void init() &amp;#123;   phi[1] &#x3D; 1;   for (int i &#x3D; 2; i &lt; M">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-20T12:09:57.000Z">
 <meta property="article:modified_time" content="2020-11-21T13:09:02.629Z">
@@ -341,7 +341,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>585</span>
+      <span>659</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -361,7 +361,31 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//线性筛</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>  phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; MAXN; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) &#123;<br>      phi[i] = i - <span class="hljs-number">1</span>;<br>      pri[cnt++] = i;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; cnt; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-number">1l</span>l * i * pri[j] &gt;= MAXN) <span class="hljs-keyword">break</span>;<br>      vis[i * pri[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % pri[j]) &#123;<br>        phi[i * pri[j]] = phi[i] * (pri[j] - <span class="hljs-number">1</span>);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// i % pri[j] == 0</span><br>        <span class="hljs-comment">// 换言之，i 之前被 pri[j] 筛过了</span><br>        <span class="hljs-comment">// 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是</span><br>        <span class="hljs-comment">// pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break</span><br>        <span class="hljs-comment">// 掉就好了</span><br>        phi[i * pri[j]] = phi[i] * pri[j];<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;线性筛
+void init() &#123;
+  phi[1] &#x3D; 1;
+  for (int i &#x3D; 2; i &lt; MAXN; ++i) &#123;
+    if (!vis[i]) &#123;
+      phi[i] &#x3D; i - 1;
+      pri[cnt++] &#x3D; i;
+    &#125;
+    for (int j &#x3D; 0; j &lt; cnt; ++j) &#123;
+      if (1ll * i * pri[j] &gt;&#x3D; MAXN) break;
+      vis[i * pri[j]] &#x3D; 1;
+      if (i % pri[j]) &#123;
+        phi[i * pri[j]] &#x3D; phi[i] * (pri[j] - 1);
+      &#125; else &#123;
+        &#x2F;&#x2F; i % pri[j] &#x3D;&#x3D; 0
+        &#x2F;&#x2F; 换言之，i 之前被 pri[j] 筛过了
+        &#x2F;&#x2F; 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
+        &#x2F;&#x2F; pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
+        &#x2F;&#x2F; 掉就好了
+        phi[i * pri[j]] &#x3D; phi[i] * pri[j];
+        break;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -465,13 +489,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

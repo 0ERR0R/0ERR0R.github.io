@@ -324,7 +324,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>561</span>
+      <span>620</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -387,17 +387,31 @@
 </tr>
 </tbody></table>
 <h2 id="ADD指令"><a href="#ADD指令" class="headerlink" title="ADD指令"></a>ADD指令</h2><p>指令格式</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">8</span>, imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,imm<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,imm<span class="hljs-number">32</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,imm<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">8</span>,r<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">16</span>,r<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r/m<span class="hljs-number">32</span>,r<span class="hljs-number">32</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">8</span>,r/m<span class="hljs-number">8</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">16</span>,r/m<span class="hljs-number">16</span><br><span class="hljs-attribute">ADD</span> r<span class="hljs-number">32</span>,r/m<span class="hljs-number">32</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ADD r&#x2F;m8, imm8
+ADD r&#x2F;m16,imm16
+ADD r&#x2F;m32,imm32
+ADD r&#x2F;m16,imm8
+ADD r&#x2F;m32,imm8
+ADD r&#x2F;m8,r8
+ADD r&#x2F;m16,r16
+ADD r&#x2F;m32,r32
+ADD r8,r&#x2F;m8
+ADD r16,r&#x2F;m16
+ADD r32,r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="SUB指令-减法"><a href="#SUB指令-减法" class="headerlink" title="SUB指令(减法)"></a>SUB指令(减法)</h2><p>指令格式:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-keyword">SUB</span> r/<span class="hljs-name">m8</span>, im<span class="hljs-name">m8</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">SUB r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">AND</span> r/m<span class="hljs-number">8</span>, imm<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<h2 id="AND指令"><a href="#AND指令" class="headerlink" title="AND指令"></a>AND指令</h2><pre class="line-numbers language-none"><code class="language-none">AND r&#x2F;m8, imm8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="OR指令"><a href="#OR指令" class="headerlink" title="OR指令"></a>OR指令</h2><p>逻辑或运算，对两个值进行或运算</p>
-<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">8</span><br><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">16</span><br><span class="hljs-attribute">NOT</span> r/m<span class="hljs-number">32</span><br></code></pre></td></tr></table></figure>
+<h2 id="XOR指令-异或运算"><a href="#XOR指令-异或运算" class="headerlink" title="XOR指令(异或运算)"></a>XOR指令(异或运算)</h2><h2 id="NOT指令"><a href="#NOT指令" class="headerlink" title="NOT指令"></a>NOT指令</h2><pre class="line-numbers language-none"><code class="language-none">NOT r&#x2F;m8
+NOT r&#x2F;m16
+NOT r&#x2F;m32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">MOVS <span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br>MOVS <span class="hljs-built_in">WORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br>MOVS <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br></code></pre></td></tr></table></figure>
+<h2 id="MOVS指令：移动数据-内存-gt-内存"><a href="#MOVS指令：移动数据-内存-gt-内存" class="headerlink" title="MOVS指令：移动数据 内存-&gt;内存"></a>MOVS指令：移动数据 内存-&gt;内存</h2><pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS WORD PTR ES:[EDI],BYTE PTR DS:[ESI]
+MOVS DWORD PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
       
@@ -550,11 +564,12 @@
 <li><p>寄存器到内存</p>
 </li>
 <li><p>内存到寄存器</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-number">1</span>//把<span class="hljs-number">1</span>存储到<span class="hljs-built_in">EAX</span>寄存器<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">EAX</span>//把<span class="hljs-built_in">EAX</span>里面的值存到<span class="hljs-built_in">EDX</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,1&#x2F;&#x2F;把1存储到EAX寄存器
+MOV EDX,EAX&#x2F;&#x2F;把EAX里面的值存到EDX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
-<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">mov</span> <span class="hljs-built_in">byte</span> <span class="hljs-built_in">ptr</span> <span class="hljs-built_in">ds</span>[存储地址]<br></code></pre></td></tr></table></figure>
+<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><pre class="line-numbers language-none"><code class="language-none">mov byte ptr ds[存储地址]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>已经申请过的地址，在堆栈窗口内找，可以直接使用</p>
 <blockquote>
@@ -562,44 +577,58 @@
 <p>两个字节-WORD</p>
 <p>四个字节-DWORD</p>
 </blockquote>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[],<span class="hljs-built_in">EAX</span>//前提需要保证宽度相同<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[],EAX&#x2F;&#x2F;前提需要保证宽度相同<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="内存地址的5种形式"><a href="#内存地址的5种形式" class="headerlink" title="内存地址的5种形式"></a>内存地址的5种形式</h2><ol>
 <li><p>[立即数]</p>
 <p>读取内存的值:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,DWORD PTR DS:[0x13FFC4]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>向内存写入数据</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>],<span class="hljs-built_in">EAX</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV DWORD PTR DS:[0x13FFC4],EAX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>[reg]  <strong><em>reg代表寄存器 可以是8个通用寄存器中的一个</em></strong></p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
+MOV EAX,DWORD PTR DS:[ECX]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>],<span class="hljs-number">0x87654321</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
+MOV DWORD PTR DS:[EDX],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>[reg+立即数]</p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>+<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV ECX,0x13FFD0
+MOV EAX,DWORD PTR DS:[ECX+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>+<span class="hljs-number">0xC</span>],<span class="hljs-number">0x87654321</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EDX,0x13FFD8
+MOV DWORD PTR DS:[EDX+0xC],0x87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>[reg+reg*{1,2,4,8}] (数组的汇编形式)</p>
 <p>代表八个32位的寄存器加上八个32位寄存器乘以1，2，4，8</p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV EDX,DWORD PTR DS:[EAX+ECX*4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>向内存中写入数据:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">EAX</span>*<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV DWORD PTR DS:[EAX+EAX*4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>[reg+reg*{1,2,4,8}+立即数]</p>
 <p>读取内存的值:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+
+MOV ECX,2
+
+MOV EDX,DWORD PTR DS:[EAX+ECX*4+4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOV EAX,13FFC4
+MOV ECX,2
+MOV DWORD PTR DS:[EAX+ECX*4+4],87654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -608,7 +637,7 @@
 <h1 id="数据的存储模式"><a href="#数据的存储模式" class="headerlink" title="数据的存储模式"></a>数据的存储模式</h1><p>大端模式：数据高位在低位，数据低位在高位</p>
 <p>小端模式：数据低位在低位，数据高位在高位</p>
 <h1 id="MOVS指令"><a href="#MOVS指令" class="headerlink" title="MOVS指令"></a>MOVS指令</h1><p>BYTE/WORD/DWORD分别简写为MOVSB MOVSW MOVSD</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">MOVS <span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>DF位置：每次MOVS指令之后地址减少相应变更（加减具体看DF的值）字节的地址</p>
 <p>DF的值表示方向位：0为+，1为-</p>
@@ -622,10 +651,10 @@
 <p>ESP 栈指针寄存器</p>
 <h2 id="堆栈的使用"><a href="#堆栈的使用" class="headerlink" title="堆栈的使用"></a>堆栈的使用</h2><p>堆栈使用之后要改变ESP指向的位置，防止被覆盖</p>
 <p>例如：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">SUB</span> <span class="hljs-built_in">ESP</span>,<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">SUB ESP,8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用之后取消：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">ADD</span><span class="bash"> ESP,8</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ADD ESP,8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>C语言当中局部变量为何赋初始值的原因也就昭然若揭了，因为在内存中ESP寄存器只是指向了未被使用的堆栈，堆栈里面的内容会被覆盖，但是不会被清空，因此创建变量以后他的初始值是未知的，因此创建局部变量需要赋初值</p>
 <h2 id="PUSH-amp-POP指令"><a href="#PUSH-amp-POP指令" class="headerlink" title="PUSH&amp;POP指令"></a>PUSH&amp;POP指令</h2><p>功能：</p>
@@ -633,7 +662,9 @@
 <li>将数压入栈顶</li>
 <li>栈顶指针+1</li>
 </ol>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">PUSH</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[18FFA4]<br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">EAX</span><br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">ECX</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">PUSH DWORD PTR DS:[18FFA4]
+POP EAX
+POP ECX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="修改EIP的指令"><a href="#修改EIP的指令" class="headerlink" title="修改EIP的指令"></a>修改EIP的指令</h1><h2 id="KMP指令"><a href="#KMP指令" class="headerlink" title="KMP指令"></a>KMP指令</h2><p>MOV EIP简写为JMP</p>
 <h2 id="CALL指令"><a href="#CALL指令" class="headerlink" title="CALL指令"></a>CALL指令</h2>
@@ -854,7 +885,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -872,7 +903,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="A-小林找工作"><a href="#A-小林找工作" class="headerlink" title="A.小林找工作"></a>A.小林找工作</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN=<span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> p[MAXN];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> n,m;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>	&#123;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;p[i]);<br>	&#125;<br>	sort(p+<span class="hljs-number">1</span>,p+n+<span class="hljs-number">1</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)<br>	&#123;<br>		<span class="hljs-keyword">int</span> temp;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;temp);<br>		<span class="hljs-keyword">int</span> pos=lower_bound(p+<span class="hljs-number">1</span>,p+n+<span class="hljs-number">1</span>,temp)-p;<br>		<span class="hljs-keyword">if</span>(pos&gt;n)	pos=n;<br>		<span class="hljs-keyword">int</span> ans=<span class="hljs-built_in">abs</span>(temp-p[pos]);<br>		<span class="hljs-keyword">if</span>(pos!=<span class="hljs-number">1</span>)	ans=min(ans, <span class="hljs-built_in">abs</span>(temp-p[pos<span class="hljs-number">-1</span>]));<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, ans);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h1 id="A-小林找工作"><a href="#A-小林找工作" class="headerlink" title="A.小林找工作"></a>A.小林找工作</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN<span class="token operator">=</span><span class="token number">1e5</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> p<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
+	cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">sort</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
+		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> pos<span class="token operator">=</span><span class="token function">lower_bound</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token operator">-</span>p<span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token operator">></span>n<span class="token punctuation">)</span>	pos<span class="token operator">=</span>n<span class="token punctuation">;</span>
+		<span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token function">abs</span><span class="token punctuation">(</span>temp<span class="token operator">-</span>p<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span>	ans<span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> <span class="token function">abs</span><span class="token punctuation">(</span>temp<span class="token operator">-</span>p<span class="token punctuation">[</span>pos<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/8a3e9951.html#more" rel="contents">
@@ -943,14 +1001,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.4k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -961,7 +1019,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="A-三角形面积"><a href="#A-三角形面积" class="headerlink" title="A. 三角形面积"></a>A. 三角形面积</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">double</span> a,b,c;<br>    <span class="hljs-keyword">double</span> ans,p,tmp;<br>    <span class="hljs-built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c;<br>    p=(a+b+c)*<span class="hljs-number">0.5</span>;<br>    tmp=p*(p-a)*(p-b)*(p-c);<br>    ans=<span class="hljs-built_in">sqrt</span>(tmp);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.1lf&quot;</span>, ans);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h1 id="A-三角形面积"><a href="#A-三角形面积" class="headerlink" title="A. 三角形面积"></a>A. 三角形面积</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">double</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> ans<span class="token punctuation">,</span>p<span class="token punctuation">,</span>tmp<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>a<span class="token operator">>></span>b<span class="token operator">>></span>c<span class="token punctuation">;</span>
+    p<span class="token operator">=</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token operator">+</span>c<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.5</span><span class="token punctuation">;</span>
+    tmp<span class="token operator">=</span>p<span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ans<span class="token operator">=</span><span class="token function">sqrt</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.1lf"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/ba287589.html#more" rel="contents">
@@ -1032,7 +1104,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1143,12 +1215,20 @@
           <p>同样一个问题，位运算可以提高程序的运行效率。</p>
 <p>下面讲一下关于奇偶性的判断。</p>
 <p>常规方法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> boolean <span class="hljs-title">isOdd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>&#123;<br><br>​    <span class="hljs-keyword">return</span> i % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+
+​    return i % 2 !&#x3D; 0;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>位运算方法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> boolean <span class="hljs-title">isOdd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>&#123;<br><br>​    <span class="hljs-keyword">return</span> (i &amp; <span class="hljs-number">1</span>) != <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">public static boolean isOdd(int i)&#123;
+
+​    return (i &amp; 1) !&#x3D; 0;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1225,7 +1305,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1243,7 +1323,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="P2031凯撒密码"><a href="#P2031凯撒密码" class="headerlink" title="P2031凯撒密码"></a>P2031凯撒密码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">string</span> s;<br>	<span class="hljs-keyword">int</span> d;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span>&gt;&gt;s)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;d;<br>		<span class="hljs-keyword">int</span> len=s.length();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;len;i++)<br>		&#123;<br>			s[i]=s[i]-<span class="hljs-string">&#x27;a&#x27;</span>-d;<br>			<span class="hljs-keyword">if</span>(s[i]&lt;<span class="hljs-number">0</span>)	s[i]=<span class="hljs-number">26</span>+s[i];<br>			s[i]=s[i]%<span class="hljs-number">26</span>+<span class="hljs-string">&#x27;a&#x27;</span>;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>, s[i]);<br>		&#125;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h1 id="P2031凯撒密码"><a href="#P2031凯撒密码" class="headerlink" title="P2031凯撒密码"></a>P2031凯撒密码</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	string s;
+	int d;
+	while(cin&gt;&gt;s)
+	&#123;
+		cin&gt;&gt;d;
+		int len&#x3D;s.length();
+		for(int i&#x3D;0;i&lt;len;i++)
+		&#123;
+			s[i]&#x3D;s[i]-&#39;a&#39;-d;
+			if(s[i]&lt;0)	s[i]&#x3D;26+s[i];
+			s[i]&#x3D;s[i]%26+&#39;a&#39;;
+			printf(&quot;%c&quot;, s[i]);
+		&#125;
+		cout&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/77f448c2.html#more" rel="contents">
@@ -1314,7 +1415,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1503,13 +1604,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -357,11 +357,55 @@
         <p>好久没见过CF有这么水的contest了，蒟蒻赶紧<del>找找自信</del></p>
 <a id="more"></a>
 
-<h1 id="A-Subtract-or-Divide"><a href="#A-Subtract-or-Divide" class="headerlink" title="A. Subtract or Divide"></a>A. Subtract or Divide</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> T,n;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>		<span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">3</span>)	n--;<br>		<span class="hljs-keyword">else</span>	n=<span class="hljs-number">2</span>+(n&amp;<span class="hljs-number">1</span>);<br>		<span class="hljs-built_in">cout</span>&lt;&lt;n&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="A-Subtract-or-Divide"><a href="#A-Subtract-or-Divide" class="headerlink" title="A. Subtract or Divide"></a>A. Subtract or Divide</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+ 
+using namespace std;
+ 
+int main()&#123;
+	int T,n;
+	cin&gt;&gt;T;
+	while(T--)
+	&#123;
+		cin&gt;&gt;n;
+		if(n&lt;&#x3D;3)	n--;
+		else	n&#x3D;2+(n&amp;1);
+		cout&lt;&lt;n&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h1 id="B-Non-Substring-Subsequence"><a href="#B-Non-Substring-Subsequence" class="headerlink" title="B. Non-Substring Subsequence"></a>B. Non-Substring Subsequence</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)<br>	&#123;<br>		<span class="hljs-keyword">int</span> n,q;<br>		<span class="hljs-built_in">string</span> s;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;q&gt;&gt;s;<br>		<span class="hljs-keyword">while</span>(q--)<br>		&#123;<br>			<span class="hljs-keyword">int</span> l,r;<br>			<span class="hljs-keyword">bool</span> good=<span class="hljs-literal">false</span>;<br>			<span class="hljs-built_in">cin</span>&gt;&gt;l&gt;&gt;r;<br>			l--;<br>			r--;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;l &amp;&amp; good==<span class="hljs-literal">false</span>; i++)<br>				<span class="hljs-keyword">if</span>(s[i]==s[l])	good=<span class="hljs-literal">true</span>;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=r+<span class="hljs-number">1</span>;i&lt;n &amp;&amp; good==<span class="hljs-literal">false</span>;i++)<br>				<span class="hljs-keyword">if</span>(s[i]==s[r])	good=<span class="hljs-literal">true</span>;<br>			<span class="hljs-keyword">if</span>(good==<span class="hljs-literal">true</span>)	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;YES&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>			<span class="hljs-keyword">else</span>	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;NO&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="B-Non-Substring-Subsequence"><a href="#B-Non-Substring-Subsequence" class="headerlink" title="B. Non-Substring Subsequence"></a>B. Non-Substring Subsequence</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+ 
+using namespace std;
+ 
+int main()&#123;
+	int T;
+	cin&gt;&gt;T;
+	while(T--)
+	&#123;
+		int n,q;
+		string s;
+		cin&gt;&gt;n&gt;&gt;q&gt;&gt;s;
+		while(q--)
+		&#123;
+			int l,r;
+			bool good&#x3D;false;
+			cin&gt;&gt;l&gt;&gt;r;
+			l--;
+			r--;
+			for(int i&#x3D;0;i&lt;l &amp;&amp; good&#x3D;&#x3D;false; i++)
+				if(s[i]&#x3D;&#x3D;s[l])	good&#x3D;true;
+			for(int i&#x3D;r+1;i&lt;n &amp;&amp; good&#x3D;&#x3D;false;i++)
+				if(s[i]&#x3D;&#x3D;s[r])	good&#x3D;true;
+			if(good&#x3D;&#x3D;true)	cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
+			else	cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="C-String-Equality"><a href="#C-String-Equality" class="headerlink" title="C. String Equality"></a>C. String Equality</h1><p>这里有必要记录两个很有意思的小知识点，都是C11标准里面新增的，array数组和auto类型变量，auto类型可以根据你赋值的数据自动分配数据类型，用起来十分方便</p>
 <blockquote>
@@ -369,10 +413,66 @@
 <p>模板实例的元素被内部存储在标准数组中。和标准数组相比，array 容器的额外幵销很小，但提供了两个优点：如果使用 at()，当用一个非法的索引访问数组元素时，能够被检测到，因为容器知道它有多少个元素，这也就意味着数组容器可以作为参数传给函数，而不再需要单独去指定数组元素的个数。</p>
 <p>使用 array 容器类型时，需要在源文件中包含头文件 array。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;array&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)<br>	&#123;<br>		<span class="hljs-keyword">int</span> n,k;<br>		<span class="hljs-built_in">string</span> s1,s2;<br>		<span class="hljs-built_in">array</span>&lt;<span class="hljs-keyword">int</span>, 27&gt; have&#123;&#125;, need&#123;&#125;;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;k&gt;&gt;s1&gt;&gt;s2;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span>&amp; c: s1)<br>			have[c-<span class="hljs-string">&#x27;a&#x27;</span>]++;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span>&amp; c: s2)<br>			need[c-<span class="hljs-string">&#x27;a&#x27;</span>]++;<br>		<span class="hljs-keyword">bool</span> good = <span class="hljs-literal">true</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">26</span>;i++)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(have[i]&lt;need[i] || (have[i] -= need[i]) % k)<br>				good=<span class="hljs-literal">false</span>;<br>			have[i+<span class="hljs-number">1</span>]+=have[i];<br>		&#125;<br>		<span class="hljs-keyword">if</span>(good)	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;Yes&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>		<span class="hljs-keyword">else</span>	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;No&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#include&lt;array&gt;
+ 
+using namespace std;
+ 
+int main()&#123;
+	int T;
+	cin&gt;&gt;T;
+	while(T--)
+	&#123;
+		int n,k;
+		string s1,s2;
+		array&lt;int, 27&gt; have&#123;&#125;, need&#123;&#125;;
+		cin&gt;&gt;n&gt;&gt;k&gt;&gt;s1&gt;&gt;s2;
+		for(auto&amp; c: s1)
+			have[c-&#39;a&#39;]++;
+		for(auto&amp; c: s2)
+			need[c-&#39;a&#39;]++;
+		bool good &#x3D; true;
+		for(int i&#x3D;0;i&lt;26;i++)
+		&#123;
+			if(have[i]&lt;need[i] || (have[i] -&#x3D; need[i]) % k)
+				good&#x3D;false;
+			have[i+1]+&#x3D;have[i];
+		&#125;
+		if(good)	cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;
+		else	cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="D-Circle-Game"><a href="#D-Circle-Game" class="headerlink" title="D.Circle Game"></a>D.Circle Game</h1><p>逻辑题</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> T;<br>    <span class="hljs-built_in">cin</span> &gt;&gt; T;<br>    <span class="hljs-keyword">while</span>(T--) &#123;<br>        <span class="hljs-keyword">int</span> n, k;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; k;<br>        <span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>, y = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(;;) <br>		&#123;<br>            <span class="hljs-keyword">if</span>(x &lt;= y &amp;&amp; <span class="hljs-built_in">pow</span>(x+k, <span class="hljs-number">2</span>) + <span class="hljs-built_in">pow</span>(y, <span class="hljs-number">2</span>) &lt;= <span class="hljs-built_in">pow</span>(n, <span class="hljs-number">2</span>))<br>                x += k;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x &gt; y &amp;&amp; <span class="hljs-built_in">pow</span>(y+k, <span class="hljs-number">2</span>) + <span class="hljs-built_in">pow</span>(x, <span class="hljs-number">2</span>) &lt;= <span class="hljs-built_in">pow</span>(n,<span class="hljs-number">2</span>))<br>                y += k;<br>            <span class="hljs-keyword">else</span>	<span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(x == y)<br>            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Utkarsh&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Ashish&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+ 
+int main() 
+&#123;
+    int T;
+    cin &gt;&gt; T;
+    while(T--) &#123;
+        int n, k;
+        cin &gt;&gt; n &gt;&gt; k;
+        int x &#x3D; 0, y &#x3D; 0;
+        for(;;) 
+		&#123;
+            if(x &lt;&#x3D; y &amp;&amp; pow(x+k, 2) + pow(y, 2) &lt;&#x3D; pow(n, 2))
+                x +&#x3D; k;
+            else if(x &gt; y &amp;&amp; pow(y+k, 2) + pow(x, 2) &lt;&#x3D; pow(n,2))
+                y +&#x3D; k;
+            else	break;
+        &#125;
+        if(x &#x3D;&#x3D; y)
+            cout &lt;&lt; &quot;Utkarsh&quot; &lt;&lt; endl;
+        else
+            cout &lt;&lt; &quot;Ashish&quot; &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
     </div>
@@ -474,13 +574,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -335,7 +335,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>606</span>
+      <span>574</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -356,7 +356,39 @@
         <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>队列的原理基本与站队一样，队首出，队尾入，变化以后也是大同小异，写起来主要就是注意struct的相关知识，以及伪指针（分别指向队首和队尾+1），队尾序号要+1以防首位变量数字重合造成不必要的麻烦（目前也不是很清楚会遇到什么）</p>
 <a id="more"></a>
 
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">int</span> data[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">int</span> head;<br>	<span class="hljs-keyword">int</span> tail;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span> <span class="hljs-title">q</span>;</span><br>	<span class="hljs-keyword">int</span> i;<br>	q.head=<span class="hljs-number">1</span>;<br>	q.tail=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">9</span>;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;q.data[q.tail];<br>		q.tail++;<br>	&#125;<br>	<br>	<span class="hljs-keyword">while</span>(q.head&lt;q.tail)<br>	&#123;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;q.data[q.head];<br>		q.head++;<br>		q.data[q.tail]=q.data[q.head];<br>		q.tail++;<br>		q.head++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
+
+using namespace std;
+
+struct queue
+&#123;
+	int data[100];
+	int head;
+	int tail;
+&#125;;
+
+int main()&#123;
+	struct queue q;
+	int i;
+	q.head&#x3D;1;
+	q.tail&#x3D;1;
+	for(i&#x3D;1; i&lt;&#x3D;9;i++)
+	&#123;
+		cin&gt;&gt;q.data[q.tail];
+		q.tail++;
+	&#125;
+	
+	while(q.head&lt;q.tail)
+	&#123;
+		cout&lt;&lt;q.data[q.head];
+		q.head++;
+		q.data[q.tail]&#x3D;q.data[q.head];
+		q.tail++;
+		q.head++;
+	&#125;
+	return 0;
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写的过程中主要一开始用万能头和STL里面的queue冲突报错了。。（想了好久），其他没什么，队列作为广搜和Bellman-Ford的最短路核心算法还是很有必要理解并记忆的</p>
 
@@ -458,13 +490,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

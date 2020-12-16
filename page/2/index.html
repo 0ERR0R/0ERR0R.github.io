@@ -324,7 +324,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
+      <span>3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -432,7 +432,28 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="AOJ-ALDS1-1-D-Maximum-Profit"><a href="#AOJ-ALDS1-1-D-Maximum-Profit" class="headerlink" title="AOJ-ALDS1_1_D Maximum Profit"></a>AOJ-ALDS1_1_D Maximum Profit</h1><p>本题主要考虑要将复杂度降到O(n)，否则过不了最后五组数据</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n,maxv=<span class="hljs-number">-1e10</span>;<br>	<span class="hljs-keyword">int</span> stock[<span class="hljs-number">200000</span> + <span class="hljs-number">5</span>];<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;stock[i];<br>	&#125;<br>	<span class="hljs-keyword">int</span> minv=stock[<span class="hljs-number">0</span>];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;n;j++)<br>	&#123;<br>		maxv=max(maxv, stock[j]-minv);<br>		minv=min(minv, stock[j]);<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;maxv&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int main()&#123;
+	int n,maxv&#x3D;-1e10;
+	int stock[200000 + 5];
+	cin&gt;&gt;n;
+	for(int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cin&gt;&gt;stock[i];
+	&#125;
+	int minv&#x3D;stock[0];
+	for(int j&#x3D;1;j&lt;n;j++)
+	&#123;
+		maxv&#x3D;max(maxv, stock[j]-minv);
+		minv&#x3D;min(minv, stock[j]);
+	&#125;
+	cout&lt;&lt;maxv&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/ec23b92c.html#more" rel="contents">
@@ -689,7 +710,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>585</span>
+      <span>659</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -709,7 +730,31 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//线性筛</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>  phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; MAXN; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) &#123;<br>      phi[i] = i - <span class="hljs-number">1</span>;<br>      pri[cnt++] = i;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; cnt; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-number">1l</span>l * i * pri[j] &gt;= MAXN) <span class="hljs-keyword">break</span>;<br>      vis[i * pri[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % pri[j]) &#123;<br>        phi[i * pri[j]] = phi[i] * (pri[j] - <span class="hljs-number">1</span>);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// i % pri[j] == 0</span><br>        <span class="hljs-comment">// 换言之，i 之前被 pri[j] 筛过了</span><br>        <span class="hljs-comment">// 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是</span><br>        <span class="hljs-comment">// pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break</span><br>        <span class="hljs-comment">// 掉就好了</span><br>        phi[i * pri[j]] = phi[i] * pri[j];<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;线性筛
+void init() &#123;
+  phi[1] &#x3D; 1;
+  for (int i &#x3D; 2; i &lt; MAXN; ++i) &#123;
+    if (!vis[i]) &#123;
+      phi[i] &#x3D; i - 1;
+      pri[cnt++] &#x3D; i;
+    &#125;
+    for (int j &#x3D; 0; j &lt; cnt; ++j) &#123;
+      if (1ll * i * pri[j] &gt;&#x3D; MAXN) break;
+      vis[i * pri[j]] &#x3D; 1;
+      if (i % pri[j]) &#123;
+        phi[i * pri[j]] &#x3D; phi[i] * (pri[j] - 1);
+      &#125; else &#123;
+        &#x2F;&#x2F; i % pri[j] &#x3D;&#x3D; 0
+        &#x2F;&#x2F; 换言之，i 之前被 pri[j] 筛过了
+        &#x2F;&#x2F; 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
+        &#x2F;&#x2F; pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
+        &#x2F;&#x2F; 掉就好了
+        phi[i * pri[j]] &#x3D; phi[i] * pri[j];
+        break;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -866,7 +911,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>596</span>
+      <span>595</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -957,7 +1002,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>634</span>
+      <span>674</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1029,7 +1074,11 @@
 <td></td>
 </tr>
 </tbody></table>
-<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">//对于图片Lighthouse.jpg</span><br><span class="hljs-comment">//为图片添加一个comment标签，内容为ExifModifyTesting</span><br>exiftool -comment=ExifModifyTesting ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br><span class="hljs-comment">//查看EXIF信息</span><br>exiftool ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br></code></pre></td></tr></table></figure>
+<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;对于图片Lighthouse.jpg
+&#x2F;&#x2F;为图片添加一个comment标签，内容为ExifModifyTesting
+exiftool -comment&#x3D;ExifModifyTesting .&#x2F;Lighthouse.jpg
+&#x2F;&#x2F;查看EXIF信息
+exiftool .&#x2F;Lighthouse.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1109,7 +1158,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.5k</span>
+      <span>6.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1198,7 +1247,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1297,13 +1346,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

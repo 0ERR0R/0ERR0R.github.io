@@ -360,7 +360,12 @@
 <a id="more"></a>
 
 <h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>构造关系：GCD(a,b)=GCD(b, a mod b)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span> </span><br><span class="hljs-function"></span>&#123; <br> <span class="hljs-keyword">if</span>(b==<span class="hljs-number">0</span>)<br> 	<span class="hljs-keyword">return</span> a; <br><span class="hljs-keyword">return</span>  				gcd(b,a%b); <br>&#125; <br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int a,int b) 
+&#123; 
+ if(b&#x3D;&#x3D;0)
+ 	return a; 
+return  				gcd(b,a%b); 
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="二进制最大公约数算法"><a href="#二进制最大公约数算法" class="headerlink" title="二进制最大公约数算法"></a>二进制最大公约数算法</h2><ol>
 <li><p>递归终止条件：GCD(m,m)=m</p>
@@ -375,7 +380,17 @@
 <p>则若我们求得一组(x0,y0)满足ax0+by0=d</p>
 <p>则可以得到原方程的一组解:((x0Xc)/d, (y0xc)/d)</p>
 <h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>已知a,b,求解一组x,y，使他们满足贝祖等式[^ax+by=gcd(a,b)=d](根据数论原理，解一定存在）。常用在求解模线性方程组中，也可以用来求解乘法逆元。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Int <span class="hljs-title">exGcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span>&amp; x,<span class="hljs-keyword">int</span>&amp; y)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span>(b==<span class="hljs-number">0</span>)<br>	&#123;<br>		x=<span class="hljs-number">1</span>;y=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">return</span> a;<br>	&#125;<br>	<span class="hljs-keyword">int</span> r=exGcd(b,a%b,x,y);<br>	<span class="hljs-keyword">int</span> t=x;x=y;y=t-a/b*y;<br>	<span class="hljs-keyword">return</span> r;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Int exGcd(int a,int b,int&amp; x,int&amp; y)
+&#123;
+	if(b&#x3D;&#x3D;0)
+	&#123;
+		x&#x3D;1;y&#x3D;0;
+		return a;
+	&#125;
+	int r&#x3D;exGcd(b,a%b,x,y);
+	int t&#x3D;x;x&#x3D;y;y&#x3D;t-a&#x2F;b*y;
+	return r;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="勾股数"><a href="#勾股数" class="headerlink" title="勾股数"></a>勾股数</h2><p>勾股数有如下几个性质：</p>
 <ol>
@@ -396,7 +411,7 @@
 <p>​    分析：</p>
 <p>​    N!的值从右至左连续零的个数，实际上等于n！中所包含的5的因子的总数，这是因为：2x5=10.而n！中包含的2的因子的总数显然比5的因子总数大得多。</p>
 <p>​    在去除了所有从右至左连续的零以后，计算n！的最右非零位数值就可以用以下的公式：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-comment">(axb)</span><span class="hljs-meta">%</span><span class="hljs-number">10</span>=<span class="hljs-comment">(a%10)</span>x<span class="hljs-comment">(b%10)</span><span class="hljs-meta">%</span><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">(axb)%10&#x3D;(a%10)x(b%10)%10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -527,13 +542,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

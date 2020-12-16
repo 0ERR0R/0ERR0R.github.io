@@ -335,7 +335,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>805</span>
+      <span>808</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -356,7 +356,54 @@
         <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>快排基本思路应该就是二分+递归，从两侧同时（实则先从右往左）往中间找，同时和参变量对比，发现位置颠倒后交换位置，然后通过二分将其一块一块的分割开，直到分割到一个元素位置，即完成了快排。</p>
 <a id="more"></a>
 
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">int</span> a[<span class="hljs-number">101</span>],n;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quicksort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> i,j,t,temp;<span class="hljs-comment">//temp存基准数 </span><br>	<span class="hljs-keyword">if</span>(left&gt;right)	<span class="hljs-keyword">return</span>;<br>	<br>	temp=a[left];<br>	i=left;<br>	j=right;<br>	<span class="hljs-keyword">while</span>(i!=j)<br>	&#123;<br>		<span class="hljs-keyword">while</span>(a[j]&gt;=temp &amp;&amp; i&lt;j)	j--;<br>		<span class="hljs-keyword">while</span>(a[i]&lt;=temp &amp;&amp; i&lt;j)	i++;<br>		<br>		<span class="hljs-keyword">if</span>(i&lt;j)<br>		&#123;<br>			t=a[i];<br>			a[i]=a[j];<br>			a[j]=t;<br>		&#125;<br>	&#125;<br>	<br>	a[left]=a[i];<br>	a[i]=temp;<br>	<br>	quicksort(left, i<span class="hljs-number">-1</span>);<br>	quicksort(i+<span class="hljs-number">1</span>,right);<br>	<span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>		<span class="hljs-built_in">cin</span>&gt;&gt;a[i];<br>	quicksort(<span class="hljs-number">1</span>,n);<br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>	&#125;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits&#x2F;stdc++.h&gt;
+
+using namespace std;
+
+int a[101],n;
+
+void quicksort(int left,int right)
+&#123;
+	int i,j,t,temp;&#x2F;&#x2F;temp存基准数 
+	if(left&gt;right)	return;
+	
+	temp&#x3D;a[left];
+	i&#x3D;left;
+	j&#x3D;right;
+	while(i!&#x3D;j)
+	&#123;
+		while(a[j]&gt;&#x3D;temp &amp;&amp; i&lt;j)	j--;
+		while(a[i]&lt;&#x3D;temp &amp;&amp; i&lt;j)	i++;
+		
+		if(i&lt;j)
+		&#123;
+			t&#x3D;a[i];
+			a[i]&#x3D;a[j];
+			a[j]&#x3D;t;
+		&#125;
+	&#125;
+	
+	a[left]&#x3D;a[i];
+	a[i]&#x3D;temp;
+	
+	quicksort(left, i-1);
+	quicksort(i+1,right);
+	return;
+&#125;
+
+int main()&#123;
+	cin&gt;&gt;n;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		cin&gt;&gt;a[i];
+	quicksort(1,n);
+	
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;
+	&#125;
+	
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快排应该是最常用的模板了，时间复杂度也比较理想</p>
 <p>PS.致敬一波快排的提出者东尼·霍尔(C. A. R. Hoare)</p>
@@ -459,13 +506,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

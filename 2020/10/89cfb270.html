@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      214 字
+      213 字
     </span>
   
 
@@ -227,8 +227,7 @@
             <h1 style="display: none">notes-ctf-net-pack(WinShark)</h1>
             
             <div class="markdown-body">
-              <h1 id="题目：shark-on-wire-1"><a href="#题目：shark-on-wire-1" class="headerlink" title="题目：shark on wire 1"></a>题目：shark on wire 1</h1><pre class="line-numbers language-none"><code class="language-none">Description
-We found this packet capture. Recover the flag.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+              <h1 id="题目：shark-on-wire-1"><a href="#题目：shark-on-wire-1" class="headerlink" title="题目：shark on wire 1"></a>题目：shark on wire 1</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">Description</span><br>We found <span class="hljs-keyword">this</span> packet capture. Recover the flag.<br></code></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里懂得了winshark的一些基本用法（感谢wbl学长），例如常见的CTF的杂项的流量包分析，主要内容集中在TCP中进行TCP追踪流（stream）进行分析，bing查找之后发现了另一种常见的流量包拦截嗅探后寻找admin账号密码以获得flag的方法主要在<em>post</em>请求中查找未解密内容，也在这里一并记录。</p>
 <p>然而，本题的流分析却在以上二者中都没有找到，回过头来返回udp包中进行追踪，在流中发现了fake flag和flag，本题得以解决</p>

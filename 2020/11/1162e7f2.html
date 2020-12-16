@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      613 字
+      568 字
     </span>
   
 
@@ -230,126 +230,12 @@
               <p>本人随便乱写，目前正确性未知</p>
 <a id="more"></a>
 
-<h1 id="C-本质上升序列"><a href="#C-本质上升序列" class="headerlink" title="C.本质上升序列"></a>C.本质上升序列</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-
-bool access[4][4];
-
-int dfs(int idx, int x, int y)
-&#123;
-	if(x&lt;0 || y&lt;0 || x&gt;&#x3D;4 || y&gt;&#x3D;4)	return 0;
-	if(access[y][x])	return 0;
-	if(idx&gt;&#x3D;15)	return 1;
-	int count&#x3D;0;
-	access[y][x]&#x3D;true;
-	count+&#x3D;dfs(idx+1, x+1, y);
-	count+&#x3D;dfs(idx+1, x, y+1);
-	count+&#x3D;dfs(idx+1, x-1, y);
-	count+&#x3D;dfs(idx+1, x, y-1);
-	access[y][x]&#x3D;false;
-	return count;
-&#125;
-
-int main()&#123;
-
-	int count &#x3D;0;
-	for(int i&#x3D;0;i&lt;16;i++)
-	&#123;
-		count+&#x3D;dfs(0, i%4, i&#x2F;4);
-	&#125;
-	cout&lt;&lt;count;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="C-本质上升序列"><a href="#C-本质上升序列" class="headerlink" title="C.本质上升序列"></a>C.本质上升序列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">bool</span> access[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> idx, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span> || y&lt;<span class="hljs-number">0</span> || x&gt;=<span class="hljs-number">4</span> || y&gt;=<span class="hljs-number">4</span>)	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(access[y][x])	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(idx&gt;=<span class="hljs-number">15</span>)	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">int</span> count=<span class="hljs-number">0</span>;<br>	access[y][x]=<span class="hljs-literal">true</span>;<br>	count+=dfs(idx+<span class="hljs-number">1</span>, x+<span class="hljs-number">1</span>, y);<br>	count+=dfs(idx+<span class="hljs-number">1</span>, x, y+<span class="hljs-number">1</span>);<br>	count+=dfs(idx+<span class="hljs-number">1</span>, x<span class="hljs-number">-1</span>, y);<br>	count+=dfs(idx+<span class="hljs-number">1</span>, x, y<span class="hljs-number">-1</span>);<br>	access[y][x]=<span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">return</span> count;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><br>	<span class="hljs-keyword">int</span> count =<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">16</span>;i++)<br>	&#123;<br>		count+=dfs(<span class="hljs-number">0</span>, i%<span class="hljs-number">4</span>, i/<span class="hljs-number">4</span>);<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;count;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
 <h1 id="H-奇偶覆盖"><a href="#H-奇偶覆盖" class="headerlink" title="H. 奇偶覆盖"></a>H. 奇偶覆盖</h1><p>线段树初步版本，未完善</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-
-const int N&#x3D;1e5+5;
-
-struct node
-&#123;
-    int l,r,h;
-    bool operator&lt; (const node&amp; a)const
-    &#123;
-        return h&lt;a.h;
-    &#125;
-&#125;e[N*2];
-
-int a[N*2];
-int sum[N*2*4],flag[N*2*4];
-
-void cal(int l,int r,int root)
-&#123;
-    sum[root]&#x3D;(a[r]-a[l])-sum[root];
-&#125;
-
-void pushup(int root)
-&#123;
-    sum[root]&#x3D;sum[root&lt;&lt;1]+sum[root&lt;&lt;1|1];
-&#125;
-
-void pushdown(int l,int r,int root)
-&#123;
-    if(!flag[root])
-        return ;
-    flag[root&lt;&lt;1]^&#x3D;1;
-    flag[root&lt;&lt;1|1]^&#x3D;1;
-    int mid&#x3D;l+r&gt;&gt;1;
-    cal(l,mid,root&lt;&lt;1);
-    cal(mid,r,root&lt;&lt;1|1);
-    flag[root]&#x3D;0;
-&#125;
-
-void update(int l,int r,int root,int ql,int qr)
-&#123;
-    if(l&gt;&#x3D;ql&amp;&amp;r&lt;&#x3D;qr)
-    &#123;
-        cal(l,r,root);
-        flag[root]^&#x3D;1;
-        return ;
-    &#125;
-    pushdown(l,r,root);
-    int mid&#x3D;l+r&gt;&gt;1;
-    if(mid&gt;ql)
-        update(l,mid,root&lt;&lt;1,ql,qr);
-    if(mid&lt;qr)
-        update(mid,r,root&lt;&lt;1|1,ql,qr);
-    pushup(root);
-&#125;
-
-int main()
-&#123;
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    int x1,x2,y1,y2,all&#x3D;0;
-    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-    &#123;
-        scanf(&quot;%d%d%d%d&quot;,&amp;x1,&amp;y1,&amp;x2,&amp;y2);
-        e[2*i-1].l&#x3D;min(x1,x2);
-        e[2*i-1].r&#x3D;max(x1,x2);
-        e[2*i-1].h&#x3D;min(y1,y2);
-        e[2*i].l&#x3D;min(x1,x2);
-        e[2*i].r&#x3D;max(x1,x2);
-        e[2*i].h&#x3D;max(y1,y2);
-        a[2*i-1]&#x3D;x1,a[2*i]&#x3D;x2;
-    &#125;
-    sort(a+1,a+1+n*2);
-    all&#x3D;unique(a+1,a+1+n*2)-a-1;
-    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
-        e[i].l&#x3D;lower_bound(a+1,a+1+all,e[i].l)-a,e[i].r&#x3D;lower_bound(a+1,a+1+all,e[i].r)-a;
-    sort(e+1,e+1+2*n);
-    ll ans&#x3D;0;
-    for(int i&#x3D;1;i&lt;&#x3D;2*n;i++)
-    &#123;
-        ans+&#x3D;sum[1]*(e[i].h-e[i-1].h);
-        update(1,all,1,e[i].l,e[i].r);
-    &#125;
-    printf(&quot;%lld\n&quot;,ans);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N=<span class="hljs-number">1e5</span>+<span class="hljs-number">5</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> l,r,h;<br>    <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>&lt; (<span class="hljs-keyword">const</span> node&amp; a)<span class="hljs-keyword">const</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> h&lt;a.h;<br>    &#125;<br>&#125;e[N*<span class="hljs-number">2</span>];<br><br><span class="hljs-keyword">int</span> a[N*<span class="hljs-number">2</span>];<br><span class="hljs-keyword">int</span> sum[N*<span class="hljs-number">2</span>*<span class="hljs-number">4</span>],flag[N*<span class="hljs-number">2</span>*<span class="hljs-number">4</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">cal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> root)</span></span><br><span class="hljs-function"></span>&#123;<br>    sum[root]=(a[r]-a[l])-sum[root];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushup</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root)</span></span><br><span class="hljs-function"></span>&#123;<br>    sum[root]=sum[root&lt;&lt;<span class="hljs-number">1</span>]+sum[root&lt;&lt;<span class="hljs-number">1</span>|<span class="hljs-number">1</span>];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushdown</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> root)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(!flag[root])<br>        <span class="hljs-keyword">return</span> ;<br>    flag[root&lt;&lt;<span class="hljs-number">1</span>]^=<span class="hljs-number">1</span>;<br>    flag[root&lt;&lt;<span class="hljs-number">1</span>|<span class="hljs-number">1</span>]^=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>    cal(l,mid,root&lt;&lt;<span class="hljs-number">1</span>);<br>    cal(mid,r,root&lt;&lt;<span class="hljs-number">1</span>|<span class="hljs-number">1</span>);<br>    flag[root]=<span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> root,<span class="hljs-keyword">int</span> ql,<span class="hljs-keyword">int</span> qr)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(l&gt;=ql&amp;&amp;r&lt;=qr)<br>    &#123;<br>        cal(l,r,root);<br>        flag[root]^=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">return</span> ;<br>    &#125;<br>    pushdown(l,r,root);<br>    <span class="hljs-keyword">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(mid&gt;ql)<br>        update(l,mid,root&lt;&lt;<span class="hljs-number">1</span>,ql,qr);<br>    <span class="hljs-keyword">if</span>(mid&lt;qr)<br>        update(mid,r,root&lt;&lt;<span class="hljs-number">1</span>|<span class="hljs-number">1</span>,ql,qr);<br>    pushup(root);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <span class="hljs-keyword">int</span> x1,x2,y1,y2,all=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>    &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d%d&quot;</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2);<br>        e[<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>].l=min(x1,x2);<br>        e[<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>].r=max(x1,x2);<br>        e[<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>].h=min(y1,y2);<br>        e[<span class="hljs-number">2</span>*i].l=min(x1,x2);<br>        e[<span class="hljs-number">2</span>*i].r=max(x1,x2);<br>        e[<span class="hljs-number">2</span>*i].h=max(y1,y2);<br>        a[<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>]=x1,a[<span class="hljs-number">2</span>*i]=x2;<br>    &#125;<br>    sort(a+<span class="hljs-number">1</span>,a+<span class="hljs-number">1</span>+n*<span class="hljs-number">2</span>);<br>    all=unique(a+<span class="hljs-number">1</span>,a+<span class="hljs-number">1</span>+n*<span class="hljs-number">2</span>)-a<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">2</span>*n;i++)<br>        e[i].l=lower_bound(a+<span class="hljs-number">1</span>,a+<span class="hljs-number">1</span>+all,e[i].l)-a,e[i].r=lower_bound(a+<span class="hljs-number">1</span>,a+<span class="hljs-number">1</span>+all,e[i].r)-a;<br>    sort(e+<span class="hljs-number">1</span>,e+<span class="hljs-number">1</span>+<span class="hljs-number">2</span>*n);<br>    ll ans=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">2</span>*n;i++)<br>    &#123;<br>        ans+=sum[<span class="hljs-number">1</span>]*(e[i].h-e[i<span class="hljs-number">-1</span>].h);<br>        update(<span class="hljs-number">1</span>,all,<span class="hljs-number">1</span>,e[i].l,e[i].r);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>,ans);<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>

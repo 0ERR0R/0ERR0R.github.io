@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      1.8k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      30
        分钟
     </span>
   
@@ -228,28 +228,7 @@
             
             <div class="markdown-body">
               <h1 id="AOJ-ALDS1-1-D-Maximum-Profit"><a href="#AOJ-ALDS1-1-D-Maximum-Profit" class="headerlink" title="AOJ-ALDS1_1_D Maximum Profit"></a>AOJ-ALDS1_1_D Maximum Profit</h1><p>本题主要考虑要将复杂度降到O(n)，否则过不了最后五组数据</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;bits&#x2F;stdc++.h&gt;
-
-using namespace std;
-
-int main()&#123;
-	int n,maxv&#x3D;-1e10;
-	int stock[200000 + 5];
-	cin&gt;&gt;n;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		cin&gt;&gt;stock[i];
-	&#125;
-	int minv&#x3D;stock[0];
-	for(int j&#x3D;1;j&lt;n;j++)
-	&#123;
-		maxv&#x3D;max(maxv, stock[j]-minv);
-		minv&#x3D;min(minv, stock[j]);
-	&#125;
-	cout&lt;&lt;maxv&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n,maxv=<span class="hljs-number">-1e10</span>;<br>	<span class="hljs-keyword">int</span> stock[<span class="hljs-number">200000</span> + <span class="hljs-number">5</span>];<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;stock[i];<br>	&#125;<br>	<span class="hljs-keyword">int</span> minv=stock[<span class="hljs-number">0</span>];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;n;j++)<br>	&#123;<br>		maxv=max(maxv, stock[j]-minv);<br>		minv=min(minv, stock[j]);<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;maxv&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
@@ -287,45 +266,7 @@ int main()&#123;
 <td>O(1)</td>
 </tr>
 </tbody></table>
-<h3 id="ALDS1-3-A-Stack"><a href="#ALDS1-3-A-Stack" class="headerlink" title="ALDS1_3_A Stack"></a>ALDS1_3_A Stack</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstdlib&gt;
-#include&lt;stack&gt;
-
-using namespace std;
-
-int main()
-&#123;
-	stack&lt;int&gt; s;
-	int a,b,x;
-	string str;
-	while(cin&gt;&gt;str)
-	&#123;
-		if(str[0]&#x3D;&#x3D;&#39;+&#39;)
-		&#123;
-			a&#x3D;s.top(); s.pop();
-			b&#x3D;s.top();	s.pop();
-			s.push(a+b);
-		&#125;
-		else if(str[0]&#x3D;&#x3D;&#39;-&#39;)
-		&#123;
-			b&#x3D;s.top();	s.pop();
-			a&#x3D;s.top();	s.pop();
-			s.push(a-b);
-		&#125;
-		else if(str[0]&#x3D;&#x3D;&#39;*&#39;)
-		&#123;
-			a&#x3D;s.top();	s.pop();
-			b&#x3D;s.top();	s.pop();
-			s.push(a*b);
-		&#125;
-		else
-		&#123;
-			s.push(atoi(str.c_str()));
-		&#125;
-	&#125;
-	cout&lt;&lt;s.top()&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="ALDS1-3-A-Stack"><a href="#ALDS1-3-A-Stack" class="headerlink" title="ALDS1_3_A Stack"></a>ALDS1_3_A Stack</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stack&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; s;<br>	<span class="hljs-keyword">int</span> a,b,x;<br>	<span class="hljs-built_in">string</span> str;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span>&gt;&gt;str)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>]==<span class="hljs-string">&#x27;+&#x27;</span>)<br>		&#123;<br>			a=s.top(); s.pop();<br>			b=s.top();	s.pop();<br>			s.push(a+b);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>]==<span class="hljs-string">&#x27;-&#x27;</span>)<br>		&#123;<br>			b=s.top();	s.pop();<br>			a=s.top();	s.pop();<br>			s.push(a-b);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>]==<span class="hljs-string">&#x27;*&#x27;</span>)<br>		&#123;<br>			a=s.top();	s.pop();<br>			b=s.top();	s.pop();<br>			s.push(a*b);<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			s.push(atoi(str.c_str()));<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;s.top()&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="队列queue"><a href="#队列queue" class="headerlink" title="队列queue"></a>队列queue</h2><table>
 <thead>
@@ -361,45 +302,7 @@ int main()
 <td></td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;string&gt;
-#include&lt;queue&gt;
-#include&lt;algorithm&gt;
-
-using namespace std;
-
-int main()
-&#123;
-	int n,q,t;
-	string name;
-	queue&lt;pair&lt;string, int&gt; &gt; Q;
-	cin&gt;&gt;n&gt;&gt;q;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		cin&gt;&gt;name&gt;&gt;t;
-		Q.push(make_pair(name, t));
-	&#125;
-	
-	pair&lt;string ,int&gt; u;
-	int elap&#x3D;0,a;
-	
-	while(!Q.empty())
-	&#123;
-		u&#x3D;Q.front();	Q.pop();
-		a&#x3D;min(u.second, q);
-		u.second-&#x3D;a;
-		elap+&#x3D;a;
-		if(u.second&gt;0)
-		&#123;
-			Q.push(u);
-		&#125;
-		else
-		&#123;
-			cout&lt;&lt;u.first&lt;&lt;&quot; &quot;&lt;&lt;elap&lt;&lt;endl;
-		&#125;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> n,q,t;<br>	<span class="hljs-built_in">string</span> name;<br>	<span class="hljs-built_in">queue</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; &gt; Q;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;q;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;name&gt;&gt;t;<br>		Q.push(<span class="hljs-built_in">make_pair</span>(name, t));<br>	&#125;<br>	<br>	<span class="hljs-built_in">pair</span>&lt;<span class="hljs-built_in">string</span> ,<span class="hljs-keyword">int</span>&gt; u;<br>	<span class="hljs-keyword">int</span> elap=<span class="hljs-number">0</span>,a;<br>	<br>	<span class="hljs-keyword">while</span>(!Q.empty())<br>	&#123;<br>		u=Q.front();	Q.pop();<br>		a=min(u.second, q);<br>		u.second-=a;<br>		elap+=a;<br>		<span class="hljs-keyword">if</span>(u.second&gt;<span class="hljs-number">0</span>)<br>		&#123;<br>			Q.push(u);<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			<span class="hljs-built_in">cout</span>&lt;&lt;u.first&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;elap&lt;&lt;<span class="hljs-built_in">endl</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><table>
 <thead>
@@ -489,58 +392,7 @@ int main()
 <td>删除表中所有元素</td>
 </tr>
 </tbody></table>
-<h3 id="ALDS1-3-C-Doubly-Linked-List"><a href="#ALDS1-3-C-Doubly-Linked-List" class="headerlink" title="ALDS1_3_C: Doubly Linked List"></a>ALDS1_3_C: Doubly Linked List</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstdlib&gt;
-#include&lt;list&gt;
-#include&lt;algorithm&gt;
-#include&lt;string&gt;
-
-using namespace std;
-
-int main()
-&#123;
-	int q,x;
-	string command;
-	list&lt;int&gt; v;
-	cin&gt;&gt;q;
-	for(int i&#x3D;0;i&lt;q;i++)
-	&#123;
-		cin&gt;&gt;command;
-		if(command[0]&#x3D;&#x3D;&#39;i&#39;)
-		&#123;
-			cin&gt;&gt;x;
-			v.push_front(x);
-		&#125;
-		else if(command[6]&#x3D;&#x3D;&#39;L&#39;)
-		&#123;
-			v.pop_back();
-		&#125;
-		else if(command[6]&#x3D;&#x3D;&#39;F&#39;)
-		&#123;
-			v.pop_front();
-		&#125;
-		else if(command[0]&#x3D;&#x3D;&#39;d&#39;)
-		&#123;
-			cin&gt;&gt;x;
-			for(list&lt;int&gt;::iterator it&#x3D;v.begin();it!&#x3D;v.end();it++)
-			&#123;
-				if(*it &#x3D;&#x3D; x)
-				&#123;
-					v.erase(it);
-					break;
-				&#125;
-			&#125;
-		&#125;
-	&#125;
-	int i&#x3D;0;
-	for(list&lt;int&gt;::iterator it&#x3D;v.begin(); it!&#x3D;v.end();it++)
-	&#123;
-		if(i++)	cout&lt;&lt;&quot; &quot;;
-		cout&lt;&lt;*it;
-	&#125;
-	cout&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="ALDS1-3-C-Doubly-Linked-List"><a href="#ALDS1-3-C-Doubly-Linked-List" class="headerlink" title="ALDS1_3_C: Doubly Linked List"></a>ALDS1_3_C: Doubly Linked List</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;list&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> q,x;<br>	<span class="hljs-built_in">string</span> command;<br>	<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; v;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;q;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;q;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;command;<br>		<span class="hljs-keyword">if</span>(command[<span class="hljs-number">0</span>]==<span class="hljs-string">&#x27;i&#x27;</span>)<br>		&#123;<br>			<span class="hljs-built_in">cin</span>&gt;&gt;x;<br>			v.push_front(x);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(command[<span class="hljs-number">6</span>]==<span class="hljs-string">&#x27;L&#x27;</span>)<br>		&#123;<br>			v.pop_back();<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(command[<span class="hljs-number">6</span>]==<span class="hljs-string">&#x27;F&#x27;</span>)<br>		&#123;<br>			v.pop_front();<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(command[<span class="hljs-number">0</span>]==<span class="hljs-string">&#x27;d&#x27;</span>)<br>		&#123;<br>			<span class="hljs-built_in">cin</span>&gt;&gt;x;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator it=v.begin();it!=v.end();it++)<br>			&#123;<br>				<span class="hljs-keyword">if</span>(*it == x)<br>				&#123;<br>					v.erase(it);<br>					<span class="hljs-keyword">break</span>;<br>				&#125;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator it=v.begin(); it!=v.end();it++)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(i++)	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;*it;<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="ALDS1-3-D-Areas-on-the-Cross-Section-Diagram"><a href="#ALDS1-3-D-Areas-on-the-Cross-Section-Diagram" class="headerlink" title="ALDS1_3_D: Areas on the Cross-Section Diagram"></a>ALDS1_3_D: <a target="_blank" rel="noopener" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_3_D">Areas on the Cross-Section Diagram</a></h2><ul>
 <li>如果是“\”，则将表示该字符位置的整数i压入栈S1</li>
@@ -548,50 +400,7 @@ int main()
 <li>“_”的作用只是将一对/距离增加1，然而在代码中已经通过数学方法计算了，因此可以忽略掉”__”符号</li>
 <li>新形成的面积=当前S2中的两个面积之和+新形成的i-j部分的面积，从S1中取出被引用的多个面积，再将新算出的面积压入S2。</li>
 </ul>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
-#include&lt;cstdlib&gt;
-#include&lt;stack&gt;
-#include&lt;algorithm&gt;
-#include&lt;vector&gt;
-
-using namespace std;
-
-int main()
-&#123;
-	stack&lt;int&gt; S1;
-	stack&lt;pair&lt;int ,int&gt; &gt; S2;
-	char c;
-	int sum&#x3D;0;
-	for(int i&#x3D;0;cin&gt;&gt;c;i++)
-	&#123;
-		if(c&#x3D;&#x3D;&#39;\\&#39;)	S1.push(i);
-		else if(c&#x3D;&#x3D;&#39;&#x2F;&#39; &amp;&amp; S1.size()&gt;0)
-		&#123;
-			int j&#x3D;S1.top(); S1.pop();
-			sum+&#x3D;i-j;
-			int a&#x3D;i-j;
-			while(S2.size()&gt;0 &amp;&amp; S2.top().first&gt;j)
-			&#123;
-				a+&#x3D;S2.top().second;	S2.pop();
-			&#125;
-			S2.push(make_pair(j, a));
-		&#125;
-	&#125;
-	vector&lt;int&gt; ans;
-	while(S2.size()&gt;0)
-	&#123;
-		ans.push_back(S2.top().second);
-		S2.pop();
-	&#125;
-	reverse(ans.begin(),ans.end());
-	cout&lt;&lt;sum&lt;&lt;endl;
-	cout&lt;&lt;ans.size();
-	for(int i&#x3D;0;i&lt;ans.size();i++)
-	&#123;
-		cout&lt;&lt;&quot; &quot;&lt;&lt;ans[i];
-	&#125;
-	cout&lt;&lt;endl;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stack&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; S1;<br>	<span class="hljs-built_in">stack</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span> ,<span class="hljs-keyword">int</span>&gt; &gt; S2;<br>	<span class="hljs-keyword">char</span> c;<br>	<span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;<span class="hljs-built_in">cin</span>&gt;&gt;c;i++)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(c==<span class="hljs-string">&#x27;\\&#x27;</span>)	S1.push(i);<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(c==<span class="hljs-string">&#x27;/&#x27;</span> &amp;&amp; S1.size()&gt;<span class="hljs-number">0</span>)<br>		&#123;<br>			<span class="hljs-keyword">int</span> j=S1.top(); S1.pop();<br>			sum+=i-j;<br>			<span class="hljs-keyword">int</span> a=i-j;<br>			<span class="hljs-keyword">while</span>(S2.size()&gt;<span class="hljs-number">0</span> &amp;&amp; S2.top().first&gt;j)<br>			&#123;<br>				a+=S2.top().second;	S2.pop();<br>			&#125;<br>			S2.push(<span class="hljs-built_in">make_pair</span>(j, a));<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>	<span class="hljs-keyword">while</span>(S2.size()&gt;<span class="hljs-number">0</span>)<br>	&#123;<br>		ans.push_back(S2.top().second);<br>		S2.pop();<br>	&#125;<br>	reverse(ans.begin(),ans.end());<br>	<span class="hljs-built_in">cout</span>&lt;&lt;sum&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;ans.size();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;ans.size();i++)<br>	&#123;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;ans[i];<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><h3 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h3><table>
 <thead>
@@ -630,114 +439,9 @@ int main()
 <p>   sort(A,A+N,cmp);</p>
 <p>而*<strong>*stable_sort的用法**</strong>与sort一致，<strong>区别是stable_sort函数遇到两个数相等时，不对其交换顺序</strong>；这个应用在数组里面不受影响，当函数参数传入的是结构体时，会发现两者之间的明显区别；</p>
 </blockquote>
-<h2 id="ALDS1-6-D-Minimum-Cost-Sort"><a href="#ALDS1-6-D-Minimum-Cost-Sort" class="headerlink" title="ALDS1_6_D: Minimum Cost Sort"></a>ALDS1_6_D: Minimum Cost Sort</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstdlib&gt;
-#include&lt;algorithm&gt;
+<h2 id="ALDS1-6-D-Minimum-Cost-Sort"><a href="#ALDS1-6-D-Minimum-Cost-Sort" class="headerlink" title="ALDS1_6_D: Minimum Cost Sort"></a>ALDS1_6_D: Minimum Cost Sort</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn=<span class="hljs-number">1000</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> vmax=<span class="hljs-number">10000</span>;<br><br><span class="hljs-keyword">int</span> n,a[maxn],s;<br><span class="hljs-keyword">int</span> b[maxn],t[vmax+<span class="hljs-number">1</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">bool</span> v[maxn];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		b[i]=a[i];<br>		v[i]=<span class="hljs-literal">false</span>;<br>	&#125;<br>	sort(b,b+n);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		t[b[i]] = i;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(v[i])	<span class="hljs-keyword">continue</span>;<br>		<span class="hljs-keyword">int</span> cur=i,m=vmax,an=<span class="hljs-number">0</span>,S=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>		&#123;<br>			v[cur]=<span class="hljs-literal">true</span>;<br>			an++;<br>			<span class="hljs-keyword">int</span> V=a[cur];<br>			m=min(m,V);<br>			S+=V;<br>			cur=t[V];<br>			<span class="hljs-keyword">if</span>(v[cur])	<span class="hljs-keyword">break</span>;<br>		&#125;<br>		ans+=min(S+(an - <span class="hljs-number">2</span>) *m, m+S+(an+<span class="hljs-number">1</span>)*s);<span class="hljs-comment">//2SOLUTIONS</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>	s=vmax;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;a[i];<br>		s=min(s,a[i]);<br>	&#125;<br>	<span class="hljs-keyword">int</span> ans=solve();<br>	<span class="hljs-built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-using namespace std;
-
-const int maxn&#x3D;1000;
-const int vmax&#x3D;10000;
-
-int n,a[maxn],s;
-int b[maxn],t[vmax+1];
-
-int solve()
-&#123;
-	int ans&#x3D;0;
-	bool v[maxn];
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		b[i]&#x3D;a[i];
-		v[i]&#x3D;false;
-	&#125;
-	sort(b,b+n);
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		t[b[i]] &#x3D; i;
-	&#125;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		if(v[i])	continue;
-		int cur&#x3D;i,m&#x3D;vmax,an&#x3D;0,S&#x3D;0;
-		while(1)
-		&#123;
-			v[cur]&#x3D;true;
-			an++;
-			int V&#x3D;a[cur];
-			m&#x3D;min(m,V);
-			S+&#x3D;V;
-			cur&#x3D;t[V];
-			if(v[cur])	break;
-		&#125;
-		ans+&#x3D;min(S+(an - 2) *m, m+S+(an+1)*s);&#x2F;&#x2F;2SOLUTIONS
-	&#125;
-	return ans;
-&#125;
-
-int main()
-&#123;
-	cin&gt;&gt;n;
-	s&#x3D;vmax;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		cin&gt;&gt;a[i];
-		s&#x3D;min(s,a[i]);
-	&#125;
-	int ans&#x3D;solve();
-	cout&lt;&lt;ans&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="动态规划DP"><a href="#动态规划DP" class="headerlink" title="动态规划DP"></a>动态规划DP</h1><h2 id="LCS"><a href="#LCS" class="headerlink" title="LCS"></a>LCS</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;string&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-
-const int N&#x3D;1000;
-int c[N+5][N+5];
-
-using namespace std;
-
-int lcs(string X, string Y)
-&#123;
-	int m&#x3D;X.length();
-	int n&#x3D;Y.length();&#x2F;&#x2F;也可.size()
-	int maxl&#x3D;0;
-	X&#x3D;&#39; &#39;+X;
-	Y&#x3D;&#39; &#39;+Y;
-	for(int i&#x3D;1;i&lt;&#x3D;m;i++)	c[i][0]&#x3D;0;
-	for(int j&#x3D;1;j&lt;&#x3D;n;j++)	c[0][j]&#x3D;0;
-	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
-	&#123;
-		for(int j&#x3D;1;j&lt;&#x3D;n;j++)
-		&#123;
-			if(X[i]&#x3D;&#x3D;Y[j])
-			&#123;
-				c[i][j]&#x3D;c[i-1][j-1]+1;
-			&#125;
-			else
-			&#123;
-				c[i][j]&#x3D;max(c[i-1][j], c[i][j-1]);
-			&#125;
-			maxl&#x3D;max(maxl, c[i][j]);
-		&#125;
-	&#125;
-	return maxl;
-&#125;
-
-int main()
-&#123;
-	string s1,s2;
-	int n;
-	cin&gt;&gt;n;
-	for(int i&#x3D;0;i&lt;n;i++)
-	&#123;
-		cin&gt;&gt;s1&gt;&gt;s2;
-		cout&lt;&lt;lcs(s1,s2)&lt;&lt;endl;
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="动态规划DP"><a href="#动态规划DP" class="headerlink" title="动态规划DP"></a>动态规划DP</h1><h2 id="LCS"><a href="#LCS" class="headerlink" title="LCS"></a>LCS</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N=<span class="hljs-number">1000</span>;<br><span class="hljs-keyword">int</span> c[N+<span class="hljs-number">5</span>][N+<span class="hljs-number">5</span>];<br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lcs</span><span class="hljs-params">(<span class="hljs-built_in">string</span> X, <span class="hljs-built_in">string</span> Y)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> m=X.length();<br>	<span class="hljs-keyword">int</span> n=Y.length();<span class="hljs-comment">//也可.size()</span><br>	<span class="hljs-keyword">int</span> maxl=<span class="hljs-number">0</span>;<br>	X=<span class="hljs-string">&#x27; &#x27;</span>+X;<br>	Y=<span class="hljs-string">&#x27; &#x27;</span>+Y;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)	c[i][<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)	c[<span class="hljs-number">0</span>][j]=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<br>	&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(X[i]==Y[j])<br>			&#123;<br>				c[i][j]=c[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]+<span class="hljs-number">1</span>;<br>			&#125;<br>			<span class="hljs-keyword">else</span><br>			&#123;<br>				c[i][j]=max(c[i<span class="hljs-number">-1</span>][j], c[i][j<span class="hljs-number">-1</span>]);<br>			&#125;<br>			maxl=max(maxl, c[i][j]);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> maxl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">string</span> s1,s2;<br>	<span class="hljs-keyword">int</span> n;<br>	<span class="hljs-built_in">cin</span>&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;s1&gt;&gt;s2;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;lcs(s1,s2)&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 

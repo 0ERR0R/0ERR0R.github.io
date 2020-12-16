@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night-bright.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs2015.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -135,6 +135,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -230,7 +242,7 @@
               <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>队列的原理基本与站队一样，队首出，队尾入，变化以后也是大同小异，写起来主要就是注意struct的相关知识，以及伪指针（分别指向队首和队尾+1），队尾序号要+1以防首位变量数字重合造成不必要的麻烦（目前也不是很清楚会遇到什么）</p>
 <a id="more"></a>
 
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">int</span> data[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">int</span> head;<br>	<span class="hljs-keyword">int</span> tail;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span> <span class="hljs-title">q</span>;</span><br>	<span class="hljs-keyword">int</span> i;<br>	q.head=<span class="hljs-number">1</span>;<br>	q.tail=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">9</span>;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;q.data[q.tail];<br>		q.tail++;<br>	&#125;<br>	<br>	<span class="hljs-keyword">while</span>(q.head&lt;q.tail)<br>	&#123;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;q.data[q.head];<br>		q.head++;<br>		q.data[q.tail]=q.data[q.head];<br>		q.tail++;<br>		q.head++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">int</span> data[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">int</span> head;<br>	<span class="hljs-keyword">int</span> tail;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span> <span class="hljs-title">q</span>;</span><br>	<span class="hljs-keyword">int</span> i;<br>	q.head=<span class="hljs-number">1</span>;<br>	q.tail=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">9</span>;i++)<br>	&#123;<br>		<span class="hljs-built_in">cin</span>&gt;&gt;q.data[q.tail];<br>		q.tail++;<br>	&#125;<br>	<br>	<span class="hljs-keyword">while</span>(q.head&lt;q.tail)<br>	&#123;<br>		<span class="hljs-built_in">cout</span>&lt;&lt;q.data[q.head];<br>		q.head++;<br>		q.data[q.tail]=q.data[q.head];<br>		q.tail++;<br>		q.head++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写的过程中主要一开始用万能头和STL里面的queue冲突报错了。。（想了好久），其他没什么，队列作为广搜和Bellman-Ford的最短路核心算法还是很有必要理解并记忆的</p>
 

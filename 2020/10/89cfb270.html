@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night-bright.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs2015.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -135,6 +135,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -227,7 +239,7 @@
             <h1 style="display: none">notes-ctf-net-pack(WinShark)</h1>
             
             <div class="markdown-body">
-              <h1 id="题目：shark-on-wire-1"><a href="#题目：shark-on-wire-1" class="headerlink" title="题目：shark on wire 1"></a>题目：shark on wire 1</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">Description</span><br>We found <span class="hljs-keyword">this</span> packet capture. Recover the flag.<br></code></pre></td></tr></table></figure>
+              <h1 id="题目：shark-on-wire-1"><a href="#题目：shark-on-wire-1" class="headerlink" title="题目：shark on wire 1"></a>题目：shark on wire 1</h1><figure class="highlight gradle"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gradle"><span class="hljs-keyword">Description</span><br>We found <span class="hljs-keyword">this</span> packet capture. Recover the flag.<br></code></pre></div></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这里懂得了winshark的一些基本用法（感谢wbl学长），例如常见的CTF的杂项的流量包分析，主要内容集中在TCP中进行TCP追踪流（stream）进行分析，bing查找之后发现了另一种常见的流量包拦截嗅探后寻找admin账号密码以获得flag的方法主要在<em>post</em>请求中查找未解密内容，也在这里一并记录。</p>
 <p>然而，本题的流分析却在以上二者中都没有找到，回过头来返回udp包中进行追踪，在流中发现了fake flag和flag，本题得以解决</p>

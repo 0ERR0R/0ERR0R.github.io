@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night-bright.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs2015.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -135,6 +135,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -229,7 +241,7 @@
             <div class="markdown-body">
               <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近期发现我NEFU低年级组校赛题目只有模拟+数论，恰恰都是我最不会做的，数论方面反反复复用到的就是素数筛，特在此记录一下，闲来无事自己翻阅当作复习复习，以免被到时候<del>一道题都做不出来</del>菜到巨佬们。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>查找2-N的所有素数，如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//线性筛</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>  phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; MAXN; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) &#123;<br>      phi[i] = i - <span class="hljs-number">1</span>;<br>      pri[cnt++] = i;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; cnt; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-number">1l</span>l * i * pri[j] &gt;= MAXN) <span class="hljs-keyword">break</span>;<br>      vis[i * pri[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % pri[j]) &#123;<br>        phi[i * pri[j]] = phi[i] * (pri[j] - <span class="hljs-number">1</span>);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// i % pri[j] == 0</span><br>        <span class="hljs-comment">// 换言之，i 之前被 pri[j] 筛过了</span><br>        <span class="hljs-comment">// 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是</span><br>        <span class="hljs-comment">// pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break</span><br>        <span class="hljs-comment">// 掉就好了</span><br>        phi[i * pri[j]] = phi[i] * pri[j];<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">//线性筛</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>  phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; MAXN; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) &#123;<br>      phi[i] = i - <span class="hljs-number">1</span>;<br>      pri[cnt++] = i;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; cnt; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-number">1l</span>l * i * pri[j] &gt;= MAXN) <span class="hljs-keyword">break</span>;<br>      vis[i * pri[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % pri[j]) &#123;<br>        phi[i * pri[j]] = phi[i] * (pri[j] - <span class="hljs-number">1</span>);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// i % pri[j] == 0</span><br>        <span class="hljs-comment">// 换言之，i 之前被 pri[j] 筛过了</span><br>        <span class="hljs-comment">// 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是</span><br>        <span class="hljs-comment">// pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break</span><br>        <span class="hljs-comment">// 掉就好了</span><br>        phi[i * pri[j]] = phi[i] * pri[j];<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 

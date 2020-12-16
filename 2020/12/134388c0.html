@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night-bright.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs2015.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -135,6 +135,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -291,11 +303,11 @@
 <li><p>寄存器到内存</p>
 </li>
 <li><p>内存到寄存器</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-number">1</span>//把<span class="hljs-number">1</span>存储到<span class="hljs-built_in">EAX</span>寄存器<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">EAX</span>//把<span class="hljs-built_in">EAX</span>里面的值存到<span class="hljs-built_in">EDX</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-number">1</span>//把<span class="hljs-number">1</span>存储到<span class="hljs-built_in">EAX</span>寄存器<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">EAX</span>//把<span class="hljs-built_in">EAX</span>里面的值存到<span class="hljs-built_in">EDX</span><br></code></pre></div></td></tr></table></figure>
 
 </li>
 </ol>
-<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">mov</span> <span class="hljs-built_in">byte</span> <span class="hljs-built_in">ptr</span> <span class="hljs-built_in">ds</span>[存储地址]<br></code></pre></td></tr></table></figure>
+<h2 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h2><figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">mov</span> <span class="hljs-built_in">byte</span> <span class="hljs-built_in">ptr</span> <span class="hljs-built_in">ds</span>[存储地址]<br></code></pre></div></td></tr></table></figure>
 
 <p>已经申请过的地址，在堆栈窗口内找，可以直接使用</p>
 <blockquote>
@@ -303,44 +315,44 @@
 <p>两个字节-WORD</p>
 <p>四个字节-DWORD</p>
 </blockquote>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[],<span class="hljs-built_in">EAX</span>//前提需要保证宽度相同<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[],<span class="hljs-built_in">EAX</span>//前提需要保证宽度相同<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="内存地址的5种形式"><a href="#内存地址的5种形式" class="headerlink" title="内存地址的5种形式"></a>内存地址的5种形式</h2><ol>
 <li><p>[立即数]</p>
 <p>读取内存的值:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>向内存写入数据</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>],<span class="hljs-built_in">EAX</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-number">0x13FFC4</span>],<span class="hljs-built_in">EAX</span><br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>[reg]  <strong><em>reg代表寄存器 可以是8个通用寄存器中的一个</em></strong></p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>],<span class="hljs-number">0x87654321</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>],<span class="hljs-number">0x87654321</span><br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>[reg+立即数]</p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>+<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">0x13FFD0</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ECX</span>+<span class="hljs-number">4</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>+<span class="hljs-number">0xC</span>],<span class="hljs-number">0x87654321</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-number">0x13FFD8</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EDX</span>+<span class="hljs-number">0xC</span>],<span class="hljs-number">0x87654321</span><br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>[reg+reg*{1,2,4,8}] (数组的汇编形式)</p>
 <p>代表八个32位的寄存器加上八个32位寄存器乘以1，2，4，8</p>
 <p>读取内存的值：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>向内存中写入数据:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">EAX</span>*<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">EAX</span>*<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>[reg+reg*{1,2,4,8}+立即数]</p>
 <p>读取内存的值:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EDX</span>,<span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>向内存中写入数据：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">EAX</span>,13FFC4<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">ECX</span>,<span class="hljs-number">2</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">EAX</span>+<span class="hljs-built_in">ECX</span>*<span class="hljs-number">4</span>+<span class="hljs-number">4</span>],<span class="hljs-number">87654321</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -349,7 +361,7 @@
 <h1 id="数据的存储模式"><a href="#数据的存储模式" class="headerlink" title="数据的存储模式"></a>数据的存储模式</h1><p>大端模式：数据高位在低位，数据低位在高位</p>
 <p>小端模式：数据低位在低位，数据高位在高位</p>
 <h1 id="MOVS指令"><a href="#MOVS指令" class="headerlink" title="MOVS指令"></a>MOVS指令</h1><p>BYTE/WORD/DWORD分别简写为MOVSB MOVSW MOVSD</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">MOVS <span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm">MOVS <span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">ES</span>:[<span class="hljs-built_in">EDI</span>],<span class="hljs-built_in">BYTE</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[<span class="hljs-built_in">ESI</span>]<br></code></pre></div></td></tr></table></figure>
 
 <p>DF位置：每次MOVS指令之后地址减少相应变更（加减具体看DF的值）字节的地址</p>
 <p>DF的值表示方向位：0为+，1为-</p>
@@ -363,10 +375,10 @@
 <p>ESP 栈指针寄存器</p>
 <h2 id="堆栈的使用"><a href="#堆栈的使用" class="headerlink" title="堆栈的使用"></a>堆栈的使用</h2><p>堆栈使用之后要改变ESP指向的位置，防止被覆盖</p>
 <p>例如：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">SUB</span> <span class="hljs-built_in">ESP</span>,<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">SUB</span> <span class="hljs-built_in">ESP</span>,<span class="hljs-number">8</span><br></code></pre></div></td></tr></table></figure>
 
 <p>使用之后取消：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">ADD</span><span class="bash"> ESP,8</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">ADD</span><span class="bash"> ESP,8</span><br></code></pre></div></td></tr></table></figure>
 
 <h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>C语言当中局部变量为何赋初始值的原因也就昭然若揭了，因为在内存中ESP寄存器只是指向了未被使用的堆栈，堆栈里面的内容会被覆盖，但是不会被清空，因此创建变量以后他的初始值是未知的，因此创建局部变量需要赋初值</p>
 <h2 id="PUSH-amp-POP指令"><a href="#PUSH-amp-POP指令" class="headerlink" title="PUSH&amp;POP指令"></a>PUSH&amp;POP指令</h2><p>功能：</p>
@@ -374,7 +386,7 @@
 <li>将数压入栈顶</li>
 <li>栈顶指针+1</li>
 </ol>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">PUSH</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[18FFA4]<br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">EAX</span><br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">ECX</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-keyword">PUSH</span> <span class="hljs-built_in">DWORD</span> <span class="hljs-built_in">PTR</span> <span class="hljs-built_in">DS</span>:[18FFA4]<br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">EAX</span><br><span class="hljs-keyword">POP</span> <span class="hljs-built_in">ECX</span><br></code></pre></div></td></tr></table></figure>
 
 <h1 id="修改EIP的指令"><a href="#修改EIP的指令" class="headerlink" title="修改EIP的指令"></a>修改EIP的指令</h1><h2 id="KMP指令"><a href="#KMP指令" class="headerlink" title="KMP指令"></a>KMP指令</h2><p>MOV EIP简写为JMP</p>
 <h2 id="CALL指令"><a href="#CALL指令" class="headerlink" title="CALL指令"></a>CALL指令</h2>

@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/tomorrow-night-bright.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs2015.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"www.0error.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -135,6 +135,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
               </a>
             </li>
           
@@ -281,7 +293,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">//对于图片Lighthouse.jpg</span><br><span class="hljs-comment">//为图片添加一个comment标签，内容为ExifModifyTesting</span><br>exiftool -comment=ExifModifyTesting ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br><span class="hljs-comment">//查看EXIF信息</span><br>exiftool ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br></code></pre></td></tr></table></figure>
+<h1 id="EXIF隐写"><a href="#EXIF隐写" class="headerlink" title="EXIF隐写"></a>EXIF隐写</h1><h2 id="exiftool工具常用命令"><a href="#exiftool工具常用命令" class="headerlink" title="exiftool工具常用命令"></a>exiftool工具常用命令</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml"><span class="hljs-comment">//对于图片Lighthouse.jpg</span><br><span class="hljs-comment">//为图片添加一个comment标签，内容为ExifModifyTesting</span><br>exiftool -comment=ExifModifyTesting ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br><span class="hljs-comment">//查看EXIF信息</span><br>exiftool ./<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Lighthouse</span>.</span></span>jpg<br></code></pre></div></td></tr></table></figure>
 
 
 

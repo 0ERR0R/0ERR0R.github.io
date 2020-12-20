@@ -1468,4 +1468,29 @@
         <tag>ACM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ACM-DP-数塔问题</title>
+    <url>/2020/12/656af927.html</url>
+    <content><![CDATA[<p>Description</p>
+<p>在讲述DP算法的时候，一个经典的例子就是数塔问题，它是这样描述的： </p>
+<p>有如下所示的数塔，要求从顶层走到底层，若每一步只能走到相邻的结点，则经过的结点的数字之和最大是多少？ </p>
+<p>已经告诉你了，这是个DP的题目，你能AC吗?</p>
+<p>Input</p>
+<p>输入数据首先包括一个整数C,表示测试实例的个数，每个测试实例的第一行是一个整数N(1 &lt;= N &lt;= 100)，表示数塔的高度，接下来用N行数字表示数塔，其中第i行有个i个整数，且所有的整数均在区间[0,99]内。 </p>
+<p>Output</p>
+<p>对于每个测试实例，输出可能得到的最大和，每个实例的输出占一行。 </p>
+<p>Sample Input</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><code class="hljs basic"><span class="hljs-number">1</span><br><span class="hljs-number">5</span><br><span class="hljs-number">7</span><br><span class="hljs-symbol">3 </span><span class="hljs-number">8</span><br><span class="hljs-symbol">8 </span><span class="hljs-number">1</span> <span class="hljs-number">0</span> <br><span class="hljs-symbol">2 </span><span class="hljs-number">7</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span><br><span class="hljs-symbol">4 </span><span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<p>Sample Output</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">30</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;T);<br>	<span class="hljs-keyword">while</span>(T--)<br>	&#123;<br>		<span class="hljs-keyword">int</span> i,j,n;<br>		<span class="hljs-keyword">int</span> a[<span class="hljs-number">200</span>][<span class="hljs-number">200</span>],dp[<span class="hljs-number">200</span>];<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>		<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;a[i][j]);<br>		<span class="hljs-built_in">memset</span>(dp,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(dp));<br>		<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br>		dp[j]=a[n][j];                          <span class="hljs-comment">//对最低层进行初始化 </span><br>		<span class="hljs-keyword">for</span>(i=n<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">1</span>;i--)<br>		&#123;<br>			<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)<br>			dp[j]=max(dp[j],dp[j+<span class="hljs-number">1</span>])+a[i][j];   <span class="hljs-comment">//状态转移方程 ，由下往上求最大值 </span><br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,dp[<span class="hljs-number">1</span>]);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br> &#125; <br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>ACM</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
 </search>

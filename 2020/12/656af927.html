@@ -17,7 +17,7 @@
   <meta name="description" content="Algorithm|ACM|CTF">
   <meta name="author" content="0ERROR">
   <meta name="keywords" content="">
-  <title>ACM-NEFUOJ-P239回文数 - SmallDolphin</title>
+  <title>ACM-DP-数塔问题 - SmallDolphin</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="ACM-NEFUOJ-P239回文数">
+            <span class="h2" id="subtitle" title="ACM-DP-数塔问题">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-20 12:58" pubdate>
+      <time datetime="2020-12-20 13:00" pubdate>
         2020年12月20日 下午
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      221 字
+      366 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -224,10 +224,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ACM-NEFUOJ-P239回文数</h1>
+            <h1 style="display: none">ACM-DP-数塔问题</h1>
             
             <div class="markdown-body">
-              <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">int</span> n,p[<span class="hljs-number">1000</span>],len,p1[<span class="hljs-number">1000</span>];<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;=len;i++)<br>		<span class="hljs-keyword">if</span>(p[i]!=p[len-i]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> i;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;=len;i++)  p1[i]=p[len-i];<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;=len;i++)  p[i]+=p1[i];	 <br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;=len;i++)<br>	    p[i+<span class="hljs-number">1</span>]+=p[i]/n, p[i]=p[i]%n; <br>	<span class="hljs-keyword">if</span>(p[len+<span class="hljs-number">1</span>]&gt;<span class="hljs-number">0</span>) len++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">string</span> s;<br>	<span class="hljs-keyword">int</span> i;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span>&gt;&gt;n&gt;&gt;s)<br>	&#123;<br>		<span class="hljs-built_in">memset</span>(p,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(p));<br>		len=s.size()<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(i=len;i&gt;=<span class="hljs-number">0</span>;i--)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(s[i]&gt;=<span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; s[i]&lt;=<span class="hljs-string">&#x27;9&#x27;</span>) p[len-i]=s[i]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>			<span class="hljs-keyword">if</span>(s[i]&gt;=<span class="hljs-string">&#x27;A&#x27;</span>)  p[len-i]=s[i]-<span class="hljs-string">&#x27;A&#x27;</span>+<span class="hljs-number">10</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(f())  &#123;<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&#x27;0&#x27;</span>&lt;&lt;<span class="hljs-built_in">endl</span>; <span class="hljs-keyword">continue</span>;&#125;<br>		<span class="hljs-keyword">int</span> t=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(t&lt;=<span class="hljs-number">30</span>)<br>		&#123;<br>			t++;<br>			f1();<br>			<span class="hljs-keyword">if</span>(f()) &#123; <span class="hljs-built_in">cout</span>&lt;&lt;t&lt;&lt;<span class="hljs-built_in">endl</span>; <span class="hljs-keyword">break</span>; &#125;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(t&gt;<span class="hljs-number">30</span>)  <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;Impossible&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <p>Description</p>
+<p>在讲述DP算法的时候，一个经典的例子就是数塔问题，它是这样描述的： </p>
+<p>有如下所示的数塔，要求从顶层走到底层，若每一步只能走到相邻的结点，则经过的结点的数字之和最大是多少？ </p>
+<p>已经告诉你了，这是个DP的题目，你能AC吗?</p>
+<p>Input</p>
+<p>输入数据首先包括一个整数C,表示测试实例的个数，每个测试实例的第一行是一个整数N(1 &lt;= N &lt;= 100)，表示数塔的高度，接下来用N行数字表示数塔，其中第i行有个i个整数，且所有的整数均在区间[0,99]内。 </p>
+<p>Output</p>
+<p>对于每个测试实例，输出可能得到的最大和，每个实例的输出占一行。 </p>
+<p>Sample Input</p>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-number">1</span><br><span class="hljs-number">5</span><br><span class="hljs-number">7</span><br><span class="hljs-symbol">3 </span><span class="hljs-number">8</span><br><span class="hljs-symbol">8 </span><span class="hljs-number">1</span> <span class="hljs-number">0</span> <br><span class="hljs-symbol">2 </span><span class="hljs-number">7</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span><br><span class="hljs-symbol">4 </span><span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span><br></code></pre></div></td></tr></table></figure>
+
+<p>Sample Output</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">30</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> T;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;T);<br>	<span class="hljs-keyword">while</span>(T--)<br>	&#123;<br>		<span class="hljs-keyword">int</span> i,j,n;<br>		<span class="hljs-keyword">int</span> a[<span class="hljs-number">200</span>][<span class="hljs-number">200</span>],dp[<span class="hljs-number">200</span>];<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>		<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;a[i][j]);<br>		<span class="hljs-built_in">memset</span>(dp,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(dp));<br>		<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=n;j++)<br>		dp[j]=a[n][j];                          <span class="hljs-comment">//对最低层进行初始化 </span><br>		<span class="hljs-keyword">for</span>(i=n<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">1</span>;i--)<br>		&#123;<br>			<span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)<br>			dp[j]=max(dp[j],dp[j+<span class="hljs-number">1</span>])+a[i][j];   <span class="hljs-comment">//状态转移方程 ，由下往上求最大值 </span><br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,dp[<span class="hljs-number">1</span>]);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br> &#125; <br></code></pre></div></td></tr></table></figure>
 
 
             </div>
@@ -241,6 +255,8 @@
                     
                       <a class="hover-with-bg" href="/tags/ACM/">ACM</a>
                     
+                      <a class="hover-with-bg" href="/tags/DP/">DP</a>
+                    
                   </div>
                 
               </div>
@@ -252,18 +268,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/656af927.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ACM-DP-数塔问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/a630980b.html">
-                        <span class="hidden-mobile">ACM-NEFUOJ-P210畅通工程并查集</span>
+                      <a href="/2020/12/bf195a13.html">
+                        <span class="hidden-mobile">ACM-NEFUOJ-P239回文数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.0error.xyz/2020/12/19244e3d.html</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.0error.xyz/2020/12/656af927.html</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -376,6 +383,20 @@
   
   <url>
     <loc>https://www.0error.xyz/tags/NEFUOJ/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.0error.xyz/tags/%E6%AD%A6%E5%A8%81%E4%B8%80%E4%B8%AD/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.0error.xyz/tags/%E9%AB%98%E8%80%83/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

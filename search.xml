@@ -1558,7 +1558,7 @@
       </tags>
   </entry>
   <entry>
-    <title>CTF-NEFU校赛</title>
+    <title>CTF-NEFU校赛-题解</title>
     <url>/2020/12/211cd2ab.html</url>
     <content><![CDATA[<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><hr>
 <h2 id="signin"><a href="#signin" class="headerlink" title="signin"></a>signin</h2><p>下载 <code>signin.txt</code> 打开得到一串 <code>base64</code>，解码得到 <code>flag&#123;we1come_t0_NEFUCTF!&#125;</code> 。</p>

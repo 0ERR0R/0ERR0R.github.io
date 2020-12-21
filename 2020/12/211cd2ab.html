@@ -227,7 +227,12 @@
             <h1 style="display: none">CTF-NEFU校赛-题解</h1>
             
             <div class="markdown-body">
-              <h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><hr>
+              <blockquote>
+<p>Write by NEFUNSI：</p>
+<p>ghosin</p>
+<p>0ERROR</p>
+</blockquote>
+<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><hr>
 <h2 id="signin"><a href="#signin" class="headerlink" title="signin"></a>signin</h2><p>下载 <code>signin.txt</code> 打开得到一串 <code>base64</code>，解码得到 <code>flag&#123;we1come_t0_NEFUCTF!&#125;</code> 。</p>
 <hr>
 <h2 id="Re-SignUp"><a href="#Re-SignUp" class="headerlink" title="Re_SignUp"></a>Re_SignUp</h2><p>下载 <code>SignUp</code> ，使用 <code>010 Editor</code> 打开发现是 <code>Linux</code> 可执行文件。用 <code>ida64</code> 打开可看到 <code>main</code> 函数处有字符串 <code>xr yeI^r&#125;.s&#123;A)qAL/h&#123;lM&#123;AI.(rz?c</code> ，根据 <code>Hint</code> 中的 <code>xor</code> 使用<a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force(1,100,0,'Standard',false,true,false,'')&input=eHIgeWVJXnJ9LnN7QSlxQUwvaHtsTXtBSS4ocno/Yw">在线工具爆破</a>可得到 <code>fl&gt;g&#123;W@lc0me_7o_R1verSe_W06ld!&#125;</code> 。</p>
@@ -241,22 +246,22 @@
 <hr>
 <h2 id="别人家的孩子"><a href="#别人家的孩子" class="headerlink" title="别人家的孩子"></a>别人家的孩子</h2><p>下载附件打开听一下，发现左右声道不同。拖进 <code>Audacity</code> ，去掉左声道的歌曲，右声道前半部分为莫斯电码，记录下内容为 <code>..-./.-../.-/--./-/-----/-.../...--</code> ，可解出内容为 <code>flagt0b3</code> ，后半部分为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DTMF"><code>dtmf</code></a>，使用 <code>dtmf2num</code> 读取到 <code>121111117114115101108102</code> ，可解出 <code>yourself</code>。至此拼接得到 <code>flag&#123;t0b3yourself&#125;</code> 。</p>
 <h2 id="谁还没受过伤呢"><a href="#谁还没受过伤呢" class="headerlink" title="谁还没受过伤呢"></a>谁还没受过伤呢</h2><p>根据题意，心愿小姐失恋了，然后附了一个QQ号：2508898249，因此就从QQ号下手找线索。</p>
-<p><img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221074537QQ%E6%88%AA%E5%9B%BE20201221154202.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://i.loli.net/2020/12/21/5GgDxH2Rf1AjhWk.png" srcset="/img/loading.gif" alt="img"></p>
 <p>打开资料页可以看出信息量不大，主要就是有生日，其他信息不出意外应该都在空间里面</p>
 <p>打开空间，首先看到几条说说，其中包含一条：</p>
-<p><img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221074551QQ%E6%88%AA%E5%9B%BE20201221154241.png" srcset="/img/loading.gif" alt="img"></p>
-<p>百度网盘打开是一个IDOL的文件夹，下载以后是9张许嵩的照片，这里注意了，第9张照片明显体积偏大，而照片又很糊，说明照片里面有东西<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221074928QQ%E6%88%AA%E5%9B%BE20201221154918.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://i.loli.net/2020/12/21/exkSGU8NCw1Lq5j.png" srcset="/img/loading.gif" alt="img"></p>
+<p>百度网盘打开是一个IDOL的文件夹，下载以后是9张许嵩的照片，这里注意了，第9张照片明显体积偏大，而照片又很糊，说明照片里面有东西<img src="https://i.loli.net/2020/12/21/w9GREemj5N7APrK.png" srcset="/img/loading.gif" alt="img"></p>
 <p>继续翻说说，又发现了一个线索说说</p>
-<p><img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221074545QQ%E6%88%AA%E5%9B%BE20201221154233.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://i.loli.net/2020/12/21/JtdrfA9ji5FcIHR.png" srcset="/img/loading.gif" alt="img"></p>
 <p>不知道有什么用，暂且留在这里不动。</p>
 <p>看看其他地方，相册里面有一个有问题的照片，根据问题很明显就是前面心愿小姐所@的人就是问题的答案，填入DK_night后，得到一张图片，扫描图片上的二维码即可得到前一半flag</p>
 <p>然后继续看，留言板里有一段话</p>
 <figure class="highlight erlang-repl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs erlang-repl">G1v3_me_s0m3_rEd_P4cKe7eS_t0_g3t_7h3_h1nt!<br></code></pre></div></td></tr></table></figure>
 
 <p>不知道有什么用，暂且放着。</p>
-<p>空间里能得到的线索就这么多了，再回头看看照片，第九张照片用010Editor打开后发现有隐写的zip格式的压缩包，分离出来以后如图<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221075658QQ%E6%88%AA%E5%9B%BE20201221155634.png" srcset="/img/loading.gif" alt="img"></p>
+<p>空间里能得到的线索就这么多了，再回头看看照片，第九张照片用010Editor打开后发现有隐写的zip格式的压缩包，分离出来以后如图<img src="https://i.loli.net/2020/12/21/X5y4RHrWDAefukp.png" srcset="/img/loading.gif" alt="img"></p>
 <p>hint已经很明显了，是生日按照格式输入就是密码，但是填入前面的日期却无法解密，仔细观察后发现上面的生日是农历，将其日期转成公历以后即可得到2001.5.14(这里这个日期有点坑，转成2001年的四月廿二好像日期不太对，换思路转为今年的四月廿二才为正确日期，成功解密)，还有一种方法是知道了密码格式之后直接放进cracker里面按照格式爆破即可得到，速度也很快，这里就不作具体说明了。</p>
-<p>打开flag.doc以后发现里面是空的，ctrl+a之后发现有字符，文字换颜色之后发现是个假flag，说明线索不在文档里，再看看文档的详细信息<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221080209QQ%E6%88%AA%E5%9B%BE20201221160153.png" srcset="/img/loading.gif" alt="img"></p>
+<p>打开flag.doc以后发现里面是空的，ctrl+a之后发现有字符，文字换颜色之后发现是个假flag，说明线索不在文档里，再看看文档的详细信息<img src="https://i.loli.net/2020/12/21/geIH4byZfwMAPWB.png" srcset="/img/loading.gif" alt="img"></p>
 <p>可以看出备注和管理者里面各有一堆乱序字符，其中管理者里面的字符有明显的Base64加密标志，解密一次后发现变成了乱码，怀疑是加密后的成分残缺导致的错位，考虑到上面备注内的不明所以的乱码，将其和此段合并后解密(N次套娃)后即可得到后半flag</p>
 <figure class="highlight gcode"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gcode">eve<span class="hljs-symbol">n_1</span>f_i_L<span class="hljs-number">0</span>Ve_U&#125;<br></code></pre></div></td></tr></table></figure>
 
@@ -271,11 +276,11 @@
 <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><blockquote>
 <p>详见：[f1oat’s blog - 校赛web-wp](</p>
 </blockquote>
-<h1 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h1><h2 id="Test-your-math"><a href="#Test-your-math" class="headerlink" title="Test_your_math"></a>Test_your_math</h2><p>IDA打开后查看字符串，发现flag关键字<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221081135QQ%E6%88%AA%E5%9B%BE20201221160911.png" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h1><h2 id="Test-your-math"><a href="#Test-your-math" class="headerlink" title="Test_your_math"></a>Test_your_math</h2><p>IDA打开后查看字符串，发现flag关键字<img src="https://i.loli.net/2020/12/21/xVCm8J2NhjWk659.png" srcset="/img/loading.gif" alt="img"></p>
 <p>查找之后反向寻找其在程序中的位置</p>
-<p><img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221081142QQ%E6%88%AA%E5%9B%BE20201221160942.png" srcset="/img/loading.gif" alt="img"></p>
-<p>继续在主函数回溯其判断输入数据正确性的位置<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221081148QQ%E6%88%AA%E5%9B%BE20201221161015.png" srcset="/img/loading.gif" alt="img"></p>
-<p>得到一个判断输入数据正确性的函数，转为源代码形式<img src="https://images.cnblogs.com/cnblogs_com/wwcjj/1842616/o_201221081153QQ%E6%88%AA%E5%9B%BE20201221161026.png" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://i.loli.net/2020/12/21/TahMxNjCkoU3PSt.png" srcset="/img/loading.gif" alt="img"></p>
+<p>继续在主函数回溯其判断输入数据正确性的位置<img src="https://i.loli.net/2020/12/21/IWMS8kvAHunGfVl.png" srcset="/img/loading.gif" alt="img"></p>
+<p>得到一个判断输入数据正确性的函数，转为源代码形式<img src="https://i.loli.net/2020/12/21/wT1nSc89xFdIghm.png" srcset="/img/loading.gif" alt="img"></p>
 <p>很明显可以看出是一个解方程，只需使用hint中提到的z3解出答案方程答案即可得到flag</p>
 <h2 id="maze"><a href="#maze" class="headerlink" title="maze"></a>maze</h2><p>拿到题目打开后</p>
 <p>可以看出这应该是关键代码的一部分。</p>

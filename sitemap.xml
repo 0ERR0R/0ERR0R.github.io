@@ -319,13 +319,6 @@
   </url>
   
   <url>
-    <loc>https://www.0error.xyz/tags/NEFU/</loc>
-    <lastmod>2020-12-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.0error.xyz/tags/DP/</loc>
     <lastmod>2020-12-22</lastmod>
     <changefreq>daily</changefreq>
@@ -333,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://www.0error.xyz/tags/Prim/</loc>
+    <loc>https://www.0error.xyz/tags/NEFU/</loc>
     <lastmod>2020-12-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -341,6 +334,13 @@
   
   <url>
     <loc>https://www.0error.xyz/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
+    <lastmod>2020-12-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.0error.xyz/tags/Prim/</loc>
     <lastmod>2020-12-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

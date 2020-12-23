@@ -282,7 +282,7 @@
 <p>继续在主函数回溯其判断输入数据正确性的位置<img src="https://i.loli.net/2020/12/21/IWMS8kvAHunGfVl.png" srcset="/img/loading.gif" alt="img"></p>
 <p>得到一个判断输入数据正确性的函数，转为源代码形式<img src="https://i.loli.net/2020/12/21/wT1nSc89xFdIghm.png" srcset="/img/loading.gif" alt="img"></p>
 <p>很明显可以看出是一个解方程，只需使用hint中提到的z3解出答案方程答案即可得到flag</p>
-<h2 id="maze"><a href="#maze" class="headerlink" title="maze"></a>maze</h2><p>拿到题目打开后</p>
+<h2 id="maze"><a href="#maze" class="headerlink" title="maze"></a>maze</h2><p>拿到题目打开后有一个很明显的UPX壳，无脑用UPX_SHELL脱壳后重新打开</p>
 <p>可以看出这应该是关键代码的一部分。</p>
 <p>这里jnz跳转到了下一行代码，相当于没跳转，<img src="https://img-blog.csdnimg.cn/20200203161152133.png" srcset="/img/loading.gif" alt="在这里插入图片描述">而下面的<code>call near ptr 0EC85D78Bh</code>调用了一个不是地址的地址，可以推断出这段代码添加了花指令，IDA分析失败了。</p>
 <p>可以确定这个jnz指令是花指令，还有下面的call指令。<br>先将jnz指令nop掉。<img src="https://img-blog.csdnimg.cn/20200203163906627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhbG1lcjk=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>

@@ -2102,4 +2102,18 @@
         <tag>buu</tag>
       </tags>
   </entry>
+  <entry>
+    <title>buu-re-findit</title>
+    <url>/2021/03/3d2fcb0e.html</url>
+    <content><![CDATA[<p>拿到手是一个apk文件，利用Android Killer打开后查看mainActivity里面的相关信息，可以看到一串十六进制数字:<code>0x70,0x76,0x6b,0x71,0x7b,0x6d,0x31,0x36,0x34,0x36,0x37,0x35,0x32,0x36,0x32,0x30,0x33,0x33,0x6c,0x34,0x6d,0x34,0x39,0x6c,0x6e,0x70,0x37,0x70,0x39,0x6d,0x6e,0x6b,0x32 ,0x38,0x6b,0x37,0x35,0x7d</code>。写了一个C语言的小程序来把这串数字转换为字符串</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; flag=&#123;<span class="hljs-number">0x70</span>,<span class="hljs-number">0x76</span>,<span class="hljs-number">0x6b</span>,<span class="hljs-number">0x71</span>,<span class="hljs-number">0x7b</span>,<span class="hljs-number">0x6d</span>,<span class="hljs-number">0x31</span>,<span class="hljs-number">0x36</span>,<span class="hljs-number">0x34</span>,<span class="hljs-number">0x36</span>,<span class="hljs-number">0x37</span>,<span class="hljs-number">0x35</span>,<span class="hljs-number">0x32</span>,<span class="hljs-number">0x36</span>,<span class="hljs-number">0x32</span>,<span class="hljs-number">0x30</span>,<span class="hljs-number">0x33</span>,<span class="hljs-number">0x33</span>,<span class="hljs-number">0x6c</span>,<span class="hljs-number">0x34</span>,<span class="hljs-number">0x6d</span>,<span class="hljs-number">0x34</span>,<span class="hljs-number">0x39</span>,<span class="hljs-number">0x6c</span>,<span class="hljs-number">0x6e</span>,<span class="hljs-number">0x70</span>,<span class="hljs-number">0x37</span>,<span class="hljs-number">0x70</span>,<span class="hljs-number">0x39</span>,<span class="hljs-number">0x6d</span>,<span class="hljs-number">0x6e</span>,<span class="hljs-number">0x6b</span>,<span class="hljs-number">0x32</span> ,<span class="hljs-number">0x38</span>,<span class="hljs-number">0x6b</span>,<span class="hljs-number">0x37</span>,<span class="hljs-number">0x35</span>,<span class="hljs-number">0x7d</span>&#125;;<br>	<span class="hljs-keyword">char</span> s[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>; i&lt;flag.size();i++)<br>	&#123;<br>		s[i]=<span class="hljs-keyword">char</span>(flag[i]);<br>	&#125;<br>	<span class="hljs-built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="hljs-built_in">endl</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>得到结果<code>pvkq&#123;m164675262033l4m49lnp7p9mnk28k75&#125;</code>，看符号判断应该是被加密过，使用凯撒解密得到结果<code>flag&#123;c164675262033b4c49bdf7f9cda28a75&#125;</code></p>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+        <tag>RE</tag>
+        <tag>buu</tag>
+      </tags>
+  </entry>
 </search>

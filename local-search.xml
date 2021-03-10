@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>buu-re-简单注册器</title>
+    <link href="/2021/03/55aa4ca9.html"/>
+    <url>/2021/03/55aa4ca9.html</url>
+    
+    <content type="html"><![CDATA[<p>拿到题目后，是一个APK文件，使用jdx反编译后在mainActivity里面发现了一段核心代码</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs lsl">if (flag == <span class="hljs-number">1</span>) &#123;<br>    char[] x = <span class="hljs-string">&quot;dd2940c04462b4dd7c450528835cca15&quot;</span>.toCharArray();<br>    x[<span class="hljs-number">2</span>] = (char) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>);<br>    x[<span class="hljs-number">4</span>] = (char) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>);<br>    x[<span class="hljs-number">30</span>] = (char) ((x[<span class="hljs-number">31</span>] + x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>);<br>    x[<span class="hljs-number">14</span>] = (char) ((x[<span class="hljs-number">27</span>] + x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>);<br>    for (int i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">16</span>; i++) &#123;<br>        char a = x[<span class="hljs-number">31</span> - i];<br>        x[<span class="hljs-number">31</span> - i] = x[i];<br>        x[i] = a;<br>    &#125;<br>    textview.setText(<span class="hljs-string">&quot;flag&#123;&quot;</span> + String.valueOf(x) + <span class="hljs-string">&quot;&#125;&quot;</span>);<br>    return;<br>&#125;<br><br></code></pre></td></tr></table></figure><p>然后将此段用C程序写出来即可得到答案</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">char</span> x[] = <span class="hljs-string">&quot;dd2940c04462b4dd7c450528835cca15&quot;</span>;<br>                    x[<span class="hljs-number">2</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>);<br>                    x[<span class="hljs-number">4</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>);<br>                    x[<span class="hljs-number">30</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">31</span>] + x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>);<br>                    x[<span class="hljs-number">14</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">27</span>] + x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>);<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">16</span>; i++) &#123;<br>                        <span class="hljs-keyword">char</span> a = x[<span class="hljs-number">31</span> - i];<br>                        x[<span class="hljs-number">31</span> - i] = x[i];<br>                        x[i] = a;<br>                    &#125;<br>    <span class="hljs-built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>求得flag：<code>59acc538825054c7de4b26440c0999dd</code></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CTF</tag>
+      
+      <tag>RE</tag>
+      
+      <tag>buu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>buu-re-findit</title>
     <link href="/2021/03/3d2fcb0e.html"/>
     <url>/2021/03/3d2fcb0e.html</url>

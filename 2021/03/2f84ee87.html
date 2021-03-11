@@ -17,7 +17,7 @@
   <meta name="description" content="Algorithm|ACM|CTF">
   <meta name="author" content="0ERROR">
   <meta name="keywords" content="">
-  <title>buu-re-简单注册器 - SmallDolphin</title>
+  <title>锐格-指针与函数5883-申请动态空间存放字符串，将其排序后输出 - SmallDolphin</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="buu-re-简单注册器">
+            <span class="h2" id="subtitle" title="锐格-指针与函数5883-申请动态空间存放字符串，将其排序后输出">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-10 20:59" pubdate>
-        2021年3月10日 晚上
+      <time datetime="2021-03-11 18:10" pubdate>
+        2021年3月11日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      212 字
+      381 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      5
        分钟
     </span>
   
@@ -224,16 +224,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">buu-re-简单注册器</h1>
+            <h1 style="display: none">锐格-指针与函数5883-申请动态空间存放字符串，将其排序后输出</h1>
             
             <div class="markdown-body">
-              <p>拿到题目后，是一个APK文件，使用jdx反编译后在mainActivity里面发现了一段核心代码</p>
-<figure class="highlight lsl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lsl">if (flag == <span class="hljs-number">1</span>) &#123;<br>    char[] x = <span class="hljs-string">&quot;dd2940c04462b4dd7c450528835cca15&quot;</span>.toCharArray();<br>    x[<span class="hljs-number">2</span>] = (char) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>);<br>    x[<span class="hljs-number">4</span>] = (char) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>);<br>    x[<span class="hljs-number">30</span>] = (char) ((x[<span class="hljs-number">31</span>] + x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>);<br>    x[<span class="hljs-number">14</span>] = (char) ((x[<span class="hljs-number">27</span>] + x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>);<br>    for (int i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">16</span>; i++) &#123;<br>        char a = x[<span class="hljs-number">31</span> - i];<br>        x[<span class="hljs-number">31</span> - i] = x[i];<br>        x[i] = a;<br>    &#125;<br>    textview.setText(<span class="hljs-string">&quot;flag&#123;&quot;</span> + String.valueOf(x) + <span class="hljs-string">&quot;&#125;&quot;</span>);<br>    return;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+              <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">问题描述：用申请的动态开辟的内存空间存放n（<span class="hljs-number">0</span>&amp;lt;=n&amp;lt;=<span class="hljs-number">20</span>）个字符串，每个字符串的长度不超过<span class="hljs-number">50</span>，将其保存，后排序输出。<br>要求：每个字符串占用的空间是用动态开辟的内存分配的。字符串排序和输出用自定义函数实现。<br>提示：可以用指针数组指向n个字符串。<br></code></pre></div></td></tr></table></figure>
 
-<p>然后将此段用C程序写出来即可得到答案</p>
-<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">char</span> x[] = <span class="hljs-string">&quot;dd2940c04462b4dd7c450528835cca15&quot;</span>;<br>                    x[<span class="hljs-number">2</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>);<br>                    x[<span class="hljs-number">4</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">2</span>] + x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>);<br>                    x[<span class="hljs-number">30</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">31</span>] + x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>);<br>                    x[<span class="hljs-number">14</span>] = (<span class="hljs-keyword">char</span>) ((x[<span class="hljs-number">27</span>] + x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>);<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">16</span>; i++) &#123;<br>                        <span class="hljs-keyword">char</span> a = x[<span class="hljs-number">31</span> - i];<br>                        x[<span class="hljs-number">31</span> - i] = x[i];<br>                        x[i] = a;<br>                    &#125;<br>    <span class="hljs-built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入数据有多组，每组第一行是一个整数n（<span class="hljs-number">0</span>&amp;lt;=n&amp;lt;=<span class="hljs-number">20</span>），接下来是n行，每行是一个长度不超过<span class="hljs-number">50</span>的字符串。<br></code></pre></div></td></tr></table></figure>
 
-<p>求得flag：<code>59acc538825054c7de4b26440c0999dd</code></p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs plain">输出排好序的字符串。每个字符串一行。<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-number">5</span><br><span class="hljs-keyword">banana</span><br><span class="hljs-keyword">apple</span><br><span class="hljs-keyword">orange</span><br><span class="hljs-keyword">pear</span><br><span class="hljs-keyword">peach</span><br><span class="hljs-keyword"></span><br><span class="hljs-keyword">4</span><br><span class="hljs-keyword">green</span><br><span class="hljs-keyword">black</span><br><span class="hljs-keyword">white</span><br><span class="hljs-keyword">red</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm">apple<br><span class="hljs-keyword">banana</span><br><span class="hljs-keyword">orange</span><br><span class="hljs-keyword">peach</span><br><span class="hljs-keyword">pear</span><br><span class="hljs-keyword"></span><br><span class="hljs-keyword">black</span><br><span class="hljs-keyword">green</span><br><span class="hljs-keyword">red</span><br><span class="hljs-keyword">white</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>动态分配的应用，需要仔细思考</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sort1</span><span class="hljs-params">(<span class="hljs-keyword">char</span> **pp,<span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> i,j;<br>    <span class="hljs-keyword">char</span> b[<span class="hljs-number">50</span>];<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(j=i+<span class="hljs-number">1</span>;j&lt;n;j++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">strcmp</span>(pp[i],pp[j])&gt;<span class="hljs-number">0</span>)<br>            &#123;<br>                <span class="hljs-built_in">strcpy</span>(b,pp[i]);<br>                <span class="hljs-built_in">strcpy</span>(pp[i],pp[j]);<br>                <span class="hljs-built_in">strcpy</span>(pp[j],b);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//补充完成程序</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output1</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *p[],<span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br> <span class="hljs-comment">//补充完成程序 </span><br>  <span class="hljs-keyword">int</span> i;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br><br>    &#123;<br>        <span class="hljs-built_in">puts</span>(p[i]);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sort1</span><span class="hljs-params">(<span class="hljs-keyword">char</span> **pp,<span class="hljs-keyword">int</span> n)</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output1</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *p[],<span class="hljs-keyword">int</span> n)</span></span>;<br>    <span class="hljs-keyword">char</span> str[<span class="hljs-number">50</span>],*cp[<span class="hljs-number">20</span>];<br>    <span class="hljs-keyword">int</span> n,l,i;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,&amp;n)!=EOF)<br>    &#123;<br>          <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>          &#123;<br>              gets(str);<br>             <span class="hljs-comment">//start</span><br>              <span class="hljs-comment">//在此写动态开辟并存储程序</span><br>               cp[i]=(<span class="hljs-keyword">char</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in">strlen</span>(str)*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>));<br>            <span class="hljs-built_in">strcpy</span>(cp[i],str);<br>             <span class="hljs-comment">//end</span><br>           &#125;<br>           sort1(cp,n);<br>           output1(cp,n);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -244,11 +250,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/CTF/">CTF</a>
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
                     
-                      <a class="hover-with-bg" href="/tags/RE/">RE</a>
-                    
-                      <a class="hover-with-bg" href="/tags/buu/">buu</a>
+                      <a class="hover-with-bg" href="/tags/%E9%94%90%E6%A0%BC/">锐格</a>
                     
                   </div>
                 
@@ -261,18 +265,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/2f84ee87.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">锐格-指针与函数5883-申请动态空间存放字符串，将其排序后输出</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/3d2fcb0e.html">
-                        <span class="hidden-mobile">buu-re-findit</span>
+                      <a href="/2021/03/55aa4ca9.html">
+                        <span class="hidden-mobile">buu-re-简单注册器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -287,7 +285,7 @@
               <article class="comments" id="comments">
                 
                 
-  <div id="SOHUCS" sid='https://www.0error.xyz/2021/03/55aa4ca9.html'></div>
+  <div id="SOHUCS" sid='https://www.0error.xyz/2021/03/2f84ee87.html'></div>
   <script type="text/javascript">
     Fluid.utils.waitElementVisible('SOHUCS', function() {
       var appid = 'cyvlaa1S4';

@@ -8,9 +8,17 @@
     <link href="/2021/03/57cfdd39.html"/>
     <url>/2021/03/57cfdd39.html</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>学习指针过程中，总是看到同样的一个问题，有人用calloc来申请动态数组，有人用malloc来申请动态数组，我上网大概搜了一下，大致意思应该是calloc相当于封装好了malloc和memset，在创建的时候就一并初始化了，随之而来的就是malloc的效率相对要高一些。</p><p>  从原型上看，malloc的含义是“给我一个大小为size的连续内存”，而calloc貌似是“给我n个大小为size的内存”。</p><p>因为这种原型。有人说（不知道是不是官方也这么说）calloc返回的对象数组而malloc仅仅是一块连续的内存，然而，我翻阅了官方文档，发现calloc申请的动态内存释放时候也是只需要free一次就够了，跟malloc一致，这里强调malloc的这一点却没有说calloc，难道calloc不用记录？那么free是怎样释放用它申请的空间的？calloc究竟是个什么？这必须要看看calloc的源代码。</p><p>于是，我在apple找到了calloc的源代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;ansidecl.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stddef.h&gt;</span></span><br><br><span class="hljs-comment">/* For systems with larger pointers than ints, this must be declared.  */</span><br><span class="hljs-function">PTR <span class="hljs-title">malloc</span> <span class="hljs-params">(<span class="hljs-keyword">size_t</span>)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bzero</span> <span class="hljs-params">(PTR, <span class="hljs-keyword">size_t</span>)</span></span>;<br><br>PTR<br><span class="hljs-built_in">calloc</span> (<span class="hljs-keyword">size_t</span> nelem, <span class="hljs-keyword">size_t</span> elsize)<br>&#123;<br>  <span class="hljs-keyword">register</span> PTR ptr;  <br><br>  <span class="hljs-keyword">if</span> (nelem == <span class="hljs-number">0</span> || elsize == <span class="hljs-number">0</span>)<br>    nelem = elsize = <span class="hljs-number">1</span>;<br>  <br>  ptr = <span class="hljs-built_in">malloc</span> (nelem * elsize);<br>  <span class="hljs-keyword">if</span> (ptr) bzero (ptr, nelem * elsize);<br>  <br>  <span class="hljs-keyword">return</span> ptr;<br>&#125;<br></code></pre></td></tr></table></figure><p>看完的结论就是：那没事了</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>C</tag>
+      
+      <tag>指针</tag>
+      
+    </tags>
     
   </entry>
   

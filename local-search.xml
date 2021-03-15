@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>RE-OD学习-动调初步1</title>
+    <link href="/2021/03/bb8a7f89.html"/>
+    <url>/2021/03/bb8a7f89.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>软件来源：吾爱破解CrackMe</p></blockquote><h2 id="OD动态调试无壳"><a href="#OD动态调试无壳" class="headerlink" title="OD动态调试无壳"></a>OD动态调试无壳</h2><p>第一个程序拿到后，打开发现是一个简单的类似于登录界面的窗口，填入几组账号密码组合后均提示失败，使用PEID检查发现此程序无壳，于是在OD内打开</p><p><img src="https://attach.52pojie.cn/forum/202101/26/215946rlllxnscn0ztsnld.png" alt="img"></p><p>接着使用中文搜索关键字“成功”，找到了对应的字符串，接着回溯回去之后在上方发现了jmp指令，将其nop掉，重新调试程序，发现成功进入</p><p><img src="https://attach.52pojie.cn/forum/202101/26/222830w9iak0nk90kyriki.gif" alt="img"></p><h2 id="多次调用比较"><a href="#多次调用比较" class="headerlink" title="多次调用比较"></a>多次调用比较</h2><p>有两种方法，第一种是直接找到中文搜索恭喜关键字找到之后，判断上方的jz是有条件跳转，nop掉尝试一下是否可以直接绕过，结果是可以，直接过。</p><p>第二种是找到关键字后，在输出信息之前的寄存器变量赋值时打断点找寄存器，就可以找到真正的密码所在</p><p><img src="https://attach.52pojie.cn/forum/202101/27/122526xldnrsjaw5f3jsqq.jpg" alt="img"></p><h2 id="附几种跳转的总结"><a href="#附几种跳转的总结" class="headerlink" title="附几种跳转的总结"></a>附几种跳转的总结</h2><p><img src="https://attach.52pojie.cn/forum/202101/26/174834uu0za4wjeirukhsz.png" alt="img"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CTF</tag>
+      
+      <tag>RE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>浅谈C语言中malloc与calloc的区别</title>
     <link href="/2021/03/57cfdd39.html"/>
     <url>/2021/03/57cfdd39.html</url>
